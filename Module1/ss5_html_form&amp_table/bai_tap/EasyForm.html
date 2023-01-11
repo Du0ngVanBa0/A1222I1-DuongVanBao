@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EasyForm</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #FirstFormContainer{
+            width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: aqua;
+            padding: 14px;
+        }
+        #OptionHobbies{
+            color: red;
+        }
+        #OptionHobbies input{
+            margin-top: 4px;
+        }
+        #HobbiesForm{
+            width: 100%;
+            background-color: white;
+        }
+        #HobbiesForm h3{
+            color: white;
+            background-color: orangered;
+            text-align: center;
+            padding: 5px;
+        }
+        #HobbiesForm table{
+            width: 100%;
+        }
+        #HobbiesForm table th{
+            color: blue;
+            text-align: right;
+            width: 20%;
+            padding: 5px;
+        }
+        #InputName{
+            width: 70%;
+        }
+        #ButtonHobbies input{
+            padding: 3px;
+        }
+        #SecondFormContainer{
+            width: 500px;
+            margin: 100px auto;
+        }
+        #RegisterForm{
+            background-color:khaki;
+        }
+        #RegisterForm {
+            padding: 10px;
+        }
+        #RegisterForm h3{
+            background-color: aquamarine;
+            color: blue;
+            padding: 5px;
+        }
+        #RegisterForm table{
+            width: 100%;
+        }
+        #RegisterForm .HeadRow{
+            text-align: left;
+            padding: 10px 0;
+            width: 20%;
+            color: blue;
+        }
+        #RegisterButton input{
+            padding: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div id="FirstFormContainer">
+        <form action="https://google.com" method="post" id="HobbiesForm">
+            <h3>SỞ THÍCH CỦA BẠN</h3>
+            <table>
+                <tr>
+                    <th>Họ và tên</th>
+                    <td><input type="text" name="Name" id="InputName"></td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td><input type="email" name="email"></td>
+                </tr>
+                <tr>
+                    <th id="RowHobbies">Sở thích</th>
+                    <td id="OptionHobbies">
+                        <input type="checkbox" name="sport"> Thể thao
+                        <input type="checkbox" name="music"> Âm nhạc
+                        <input type="checkbox" name="read"> Đọc sách
+                    </td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td id="OptionHobbies">
+                        <input type="checkbox" name="surfweb">Lướt web
+                        <input type="checkbox" name="game">  Chơi game
+                        <input type="checkbox" name="film"> Điện ảnh
+                    </td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td id="OptionHobbies">
+                        <input type="checkbox" name="travel"> Du lịch
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="ButtonHobbies">
+                        <input type="submit" value="Gửi thông tin">
+                        <input type="reset" value="Nhập lại">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div id="SecondFormContainer">
+        <form action="https://google.com" method="post" id="RegisterForm">
+            <h3>ĐĂNG KÝ HỌC VIÊN</h3>
+            <table>
+                <tr>
+                    <td class="HeadRow">Họ và tên</td>
+                    <td><input type="text" name="Name"></td>
+                </tr>
+                <tr>
+                    <td class="HeadRow">Ngày sịnh</td>
+                    <td><input type="date" name="DoB"></td>
+                </tr>
+                <tr>
+                    <td class="HeadRow">Giới tính</td>
+                    <td>
+                        <input type="radio">Nam
+                        <input type="radio">Nữ
+                    </td>
+                </tr>
+                <tr>
+                    <td class="HeadRow">Địa chỉ</td>
+                    <td><textarea name="address" id="address" cols="30" rows="10"></textarea></td>
+                </tr>
+                <tr>
+                    <td class="HeadRow">Lớp</td>
+                    <td>
+                        <select name="ClassSel">
+                            <option value="Select">-Chọn lớp-</option>
+                            <option value="ClassOption1">12a</option>
+                            <option value="ClassOption">12b</option>
+                            <option value="2ClassOption3">12c</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="HeadRow">Email</td>
+                    <td><input type="email"></td>
+                </tr>
+                <tr>
+                    <td class="HeadRow">Điện thoại</td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="RegisterButton">
+                        <input type="submit" value="Đăng ký">
+                        <input type="reset" value="Nhập lại">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
