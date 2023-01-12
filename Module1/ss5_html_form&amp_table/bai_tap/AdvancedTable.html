@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Advanced Table</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+        /*css ChessTable*/
+        #ChessTable{
+            background-color: orange;
+            padding: 10px;
+            border-spacing: 0;
+            margin: 0 auto;
+        }
+        #ChessTable th{
+            padding: 10px;
+            font-size: 30px;
+        }
+        #ChessTable td{
+            height: 100px;
+            width: 100px;
+        }
+        #ChessTable tr:not(:first-child):nth-of-type(even) td:nth-of-type(odd),
+        #ChessTable tr:not(:first-child):nth-of-type(odd) td:nth-of-type(even)
+        {
+            background-color: white;
+        }
+        #ChessTable tr:not(:first-child):nth-of-type(even) td:nth-of-type(even),
+        #ChessTable tr:not(:first-child):nth-of-type(odd) td:nth-of-type(odd)
+        {
+            background-color: black;
+        }
+        /*css Calendar October*/
+        #CalendarContainer{
+           margin: 50px auto;
+            width: max-content;
+        }
+        #CalendarOctober{
+            border-spacing: 0;
+            text-align: center;
+            font-size: 20px;
+        }
+        #HeadCalendar{
+            text-align: center;
+            color: darkblue;
+            font-size: 30px;
+            font-weight: bolder;
+        }
+        #CalendarOctober th, #CalendarOctober td{
+            padding: 15px;
+            width: 70px;
+        }
+        #DayVi{
+            color: white;
+            font-weight: bolder;
+        }
+        #DayVi th:first-child{
+            background-color: red;
+        }
+        #DayVi th:last-child{
+            background-color: blue;
+        }
+        #DayVi th:not(:first-child,:last-child){
+            background-color: orange;
+        }
+        #CalendarOctober tr:not(:first-child,:nth-of-type(2)) td{
+            border: 1px solid black;
+            border-collapse: collapse;
+            font-weight: bolder;
+        }
+        #CalendarOctober tr td:first-child{
+            color: red;
+        }
+        #CalendarOctober tr td:last-child{
+            color: blue;
+        }
+        #CalendarOctober tr td sub{
+             color: black;
+        }
+    </style>
+</head>
+<body>
+<!--ChessTable-->
+    <Table id="ChessTable">
+        <tr>
+            <th></th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+            <th>6</th>
+            <th>7</th>
+            <th>8</th>
+        </tr>
+        <tr>
+            <th>A</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>B</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>C</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>D</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>E</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>F</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>G</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>H</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </Table>
+<!--CalendarOctober-->
+    <div id="CalendarContainer">
+        <p id="HeadCalendar">Tháng 10 - October</p>
+        <Table id="CalendarOctober">
+            <tbody>
+                <tr id="DayVi">
+                    <th>C.Nhật</th>
+                    <th>T.Hai</th>
+                    <th>T.Ba</th>
+                    <th>T.Tư</th>
+                    <th>T.Năm</th>
+                    <th>T.Sáu</th>
+                    <th>T.Bảy</th>
+                </tr>
+                <tr id="DayEng">
+                    <td>Sun</td>
+                    <td>Mon</td>
+                    <td>Tue</td>
+                    <td>Wed</td>
+                    <td>Thu</td>
+                    <td>Fri</td>
+                    <td>Sat</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>1<sub>13</sub></td>
+                    <td>2<sub>14</sub></td>
+                    <td>3<sub>15</sub></td>
+                </tr>
+                <tr>
+                    <td>4<sub>16</sub></td>
+                    <td>5<sub>17</sub></td>
+                    <td>6<sub>18</sub></td>
+                    <td>7<sub>19</sub></td>
+                    <td>8<sub>20</sub></td>
+                    <td>9<sub>21</sub></td>
+                    <td>10<sub>22</sub></td>
+                </tr>
+                <tr>
+                    <td>11<sub>23</sub></td>
+                    <td>12<sub>24</sub></td>
+                    <td>13<sub>25</sub></td>
+                    <td>14<sub>26</sub></td>
+                    <td>15<sub>27</sub></td>
+                    <td>16<sub>28</sub></td>
+                    <td>17<sub>29</sub></td>
+                </tr>
+                <tr>
+                    <td>18<sub>1.9</sub></td>
+                    <td>19<sub>2</sub></td>
+                    <td>20<sub>3</sub></td>
+                    <td>21<sub>4</sub></td>
+                    <td>22<sub>5</sub></td>
+                    <td>23<sub>6</sub></td>
+                    <td>24<sub>7</sub></td>
+                </tr>
+                <tr>
+                    <td>25<sub>8</sub></td>
+                    <td>26<sub>9</sub></td>
+                    <td>27<sub>10</sub></td>
+                    <td>28<sub>11</sub></td>
+                    <td>29<sub>12</sub></td>
+                    <td>30<sub>13</sub></td>
+                    <td>31<sub>14</sub></td>
+                </tr>
+            </tbody>
+        </Table>
+    </div>`
+</body>
+</html>
