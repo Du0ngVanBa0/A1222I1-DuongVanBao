@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register Form</title>
+    <style>
+        .question{
+            font-weight: bolder;
+            margin-bottom: 5px;
+        }
+        #RegisterButton{
+            margin-top: 10px;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+<form action="http://demo.codegym.vn/6/registration_form/register.php" method="post">
+    <p class="question">Họ và tên:</p>
+    <input type="text" name="Name">
+
+    <p class="question">Email:</p>
+    <input type="email" name="email">
+
+    <p class="question">Số điện thoại:</p>
+    <input type="number" name="PhoneNumber">
+
+    <p class="question">Giới tính:</p>
+    <label><input type="radio" name="Gender">Nam</label>
+    <label><input type="radio" name="Gender">Nữ</label>
+    <br>
+    <input type="submit" value="Đăng ký" id="RegisterButton">
+</form>
+</body>
+</html>
