@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thoi khoa bieu</title>
+    <style>
+        #InfoTable{
+            width: 90%;
+            margin: 0 auto;
+        }
+        #Timetable{
+            width: 100%;
+        }
+        #Timetable, #Timetable tr, #Timetable th, #Timetable td{
+            border: 2px solid black;
+            border-collapse: collapse;
+            padding: 7px;
+        }
+        h1{
+            color: darkblue;
+        }
+        .Day{
+            background-color: yellow;
+        }
+        .Week{
+            text-align: center;
+        }
+        .HeadRow{
+            background-color: orange;
+        }
+        .PropertyRows{
+            background-color: lightgray;
+        }
+        #InfoTable{
+            color: blue;
+        }
+        .InfoRight{
+            text-align: right;
+        }
+        .InfoLeft{
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div style="width: 700px">
+        <h1 align="center">THỜI KHÓA BIỂU</h1>
+        <table id="InfoTable">
+            <tr>
+                <td class="InfoLeft">Lớp: T09081</td>
+                <td class="InfoRight">Thời gian học: 13h30 - 17h30</td>
+            </tr>
+            <tr>
+                <td class="InfoLeft">Giáo viên: KhoaNV</td>
+                <td class="InfoRight">Ngày học: Thứ 3, 5, 7</td>
+            </tr>
+            <tr>
+                <td class="InfoLeft">Phòng học: Class3/Lab3</td>
+            </tr>
+        </table>
+        <table id="Timetable">
+            <tr>
+                <td colspan="3"></td>
+                <th class="Day">Thứ 3</th>
+                <th class="Day">Thứ 5</th>
+                <th class="Day">Thứ 7</th>
+            </tr>
+            <tr class="HeadRow">
+                <th >Tuần</th>
+                <th>Ngày bắt đầu</th>
+                <th>Ngày kết thúc</th>
+                <th colspan="3">Môn học</th>
+            </tr>
+            <tr class="PropertyRows">
+                <td class="Week">01</td>
+                <td>01/09/2019</td>
+                <td>05/09/2019</td>
+                <td>CF - T1, L1</td>
+                <td>CF - T2, L2</td>
+                <td>CF - T3, L3</td>
+            </tr>
+            <tr class="PropertyRows">
+                <td class="Week">02</td>
+                <td>08/09/2019</td>
+                <td>12/09/2019</td>
+                <td>CF - T4, L4</td>
+                <td>CF - Written Test</td>
+                <td>C - T1, L1</td>
+            </tr>
+            <tr class="PropertyRows">
+                <td class="Week">03</td>
+                <td>...</td>
+                <td>...</td>
+                <td>...</td>
+                <td>...</td>
+                <td>...</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
