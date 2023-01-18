@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator App</title>
+    <link rel="stylesheet" href="CalER.css">
+</head>
+<body>
+    <div id="CalculatorContainer">
+        <div  id="CalculatorResult">
+            <div id="SupResult"></div>
+            <div id="Result">0</div>
+        </div>
+        <div id="CalculatorKey">
+            <button class="btn op" onclick="AddKey('(')">(</button>
+            <button class="btn op" onclick="AddKey(')')">)</button>
+            <button class="btn op" onclick="AddKey('%')">%</button>
+            <button class="btn op" onclick="Clear()" id="CE">CE</button>
+
+            <button class="btn num" onclick="AddKey('7')">7</button>
+            <button class="btn num" onclick="AddKey('8')">8</button>
+            <button class="btn num" onclick="AddKey('9')">9</button>
+            <button class="btn op" onclick="AddKey('/')">&divide;</button>
+
+            <button class="btn num" onclick="AddKey('4')">4</button>
+            <button class="btn num" onclick="AddKey('5')">5</button>
+            <button class="btn num" onclick="AddKey('6')">6</button>
+            <button class="btn op" onclick="AddKey('*')">x</button>
+
+            <button class="btn num" onclick="AddKey('1')">1</button>
+            <button class="btn num" onclick="AddKey('2')">2</button>
+            <button class="btn num" onclick="AddKey('3')">3</button>
+            <button class="btn op" onclick="AddKey('-')">-</button>
+
+            <button class="btn num" onclick="AddKey('0')">0</button>
+            <button class="btn num" onclick="AddKey('.')">.</button>
+            <button class="btn eval" onclick="Evaluate();change()">=</button>
+            <button class="btn op" onclick="AddKey('+')">+</button>
+        </div>
+    </div>
+    <script src="CalER.js"></script>
+</body>
+</html>

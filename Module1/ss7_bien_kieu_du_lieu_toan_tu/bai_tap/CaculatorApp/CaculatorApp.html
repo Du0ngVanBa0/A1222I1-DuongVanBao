@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <style>
+        #operator_box{
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Caculator</h2>
+    <input type="text" id="First">
+    <input type="text" id="Second">
+    <br>
+    <div id="operator_box">
+        <button onclick="Add()">Addition(+)</button>
+        <button onclick="Sub()">Subtraction(-)</button>
+        <button onclick="Multipl()">Multiplication(X)</button>
+        <button onclick="Divide()">Division(/)</button>
+    </div>
+    <div id="result"></div>
+    <script>
+        function Add() {
+            let Fvalue = parseInt(document.getElementById('First').value);
+            let Svalue = parseInt(document.getElementById('Second').value);
+            document.getElementById('result').innerHTML=('Result Addition: '+(Fvalue+Svalue));
+        }
+        function Sub() {
+            let Fvalue=parseInt(document.getElementById('First').value);
+            let Svalue=parseInt(document.getElementById('Second').value);
+            document.getElementById('result').innerHTML=('Result Subtraction: '+(Fvalue-Svalue));
+        }
+        function Multipl() {
+            let Fvalue=parseInt(document.getElementById('First').value);
+            let Svalue=parseInt(document.getElementById('Second').value);
+            document.getElementById('result').innerHTML=('Result Multiplication: '+(Fvalue*Svalue));
+        }
+        function Divide() {
+            let Fvalue=parseInt(document.getElementById('First').value);
+            let Svalue=parseInt(document.getElementById('Second').value);
+            document.getElementById('result').innerHTML=('Result Division: '+(Fvalue/Svalue));
+        }
+    </script>
+</body>
+</html>
