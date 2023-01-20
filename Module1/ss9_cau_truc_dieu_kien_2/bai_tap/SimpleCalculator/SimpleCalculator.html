@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Calculator</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id="container">
+        <div id="Result">
+            <p id="ResultNum"></p>
+            <p id="EvalBox"></p>
+        </div>
+        <div id="KeyBox">
+            <button class="Key" onclick="Add('1',this.innerHTML)">1</button>
+            <button class="Key" onclick="Add('2',this.innerHTML)">2</button>
+            <button class="Key" onclick="Add('3',this.innerHTML)">3</button>
+            <button class="Key" onclick="Add('+',this.innerHTML)">+</button>
+
+            <button class="Key" onclick="Add('4',this.innerHTML)">4</button>
+            <button class="Key" onclick="Add('5',this.innerHTML)">5</button>
+            <button class="Key" onclick="Add('6',this.innerHTML)">6</button>
+            <button class="Key" onclick="Add('-',this.innerHTML)">-</button>
+
+            <button class="Key" onclick="Add('7',this.innerHTML)">7</button>
+            <button class="Key" onclick="Add('7',this.innerHTML)">8</button>
+            <button class="Key" onclick="Add('9',this.innerHTML)">9</button>
+            <button class="Key" onclick="Add('*',this.innerHTML)">x</button>
+
+            <button class="Key" onclick="Clear()">C</button>
+            <button class="Key" onclick="Add('0',this.innerHTML)">0</button>
+            <button class="Key" onclick="Eval()">=</button>
+            <button class="Key" onclick="Add('/',this.innerHTML)">/</button>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

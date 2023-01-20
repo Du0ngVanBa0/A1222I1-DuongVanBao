@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sự kiện chuột</title>
+    <style>
+        #ball{
+            width: 300px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+<img src="Resource/quabong.png" alt="ball" id="ball">
+<h4>Click button below to move the image to right</h4>
+<button id="btn" onclick="MoveR()">Click me!</button>
+<button onclick="init()">Reset</button>
+<script>
+    let imgsl=document.getElementById('ball');
+
+    function init() {
+        imgsl.style.position='relative';
+        imgsl.style.left='0px';
+    }
+
+    window.onload=init();
+
+    function MoveR() {
+        imgsl.style.left=parseInt(imgsl.style.left)+10+'px';
+    }
+</script>
+</body>
+</html>

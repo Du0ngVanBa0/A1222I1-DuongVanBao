@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 2</title>
+</head>
+<body>
+<script>
+    let enter = prompt('Type to login');
+    let message;
+
+    message= (enter=='Employee') ?
+        message='Hello' : (enter=='Director') ?
+            message='Greetings' :(enter=='') ?
+                message='No login' :message='';
+    alert(message);
+</script>
+</body>
+</html>

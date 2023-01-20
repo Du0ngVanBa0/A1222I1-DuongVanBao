@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Keyboard</title>
+    <link rel="stylesheet" href="Resource/index.css">
+</head>
+<body onload="doReady()">
+<img id="raiden" src="Resource/raiden_shogun.png" alt="raiden_shogun">
+<script>
+    let e = document.getElementById('raiden');
+    let element = window.getComputedStyle(e);
+
+    function UpArrow() {
+        let elementTop = element.top;
+        e.style.top=parseInt(elementTop) - 5 + 'px';
+        console.log(elementTop);
+    }
+    function DownArrow() {
+        let elementTop = element.top;
+        e.style.top=parseInt(elementTop) + 5 + 'px';
+        console.log(elementTop);
+    }
+    function LeftArrow() {
+        let elementLeft = element.left;
+        e.style.left=parseInt(elementLeft) - 5 + 'px';
+    }
+    function RightArrow() {
+        let elementLeft = element.left;
+        e.style.left=parseInt(elementLeft) + 5 + 'px';
+    }
+    function moveSelection(evt) {
+        switch (evt.keyCode) {
+            case 37:
+                LeftArrow();
+                break;
+            case 38:
+                UpArrow();
+                break;
+            case 39:
+                RightArrow();
+                break;
+            case 40:
+                DownArrow();
+                break;
+        }
+    }
+    function doReady() {
+        window.addEventListener('keydown',moveSelection);
+    }
+</script>
+</body>
+</html>
