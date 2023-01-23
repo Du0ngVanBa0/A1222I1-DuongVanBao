@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Good-Fast-Cheap</title>
+</head>
+<style>
+    .LableBox{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    label{
+        position: relative;
+        width: 90px;
+        display: block;
+        height: 20px;
+        margin-right: 20px;
+    }
+    h3{
+        font-family: sans-serif;
+        color: red;
+    }
+    input{
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+    .slide{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #dadce0;
+        transition: 0.4s;
+        border-radius: 30px;
+    }
+    .slide:before{
+        position: absolute;
+        content: "";
+        top: -7px;
+        left: 0px;
+        width: 34px;
+        height: 34px;
+        background-color: #dadce0;
+        transition: 0.4s;
+        border-radius: 50%;
+        box-shadow: 0px 1px 1px 1px #656161;
+    }
+    input:checked + .slide{
+        background-color: #4285f4;
+        transition: 0.4s;
+    }
+    input:checked + .slide:before{
+        transform: translateX(56px);
+        transition: 0.4s;
+        background-color: #4285f4;
+    }
+</style>
+<body>
+<div class="LableBox">
+    <label for="good">
+        <input type="checkbox" onclick="CheckCondition(this)" id="good">
+        <span class="slide"></span>
+    </label>
+    <h3>Good</h3>
+</div>
+<div class="LableBox">
+    <label for="cheap">
+        <input type="checkbox" onclick="CheckCondition(this)" id="cheap">
+        <span class="slide"></span>
+    </label>
+    <h3>Cheap</h3>
+</div>
+<div class="LableBox">
+    <label for="fast">
+        <input type="checkbox" onclick="CheckCondition(this)" id="fast">
+        <span class="slide"></span>
+    </label>
+    <h3>Fast</h3>
+</div>
+<script>
+    let good = document.getElementById('good');
+    let cheap = document.getElementById('cheap');
+    let fast = document.getElementById('fast');
+    function CheckCondition(value) {
+        if(value.checked==true)
+            if(value.id=='good')
+            {
+                let cheap = document.getElementById('cheap');
+                let fast = document.getElementById('fast');
+                if(cheap.checked==true && fast.checked==true)
+                    fast.checked=false;
+            }
+            else
+                if (value.id=='cheap')
+                {
+                    let good = document.getElementById('good');
+                    let fast = document.getElementById('fast');
+                    if(good.checked==true && fast.checked==true)
+                        good.checked=false;
+                }
+                else
+                {
+                    let good = document.getElementById('good');
+                    let cheap = document.getElementById('cheap');
+                    if(good.checked==true && cheap.checked==true)
+                        cheap.checked=false;
+                }
+    }
+</script>
+</body>
+</html>

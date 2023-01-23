@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Puzzle Game</title>
+    <style>
+        img{
+            width: 600px;
+            height: 400px;
+            object-fit: none;
+            position: absolute;
+            margin: 7px;
+            visibility: hidden;
+            box-shadow: 0px 0px 10px 5px black;
+        }
+        img:hover{
+            box-shadow: 0px 0px 10px 5px blue;
+        }
+        .s1{
+            object-position: 0 0;
+            top: 0;
+            left: 0;
+        }
+        .s2{
+            object-position: -600px 0px;
+            top: 0;
+            right: 0;
+        }
+        .s3{
+            object-position: 0 -400px;
+            bottom: 0;
+            left: 0;
+        }
+        .s4{
+            object-position: -600px -400px;
+            bottom: 0;
+            right: 0;
+        }
+        #container{
+            width: 1230px;
+            height: 830px;
+            position: relative;
+            background: #dadce0;
+            margin: 10px auto;
+        }
+        .active{
+            visibility: visible;
+        }
+    </style>
+</head>
+<body onload="RandomPuzzle()">
+    <div id="container">
+        <img src="Resource/raiden-shogun-ei.png" name="p1" onclick="ChangeP(0,this)" class="s1">
+        <img src="Resource/raiden-shogun-ei.png" name="p1" onclick="ChangeP(0,this)" class="s2">
+        <img src="Resource/raiden-shogun-ei.png" name="p1" onclick="ChangeP(0,this)" class="s3">
+        <img src="Resource/raiden-shogun-ei.png" name="p1" onclick="ChangeP(0,this)" class="s4">
+
+        <img src="Resource/ganyu.jpg" name="p2" onclick="ChangeP(1,this)" class="s1">
+        <img src="Resource/ganyu.jpg" name="p2" onclick="ChangeP(1,this)" class="s2">
+        <img src="Resource/ganyu.jpg" name="p2" onclick="ChangeP(1,this)" class="s3">
+        <img src="Resource/ganyu.jpg" name="p2" onclick="ChangeP(1,this)" class="s4">
+
+        <img src="Resource/nilouu.jpg" name="p3" onclick="ChangeP(2,this)" class="s1">
+        <img src="Resource/nilouu.jpg" name="p3" onclick="ChangeP(2,this)" class="s2">
+        <img src="Resource/nilouu.jpg" name="p3" onclick="ChangeP(2,this)" class="s3">
+        <img src="Resource/nilouu.jpg" name="p3" onclick="ChangeP(2,this)" class="s4">
+    </div>
+</div>
+    <script src="index.js"></script>
+</body>
+</html>
