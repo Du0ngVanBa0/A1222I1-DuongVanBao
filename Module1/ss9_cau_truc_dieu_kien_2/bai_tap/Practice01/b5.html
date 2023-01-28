@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 5</title>
+</head>
+<body>
+<script>
+    let kt = Number(prompt('Nhập điểm bài kiểm tra'));
+    let gk = Number(prompt('Nhập điểm bài giữa kì'));
+    let ck = Number(prompt('Nhập điểm bài cuối kì'));
+    let check=(kt*0.2)+(gk*0.3)+(ck*0.5);
+    if(check>=8)
+        alert('Học sinh có học lực giỏi');
+    else
+        if(check>=6.5)
+            alert('Học sinh có học lực khá');
+        else
+            if(check>=5)
+                alert('Học sinh có học lực trung bình');
+            else
+                if(check>=3.5)
+                    alert('Học sinh có học lực yếu');
+                else
+                    alert('Học sinh có học lực kém');
+</script>
+</body>
+</html>

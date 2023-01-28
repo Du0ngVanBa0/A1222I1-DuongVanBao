@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 7</title>
+</head>
+<body>
+<script>
+    let minutes = Number(prompt('Tổng số phút điện thoại của hộ gia đình'));
+    let money=25000;//Phí thuê bao bắt buộc là 25 nghìn
+    if (minutes>200)
+        money+=(50*600)+(150*400)+(minutes-200)*200;
+    else
+        if(minutes>50)
+            money+=(50*600)+(minutes-50)*400
+        else
+            money+=minutes*600;
+    alert('Money must pay:'+money.toLocaleString('vi-VN',{style:'currency',currency:'VND'}));
+</script>
+</body>
+</html>

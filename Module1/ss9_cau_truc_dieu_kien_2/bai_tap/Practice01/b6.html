@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 6</title>
+</head>
+<body>
+<script>
+    let DoanhThu = Number(prompt('Nhập doanh thu bán hàng(VND)'));
+    let HoaHong
+    if(DoanhThu>=100000000)
+        HoaHong=DoanhThu*0.3;
+    else
+        if(DoanhThu>=10000000)
+            HoaHong=DoanhThu*0.2;
+        else
+            HoaHong=DoanhThu*0.1;
+    alert('Hoa hồng nhận được là: '+ HoaHong.toLocaleString('vi-VN',{style: 'currency',currency: 'VND'}));
+</script>
+</body>
+</html>
