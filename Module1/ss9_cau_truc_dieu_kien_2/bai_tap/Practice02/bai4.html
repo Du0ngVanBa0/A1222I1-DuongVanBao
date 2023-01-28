@@ -9,7 +9,10 @@
     let a = prompt('Nhap canh a cua hinh chu nhat');
     let b = prompt('Nhap canh b cua hinh chu nhat');
     let S = a*b;
-    alert('Dien tich hinh chu nhat co 2 canh ' + a +' va '+ b + ' la ' + S);
+    if(a>0 && b>0)
+        alert('Dien tich hinh chu nhat co 2 canh ' + a +' va '+ b + ' la ' + S);
+    else
+        alert('Canh cua hinh chu nhat phai lon hon 0');
 </script>
 </body>
 </html>

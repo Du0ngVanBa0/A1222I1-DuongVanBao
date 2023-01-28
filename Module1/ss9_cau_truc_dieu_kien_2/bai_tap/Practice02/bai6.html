@@ -2,9 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>bai 6</title>
+    <style>
+        input{
+            width: 10%;
+        }
+    </style>
 </head>
 <body>
-
+<input type="text" id="a">
+<span>x + </span>
+<input type="text" id="b">
+<span>= 0</span>
+<button onclick="solve()">Giải</button>
+<div id="result"></div>
+<script>
+function solve() {
+    let a = Number(document.getElementById('a').value);
+    let b = Number(document.getElementById('b').value);
+    let x = - b / a;
+    document.getElementById('result').innerHTML='x = ' + x ;
+}
+</script>
 </body>
 </html>

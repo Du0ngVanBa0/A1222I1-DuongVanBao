@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 10</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<span>Số điện (kWh) </span>
+<input type="text" id="inp">
+<button onclick="Equal()">Tính giá điện</button>
+<div id="res"></div>
+<script>
+    function Equal() {
+        let num = Number(document.getElementById('inp').value);
+        let sum = 0,money = 0,VAT = 0;
+        if(num<=50)
+            sum = num * 1678;
+        else {
+            if (num <= 100)
+                sum = 50 * 1678 + (num - 50) * 1734;
+            else
+                if (num <= 200)
+                   sum = 50 * 1678 + 50 * 1734 + (num - 100)*2014;
+                else
+                    if(num<=300)
+                        sum = 50 * 1678 + 50 * 1734 + 100 *2014 + (num-200)*2536;
+                    else
+                        if(num<=400)
+                            sum = 50 * 1678 + 50 * 1734 + 100 *2014 + 300 *2536 + (num-300)*2834;
+                        else
+                            sum = 50 * 1678 + 50 * 1734 + 100 *2014 + 300 *2536 + 100 *2834 + (num-400)*2927;
+        }
+        VAT = + sum*(1/10);
+        money= sum + VAT;
+        document.getElementById('res').innerHTML='Tiền điện: '+money.toLocaleString('vi-VN',{style:'currency',currency:'VND'})
+    }
+</script>
+</body>
+</html>

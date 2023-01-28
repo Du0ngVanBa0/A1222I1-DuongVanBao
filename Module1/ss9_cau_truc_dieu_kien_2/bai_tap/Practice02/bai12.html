@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 12</title>
+    <style>
+        body{
+            background-color: black;
+            color: white;
+        }
+        button{
+            border: 1px solid rgb(146,148,248);
+            position: relative;
+            overflow: hidden;
+            font-size: 12px;
+            padding: 8px 16px;
+            color: #f4f4f4;
+            text-transform: uppercase;
+            background-color: black;
+            margin: 10px;
+        }
+        button:before{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg,transparent,rgba(146,148,248,0.4),transparent);
+            transition: all 0.5s;
+        }
+        button:hover{
+            box-shadow: 1px 1px 25px 10px rgba(146,148,248,0.4);
+        }
+        button:hover:before{
+            left: 100%;
+        }
+    </style>
+</head>
+<body>
+<span>Số tiền ban đầu</span>
+<input type="text" id="capital">
+<br>
+<span>Số tháng cho vay</span>
+<input type="text" id="month">
+<br>
+<span>Lãi xuất hàng tháng(%)</span>
+<input type="text" id="interest">
+<br>
+<button onclick="Solve()">Tính tiền lãi</button>
+<div id="res"></div>
+<script>
+    function Solve() {
+        let capital = Number(document.getElementById('capital').value);
+        let month = Number(document.getElementById('month').value);
+        let interest = Number(document.getElementById('interest').value);
+        for (let i = 0; i < month; i++) {
+            capital += capital * (interest/100);
+            document.getElementById('res').innerHTML='Lãi: '+capital;
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 11</title>
+</head>
+<body>
+<span>Thu nhập tính thuế/tháng (đồng)</span>
+<input type="text" id="salary" onblur="ahu()">
+<button onclick="Tax()">Tính thuế</button>
+<div id="res"></div>
+<script>
+function Tax() {
+    let num = Number(document.getElementById('salary').value);
+    let level = [0 , 5000000 , 10000000 , 18000000 , 32000000 , 52000000 , 80000000];
+    let percent = [0.05 , 0.1 , 0.15 , 0.2 , 0.25 , 0.3 , 0.35];
+    let Total = 0,i = 0;
+
+    for (i=level.length-1;i>=0;i--)
+        if(num>level[i])
+            break;
+    for (let j=1;j<=i;j++)
+        Total += ( level[j] - level[j-1] ) * percent[j-1];
+    Total += ( num - level[i] ) * percent[i];
+    document.getElementById('res').innerHTML='Thuế thu nhập cá nhân: '+Total.toLocaleString('vi-VN',{style:'currency',currency:'VND'});
+}
+</script>
+</body>
+</html>
