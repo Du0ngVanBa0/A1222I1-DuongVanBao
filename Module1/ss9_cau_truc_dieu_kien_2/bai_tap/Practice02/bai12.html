@@ -54,10 +54,10 @@
         let capital = Number(document.getElementById('capital').value);
         let month = Number(document.getElementById('month').value);
         let interest = Number(document.getElementById('interest').value);
-        for (let i = 0; i < month; i++) {
-            capital += capital * (interest/100);
-            document.getElementById('res').innerHTML='Lãi: '+capital;
-        }
+        let board = capital;
+        for (let i = 0; i < month; i++)
+            board += board * (interest/100);
+        document.getElementById('res').innerHTML='Lãi: '+(board-capital);
     }
 </script>
 </body>
