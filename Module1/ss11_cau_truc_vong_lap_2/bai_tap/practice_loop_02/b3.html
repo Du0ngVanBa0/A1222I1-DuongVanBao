@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 3</title>
+</head>
+<body>
+<div id="res"></div>
+<script>
+    let sout;
+    sout = "<pre>";
+    for (let h = 1; h <= 5; h++) {
+
+        for (let w = 1; w <= h; w++) {
+            sout += "*";
+        }
+        sout += "<br>"
+    }
+    sout += "</pre>";
+
+    sout += "<pre>";
+    for (let h = 5; h >= 1; h--) {
+
+        for (let w = 1; w <= h; w++) {
+            sout += "*";
+        }
+        sout += "<br>"
+    }
+    sout += "</pre>";
+
+    sout += "<pre>";
+    for (let h = 1; h <= 5; h++) {
+        for (let space = 1; space <= (5 - h); space++)
+            sout += " ";
+        for (let w = 1; w <= h; w++) {
+            sout += "*";
+        }
+
+            sout += "<br>"
+        }
+    sout += "</pre>";
+
+    sout += "<pre>";
+    for (let h = 5; h >= 1; h--) {
+        for (let space = 1; space <= (5 - h); space++)
+            sout += " ";
+        for (let w = 1; w <= h; w++) {
+            sout += "*";
+        }
+
+        sout += "<br>"
+    }
+    sout += "</pre>";
+
+    console.log(sout);
+    document.write(sout);
+</script>
+</body>
+</html>

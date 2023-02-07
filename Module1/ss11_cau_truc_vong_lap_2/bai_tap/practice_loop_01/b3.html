@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 3</title>
+</head>
+<body>
+<span>Nhập số lượng số trong dãy fibonanci đầu tiên cần hiển thị </span>
+<input type="text" id="num">
+<button id="check">Hiển thị</button>
+<div id="res"></div>
+<script>
+    let ch = document.getElementById('check');
+    ch.addEventListener("click", function () {
+        let res = document.getElementById('res');
+        res.innerHTML="";
+        let n = document.getElementById('num').value;
+        for(let i=1;i<=n;i++)
+            res.innerHTML+=fibonacci(i)+" ";
+        function fibonacci(j) {
+            if (j == 1 || j == 2)
+                return 1;
+            else
+                return fibonacci(j - 1) + fibonacci(j - 2);
+        }
+    })
+
+</script>
+</body>
+</html>

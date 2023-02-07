@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 1</title>
+</head>
+<body>
+<div id="res"></div>
+<script>
+    let index = prompt("Nhập số lượng số trong dãy fibonacci muốn hiển thị");
+    for(let i=1;i<=index;i++)
+        document.getElementById('res').innerHTML+=fibonacci(i)+" ";
+    function fibonacci(index) {
+        if(index==1 || index==2)
+            return  1;
+        else
+            return fibonacci(index-1)+fibonacci(index-2);
+    }
+</script>
+</body>
+</html>

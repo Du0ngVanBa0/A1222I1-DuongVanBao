@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 8</title>
+    <style>
+        #btnPlay{
+            display: inline-block;
+            padding: 10px 25px;
+            background-color: black;
+            color: #dddddd;
+            position: relative;
+            overflow: hidden;
+            font-size: 20px;
+            margin: 50px;
+        }
+        #btnPlay:before{
+            content: "";
+            top: 0;
+            left: -100%;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background:linear-gradient(120deg,transparent,#8060ff,transparent);
+            transition: all 0.5s;
+        }
+        #btnPlay:hover:before{
+            left: 100%;
+        }
+        #btnPlay:hover{
+            box-shadow: 1px 1px 10px 10px #8060ff;
+        }
+    </style>
+</head>
+<body>
+<span onclick="play()" id="btnPlay">Chơi</span>
+<script>
+    function play() {
+        let head = +prompt("Nhập khoảng muốn đoán. Bắt đầu từ");
+        let foot = +prompt("Đến");
+        let result = Math.floor(Math.random()*(foot-head)) + head;
+        console.log(result);
+        if(head<foot+1)
+            for(let i=1;i<=3;i++) {
+                let inp = prompt("Đoán giá trị (" + head + "->" + foot + ")");
+                console.log(inp);
+                if(inp=="" || inp==null)
+                    break;
+                if (+inp == result){
+                    alert("Chúc mừng");
+                    break;
+                }
+                else if (+inp < result)
+                    alert("Số vừa nhập bé hơn!");
+                else
+                    alert("Số vừa nhập lớn hơn!");
+            }
+        else
+            alert("Nhập sai khoảng đoán");
+    }
+</script>
+</body>
+</html>

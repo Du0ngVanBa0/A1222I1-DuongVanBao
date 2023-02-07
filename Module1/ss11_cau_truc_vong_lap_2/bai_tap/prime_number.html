@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prime Number</title>
+</head>
+<body>
+<span>Nhập số lượng số nguyên tố muốn in ra</span>
+<input type="text" id="numb">
+<button onclick="Check()">Tính</button>
+<div id="res"></div>
+<script>
+    function Check(){
+        document.getElementById('res').innerHTML="";
+        let numb = Number(document.getElementById('numb').value);
+        let N=2;
+        for(let i =1 ; i<=numb; i++)
+        {
+            let skip = false;
+            while(skip==false){
+                skip=true;
+                for(let j=2;j<N;j++)
+                    if (N % j == 0) {
+                        skip = false;
+                        break;
+                    }
+                if(skip==true)
+                    document.getElementById('res').innerHTML+=N+" ";
+                N++;
+            }
+        }
+    }
+
+</script>
+</body>
+</html>

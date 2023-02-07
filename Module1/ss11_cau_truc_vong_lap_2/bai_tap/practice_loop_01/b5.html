@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 5</title>
+</head>
+<body>
+<span>Tổng của</span>
+<input type="text" id="numInput" style="width: 50px">
+<span>số đầu tiên trong dãy fibonacci</span>
+<button onclick="find()">Tính</button>
+<div id="result"></div>
+<script>
+    function find(){
+        let inp = document.getElementById('numInput').value;
+        let sum=0;
+        for(let i=1;i<=inp;i++)
+            sum+=fibonacci(i);
+        document.getElementById('result').innerHTML=sum;
+    }
+    function fibonacci(num) {
+        if(num==1 || num==2)
+            return 1;
+        else
+            return fibonacci(num-1)+fibonacci(num-2);
+    }
+</script>
+</body>
+</html>

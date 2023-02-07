@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        let num = +prompt("Nhập số nguyên dương cần tính giai thừa");
+        if (num == 0) {
+            document.write("1");
+        } else {
+            if (num < 0) {
+                document.write("Vui lòng nhập số nguyên dương");
+            } else {
+                document.write(factorial(num));
+            }
+        }
+
+        function factorial(i) {
+            let result = 1;
+            for (let index = 1; index <= i; index++) {
+                console.log(i)
+                result *= index;
+            }
+            return result;
+        }
+    </script>
+    <title>bai 2</title>
+</head>
+<body>
+</body>
+</html>
