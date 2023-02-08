@@ -2,9 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Tao va thao tac voi mang</title>
 </head>
 <body>
-$END$
+<input type="text" id="item">
+<button onclick="add()">Add</button>
+<button onclick="display()">Display</button>
+<div id="displayResult"></div>
+<script>
+    let arr = [];
+    function add() {
+        let ele = document.getElementById('item');
+        arr.push(ele.value);
+        ele.value="";
+        alert("Element "+arr[arr.length-1]+ " Added at index "+(arr.length-1));
+    }
+    function display() {
+        let disp = "<hr>";
+        for (let i=0;i<=arr.length-1;i++)
+            disp+="Element "+i+" = "+arr[i]+"<br>";
+        document.getElementById('displayResult').innerHTML=disp;
+    }
+</script>
 </body>
 </html>
