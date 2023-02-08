@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 5</title>
+</head>
+<body>
+<span>Số tiền ban đầu</span>
+<input type="text" id="beginning">
+<span>Số tháng cho vay</span>
+<input type="text" id="month">
+<span>Lãi suất hàng tháng(%)</span>
+<input type="text" id="interest">
+<button onclick="Do()">Tính</button>
+<div id="res"></div>
+<script>
+    function Do() {
+        let begin = +document.getElementById('beginning').value;
+        let mon = +document.getElementById('month').value;
+        let interest = +document.getElementById('interest').value;
+        let then=begin;
+        for(let i =1;i<=mon;i++)
+            then+=then*(interest/100);
+        document.getElementById('res').innerHTML=then-begin;
+    }
+</script>
+</body>
+</html>

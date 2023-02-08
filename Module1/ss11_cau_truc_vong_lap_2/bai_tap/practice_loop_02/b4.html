@@ -3,19 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>bai 4</title>
+    <style>
+        html{
+            font-family: monospace;
+            white-space: pre;
+        }
+    </style>
 </head>
 <body>
 <script>
-    let res;
-    res="<pre>"
-    for(let w=1 ; w<=10;w++)
-        res+="*";
-    res+="<br>"
-    for (let h=2;h<=6;h++)
-        res+=
-    res+="</pre>";
+    let borderRow = "";
+    for (let i = 0; i < 12; i++) {
+        borderRow += "*";
+    }
+    document.write(borderRow+"<br>");
 
-    document.write(res);
+
+    for (let i = 0; i < 5 - 2; i++) {
+        let innerRow = "*";
+        for (let j = 0; j < 12 - 2; j++) {
+            innerRow += " ";
+        }
+        innerRow += "*";
+        document.write(innerRow+"<br>");
+        console.log(innerRow.length)
+    }
+    document.write(borderRow);
 </script>
 </body>
 </html>
