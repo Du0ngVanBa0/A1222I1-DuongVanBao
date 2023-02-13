@@ -18,7 +18,7 @@
         for(let i=1;i<=n;i++)
             res.innerHTML+=fibonacci(i)+" ";
         function fibonacci(j) {
-            if (j == 1 || j == 2)
+            if (j === 1 || j ===2)
                 return 1;
             else
                 return fibonacci(j - 1) + fibonacci(j - 2);

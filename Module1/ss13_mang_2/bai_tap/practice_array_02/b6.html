@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 6</title>
+</head>
+<body>
+<script>
+    let num = +prompt("Nhập kích thước của mảng kí tự "), a=[""];
+    for (let i = 0; i < num; i++) {
+        a[i] = prompt("Nhập a[" + i + "]");
+    }
+    let index=0;
+    while (index!==-1){
+        index = a.indexOf("-");
+        a[index]="_";
+    }
+    document.write(a.toString());
+</script>
+</body>
+</html>

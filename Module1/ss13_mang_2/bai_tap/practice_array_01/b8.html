@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 8</title>
+</head>
+<body>
+<script>
+    let a = [];
+    for (let i = 0; i < 10; i++) {
+        a[i] = +prompt("Nhap a[" + i + "]");
+    }
+    debugger
+    for (let i = 0; i < 10; i++) {
+        let max = i;
+        for (let j = i + 1; j < 10; j++) {
+            if (a[j] > a[max]) {
+                max = j;
+            }
+        }
+        if (max !== i) {
+            let temp;
+            temp = a[max];
+            a[max] = a[i];
+            a[i]=temp;
+        }
+    }
+
+    document.write(a.toString());
+</script>
+</body>
+</html>

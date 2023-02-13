@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dictionary</title>
+</head>
+<body>
+<span>Nhập từ tiếng anh cần tìm </span>
+<input type="text" id="key_input">
+<button onclick="Search()" id="search">Tìm</button>
+<div id="display"></div>
+<script>
+    let english = ["push","shift","unshift","slice","splice"];
+    let vni = ["mở rộng","dời chỗ","không thay đổi","lát cắt","mối nối"]
+
+    let key = document.getElementById('key_input');
+    key.addEventListener('keypress',function (event) {
+        if (event.key==="Enter"){
+            document.getElementById('search').click();
+        }
+    })
+
+    function Search() {
+        let keyword = document.getElementById('key_input').value;
+        let index = english.indexOf(keyword);
+        if(index!=-1)
+            document.getElementById('display').innerText=vni[index];
+        else
+            document.getElementById('display').innerText="Không tìm thấy";
+    }
+</script>
+</body>
+</html>

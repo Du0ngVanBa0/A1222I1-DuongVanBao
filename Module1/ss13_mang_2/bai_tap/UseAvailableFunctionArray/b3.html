@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 3</title>
+</head>
+<body>
+<script>
+    // let upper = 'QWERTYUIOPASDFGHJKLZXCVBNM';
+    // let lower = 'qwertyuiopasdfghjklzxcvbnm';
+    let result = [];
+    let inp = prompt('Enter a string');
+
+    // for(let i=0;i<inp.length;i++){
+    //     if(upper.includes(inp[i]))
+    //         result.push(inp[i].toLowerCase());
+    //     else
+    //         if(lower.includes(inp[i]))
+    //             result.push(inp[i].toUpperCase());
+    //         else
+    //             result.push(inp[i]);
+    //     console.log(result[i]);
+    // }
+
+    for (let i=0;i<inp.length;i++)
+    {
+        if(inp[i].toUpperCase()===inp[i])
+            result.push(inp[i].toLowerCase());
+        else
+            if(inp[i].toLowerCase()===inp[i])
+                result.push(inp[i].toUpperCase());
+            else
+                result.push(inp[i]);
+    }
+
+    document.write(result.join(" "));
+</script>
+</body>
+</html>

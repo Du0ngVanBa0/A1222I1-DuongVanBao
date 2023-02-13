@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 4</title>
+</head>
+<body>
+<script>
+    let inp = prompt("Nhập vào chuỗi kí tự cần đếm số từ");
+    let count = Number(inp[0]!==" ");
+    for (let i = 0; i < inp.length; i++) {
+        if(inp[i]===" " && inp[i+1]!==" " && (i+1!==inp.length) )
+            count++;
+    }
+    document.write("Số từ: "+count);
+</script>
+</body>
+</html>

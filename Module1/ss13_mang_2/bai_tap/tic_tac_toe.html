@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tic tac toe</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            margin: auto;
+        }
+        td {
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            vertical-align: middle;
+            border: 1px solid black;
+        }
+        #display{
+            text-align: center;
+        }
+        input{
+            margin: auto;
+        }
+        #displayCaro{
+            position: relative;
+            width: max-content;
+        }
+        #blockCaro{
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+<div id="displayCaro"></div>
+<div id="display"></div>
+<input type="button" onclick="reset()" value="Reset">
+<script>
+    let caro = [];
+    let player = "X";
+    default_Game();
+
+    function add_caro(row,data) {
+        if(caro[row][data]==="") {
+            player = (player === "X") ? "O" : "X";
+            caro[row][data] = player;
+            show_Caro();
+            check_Winner(row, data, player);
+        }
+        else
+            alert('This cell has been marked');
+    }
+
+    function show_Caro() {
+        let board="<table>";
+        for (let r=0;r<3;r++){
+            board+="<tr>";
+            for (let d=0;d<3;d++) {
+                board += "<td onclick=add_caro(" +r+ ',' +d+ ")>" + caro[r][d] + "</td>";
+            }
+            board+="</tr>";
+        }
+        board+="</table>";
+        console.log(board);
+        document.getElementById('displayCaro').innerHTML=board;
+    }
+
+    //Set Caro Default
+    function default_Game() {
+        for (let r=0;r<3;r++){
+            caro[r]=[];
+            for (let d=0;d<3;d++)
+                caro[r][d]="";
+        }
+        show_Caro();
+    }
+
+    //Check Winner
+    function check_Winner(x,y,player) {
+        document.getElementById("displayCaro").disabled = true;
+            if ((caro[x][y] !== "") && (caro[x][0] === caro[x][1]) && (caro[x][1] === caro[x][2])) {
+                document.getElementById('display').innerText=("The winner is Player " + player);
+                document.getElementById('displayCaro').innerHTML+="<div id='blockCaro'></div>"
+                return;
+            }
+            if ((caro[x][y]!=="") && (caro[0][y]===caro[1][y]) && (caro[1][y]===caro[2][y])) {
+                document.getElementById('display').innerText=("The winner is Player " + player);
+                document.getElementById('displayCaro').innerHTML+="<div id='blockCaro'></div>"
+                return;
+            }
+            if ((caro[0][0]!=="") && (caro[1][1]===caro[0][0]) && (caro[1][1]===caro[2][2])) {
+                document.getElementById('display').innerText=("The winner is Player " + player);
+                document.getElementById('displayCaro').innerHTML+="<div id='blockCaro'></div>"
+                return;
+            }
+            if ((caro[2][0]!=="") && (caro[1][1]===caro[2][0]) && (caro[1][1]===caro[0][2])) {
+                document.getElementById('display').innerText=("The winner is Player " + player);
+                document.getElementById('displayCaro').innerHTML+="<div id='blockCaro'></div>"
+                return;
+            }
+    }
+
+    function reset() {
+        default_Game();
+        document.getElementById('display').innerText="";
+    }
+</script>
+</body>
+</html>

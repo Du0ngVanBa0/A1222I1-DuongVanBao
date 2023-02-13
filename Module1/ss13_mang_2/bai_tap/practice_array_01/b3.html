@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 3</title>
+</head>
+<body>
+<script>
+    let a = [];
+    for (let i = 0; i < 10; i++) {
+        a[i] = +prompt("Nhap a[" + i + "]");
+    }
+    let max = a[0], sum = 0;
+    for (let i = 0; i < 10; i++) {
+        if (a[i] > max) {
+            max = a[i];
+        }
+        sum+=a[i];
+    }
+    document.write("Phần tử có giá trị lớn nhất có giá trị "+max+". Giá trị trung bình của các phần tử trong mảng: "+sum/(a.length));
+</script>
+</body>
+</html>

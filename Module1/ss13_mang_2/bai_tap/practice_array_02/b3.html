@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 3</title>
+</head>
+<body>
+<script>
+    let count = 0; a = [""];
+    let num = +prompt("Nhập kích thước của mảng kí tự ");
+    for (let i = 0; i < num; i++) {
+        a[i] = prompt("Nhập a[" + i + "]");
+    }
+    for (let i in a) {
+        if (!isNaN(Number(a[i])))
+            count++;
+    }
+    document.write(count);
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 4</title>
+</head>
+<body>
+<script>
+    let a = [];
+    for (let i = 0; i < 10; i++) {
+        a[i] = +prompt("Nhap a[" + i + "]");
+    }
+    let begin=0, last =a.length-1;
+    while (begin<last){
+        let temp = a[begin];
+        a[begin]=a[last];
+        a[last]=temp;
+        begin++;last--
+    }
+    document.write(a.toString())
+</script>
+</body>
+</html>
