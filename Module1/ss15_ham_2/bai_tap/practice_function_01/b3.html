@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 3</title>
+</head>
+<body>
+<input type="text" id="first">
+<input type="text" id="second">
+<button onclick="compare2Number()">Thuc hien</button>
+<script>
+    function compare2Number() {
+        let x=+document.getElementById('first').value;
+        let y=+document.getElementById('second').value;
+        if(x>y){
+            alert(x+" lon hon "+y);
+        }
+        else {
+            alert("Tong cua 2 so la "+ (x+y));
+        }
+    }
+</script>
+</body>
+</html>

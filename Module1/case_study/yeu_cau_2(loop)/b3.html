@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 3</title>
+</head>
+<body>
+<script>
+    let h = +prompt("enter height");
+
+    for (let i = 1; i <= h; i++) {
+        for (let j = h - i; j >= 1; j--) {
+            document.write("&numsp;");
+        }
+        for (let j = 1; j <= i + (i - 1); j++) {
+            if (j === 1 || j === i + (i - 1) || i===h)
+                document.write("*");
+            else
+                document.write("&numsp;")
+        }
+        document.write("<br>")
+    }
+</script>
+</body>
+</html>

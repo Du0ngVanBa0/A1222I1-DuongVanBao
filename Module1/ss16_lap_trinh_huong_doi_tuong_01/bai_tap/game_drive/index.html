@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ninja game</title>
+</head>
+<body onkeydown="game.moveCharacter(event)">
+<canvas id="myCanvas" width="700px" height="500px" style="border: 1px solid black"></canvas>
+<p style="font-size: 40px">Score: <span id="result">0</span></p>
+<script>
+    class Ninja {
+        constructor() {
+            this.xPos = 0;
+            this.yPos = 0;
+            this.direction = "right";
+            this.speed = 10;
+            this.step = 1;
+        }
+
+        buildCharacter() {
+            this.showImg = this.direction + this.step + ".png";
+        }
+
+        move() {
+            if (this.step === 1) {
+                this.step = 2;
+            } else {
+                this.step = 1;
+            }
+            switch (this.direction) {
+                case "right":
+                    this.xPos += this.speed;
+                    break;
+                case "left":
+                    this.xPos -= this.speed;
+                    break;
+                case "up":
+                    this.yPos -= this.speed;
+                    break;
+                case "down":
+                    this.yPos += this.speed;
+                    break;
+            }
+            this.buildCharacter();
+        }
+
+        turn(direction) {
+            this.direction = direction;
+            this.step = 1;
+            this.buildCharacter();
+        }
+
+        showCharacter(ctx) {
+            let img = new Image();
+            let x = this.xPos, y = this.yPos;
+            img.src = "./images/" + this.showImg;
+            this.width = img.naturalWidth;
+            this.height = img.naturalHeight;
+            img.onload = function () {
+                ctx.drawImage(img, x, y);
+            }
+        }
+    }
+    class GameBoard {
+        ninja = new Ninja();
+        ctx = document.getElementById('myCanvas').getContext("2d");
+        blocks = new Array(3);
+        coin = new Coin();
+
+        begin() {
+            this.ninja.buildCharacter();
+            this.ninja.showCharacter(this.ctx);
+            for (let i = 0; i < 3; i++) {
+                this.blocks[i] = new Block();
+            }
+            this.createRandomBlock();
+            for (let i in this.blocks) {
+                this.blocks[i].showBlock(this.ctx);
+            }
+            this.createRandomCoin();
+            this.coin.showCoin(this.ctx);
+        }
+
+        clearAndShow() {
+            let context = document.getElementById('myCanvas');
+            this.ctx.clearRect(0, 0, context.width, context.height);
+            this.ninja.showCharacter(this.ctx);
+            for (let i in this.blocks) {
+                this.blocks[i].showBlock(this.ctx);
+            }
+            this.coin.showCoin(this.ctx);
+        }
+
+        checkLose() {
+            for (let i in this.blocks) {
+                if (this.ninja.xPos < this.blocks[i].x + this.blocks[i].width &&
+                    this.ninja.xPos + this.ninja.width > this.blocks[i].x &&
+                    this.ninja.yPos < this.blocks[i].y + this.blocks[i].height &&
+                    this.ninja.yPos + this.ninja.height > this.blocks[i].y) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        checkCoin() {
+            for (let i in this.coin) {
+                if (this.ninja.xPos < this.coin.x + this.coin.r &&
+                    this.ninja.xPos + this.ninja.width > this.coin.x - this.coin.r &&
+                    this.ninja.yPos < this.coin.y + this.coin.r &&
+                    this.ninja.yPos + this.ninja.height > this.coin.y - this.coin.r) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        plusPoint() {
+            let point = Number(document.getElementById('result').innerText);
+            point++;
+            document.getElementById('result').innerText = point;
+        }
+
+        createRandomBlock() {
+            let context = document.getElementById('myCanvas');
+            for (let i in this.blocks) {
+                this.blocks[i].x = Math.floor(Math.random() * (context.width - this.ninja.width) + this.ninja.width);
+                this.blocks[i].y = Math.floor(Math.random() * (context.height - this.ninja.height) + this.ninja.height);
+            }
+
+        }
+
+        createRandomCoin() {
+            let context = document.getElementById('myCanvas');
+            this.coin.x = Math.floor(Math.random() * (context.width - this.ninja.width) + this.ninja.width);
+            this.coin.y = Math.floor(Math.random() * (context.height - this.ninja.height) + this.ninja.height);
+            console.log(this.coin);
+        }
+
+        moveCharacter(e) {
+            let temp = "";
+            switch (e.keyCode) {
+                case 37:
+                    temp = "left";
+                    break;
+                case 38:
+                    temp = "up";
+                    break;
+                case 39:
+                    temp = "right";
+                    break;
+                case 40:
+                    temp = "down";
+                    break;
+            }
+            if (temp !== "") {
+                if (this.ninja.direction !== temp) {
+                    this.ninja.direction = temp;
+                    this.ninja.turn(temp);
+                } else {
+                    this.ninja.move();
+                }
+                this.clearAndShow();
+            }
+            if (this.checkLose()) {
+                alert("You lose!");
+            }
+            if (this.checkCoin()) {
+                debugger
+                this.plusPoint();
+                this.coin.clearCoin(this.ctx);
+                this.createRandomCoin();
+            }
+        }
+    }
+
+    class Block {
+        constructor() {
+            this.x = 200;
+            this.y = 200;
+            this.width = 50;
+            this.height = 50;
+        }
+
+        showBlock(ctx) {
+            ctx.fillStyle = "red";
+            ctx.fillRect(this.x, this.y, this.width, this.height);
+        }
+    }
+
+    class Coin {
+        constructor() {
+            this.x = 50;
+            this.y = 50;
+            this.r = 15;
+        }
+
+        showCoin(ctx) {
+            ctx.beginPath();
+            ctx.fillStyle = "yellow";
+            ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
+            ctx.fill();
+        }
+
+            clearCoin(ctx) {
+            ctx.fillStyle = "white";
+            ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
+            // ctx.clearRect(this.x, this.y, this.r, 0, 2 * Math.PI)
+            ctx.fill();
+        }
+    }
+
+    let game = new GameBoard();
+    game.begin();
+    console.log(game)
+</script>
+</body>
+</html>

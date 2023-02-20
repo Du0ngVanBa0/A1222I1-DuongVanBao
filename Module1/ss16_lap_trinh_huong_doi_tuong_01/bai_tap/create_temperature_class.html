@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>xay dung lop mo ta temperature</title>
+</head>
+<body>
+<script>
+    let Temperature = function (indexC) {
+        this.indexC = indexC;
+        this.changeCtoF = function () {
+            return (this.indexC*1.8)+32;
+        }
+        this.changeCtoKelvin = function () {
+            return this.indexC+273.15;
+        }
+    }
+
+    let temper = new Temperature(25);
+    document.write("Chuyển "+temper.indexC+" sang độ F: "+temper.changeCtoF()+" và độ Kelvin: "+temper.changeCtoKelvin())
+</script>
+</body>
+</html>

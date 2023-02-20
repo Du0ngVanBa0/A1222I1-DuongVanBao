@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>kiem tra so nguyen to</title>
+</head>
+<body>
+<script>
+    function isPrime(num) {
+        let check_prime = 1;
+        if (num > 0) {
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) {
+                    check_prime=0;
+                    break;
+                }
+            }
+            if (check_prime)
+                document.write("Số vừa nhập là số nguyên tố");
+            else
+                document.write("Số vừa nhập không phải là số nguyên tố");
+        } else {
+            document.write("Số vừa nhập không đủ yêu cầu");
+        }
+    }
+
+    let input_check = +prompt("Enter a number");
+    isPrime(input_check);
+</script>
+</body>
+</html>

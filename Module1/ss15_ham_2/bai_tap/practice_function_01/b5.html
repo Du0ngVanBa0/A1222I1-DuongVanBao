@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 5</title>
+</head>
+<body>
+<div class="res"></div>
+<script>
+    let input_star = prompt("Enter a star name to find");
+
+    let star =['Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe', 'Regulus'];
+    let  constellation = ['Ursa Minor', 'Tarurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa Major', 'Leo'];
+
+    alert(findFromStar(input_star));
+
+    function findFromStar(str) {
+        let haveStar = star.indexOf(str);
+        console.log(haveStar);
+        if (haveStar !==- 1){
+            return constellation[haveStar];
+        }
+        else{
+            return "Không tìm thấy ngôi sao nào";
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xay dung lop mo ta dien thoai</title>
+</head>
+<body>
+<script>
+    class Mobile {
+        // constructor(battery, isOn, drafts, inbox, sent) {
+        //     if (battery > 100) {
+        //         this.battery = 100;
+        //     } else if (this.battery < 0) {
+        //         this.battery = 0;
+        //     } else {
+        //         this.battery = battery;
+        //     }
+        //     this.isOn = isOn;
+        //     this.drafts = drafts;
+        //     this.inbox = inbox;
+        //     this.sent = sent;
+        // }
+
+        constructor() {
+            this.battery = 100;
+            this.isOn = true;
+            this.drafts = "";
+            this.inbox = [];
+            this.sent = [];
+        }
+
+        checkStatus() {
+            if (this.isOn) {
+                console.log("Mobile is running");
+            } else {
+                console.log("Mobile is stopping");
+            }
+        }
+
+        turnOn() {
+            if (!this.isOn) {
+                this.isOn = true;
+                console.log("Mobile is on");
+            } else {
+                console.log("Mobile is already on");
+            }
+        }
+
+        turnOff() {
+            if (this.isOn) {
+                this.isOn = false;
+                console.log("Mobile is off");
+            } else {
+                console.log("Mobile is already off");
+            }
+        }
+
+        charge() {
+            if (this.battery === 100) {
+                console.log("Battery is already fully charged.");
+            } else {
+                this.battery = 100;
+                console.log("Battery is charged to 100%")
+            }
+        }
+
+        composeMessage(mes) {
+            if (this.isOn) {
+                this.drafts=mes;
+                console.log("Save message in drafts");
+                this.battery--;
+            } else {
+                console.log("Mobile is off.");
+            }
+        }
+
+        sendMessage(mes, phone) {
+            if (this.isOn) {
+                this.sent.push(mes);
+                phone.receiveMessage(mes);
+                console.log("Sent message successfully");
+                this.battery--;
+            } else {
+                console.log("Mobile is off.");
+            }
+        }
+
+        receiveMessage(mes) {
+            if (this.isOn) {
+                this.inbox.push(mes);
+                console.log("A message has sent to inbox");
+                this.battery--;
+            } else {
+                console.log("Mobile is off.");
+            }
+        }
+
+        showInbox(){
+            if (this.isOn) {
+                console.log("Show inbox: "+this.inbox.join(". "));
+                this.battery--;
+            } else {
+                console.log("Mobile is off.");
+            }
+        }
+
+        showSent(){
+            if (this.isOn) {
+                console.log("Show sent message: "+this.sent.join(". "));
+                this.battery--;
+            } else {
+                console.log("Mobile is off.");
+            }
+        }
+
+        showDrafts(){
+            if (this.isOn) {
+                console.log("Show drafts: "+this.drafts);
+                this.battery--;
+            } else {
+                console.log("Mobile is off.");
+            }
+        }
+    }
+
+    const nokia = new Mobile();
+    const iphone = new Mobile();
+    nokia.sendMessage("How are you?",iphone);
+    iphone.showInbox();
+</script>
+</body>
+</html>

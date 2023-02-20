@@ -43,10 +43,9 @@
         if(head<foot+1)
             for(let i=1;i<=3;i++) {
                 let inp = prompt("Đoán giá trị (" + head + "->" + foot + ")");
-                console.log(inp);
-                if(inp=="" || inp==null)
+                if(inp==="" || inp==null)
                     break;
-                if (+inp == result){
+                if (+inp === result){
                     alert("Chúc mừng");
                     break;
                 }

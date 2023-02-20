@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 1</title>
+</head>
+<body>
+<script>
+    let h = +prompt("Enter height")
+    for (let i = 1; i <= h; i++) {
+        for (let j = 1; j <= i; j++) {
+            if (i === h || j===1 || j===i)
+                document.write( "*");
+            else {
+                document.write( "&nbsp;&nbsp;");
+            }
+        }
+        document.write( "<br>");
+    }
+</script>
+</body>
+</html>

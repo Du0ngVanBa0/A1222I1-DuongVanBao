@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 1</title>
+</head>
+<body>
+<script>
+    let salary = prompt("Nhập lương nhân viên(triệu)");
+    let real, tax;
+    if (salary >= 15) {
+        tax = salary * (20 / 100);
+    } else if (salary >= 7) {
+        tax = salary * (10/100);
+    } else{
+        tax = salary * (5/100);
+    }
+    real = (salary - tax);
+    document.write("Thuế thu nhập: "+tax * 1000000+"<br>Lương ròng: "+real * 1000000)
+</script>
+</body>
+</html>

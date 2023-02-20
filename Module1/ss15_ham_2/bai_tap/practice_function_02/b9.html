@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 9</title>
+</head>
+<body>
+<script>
+    alert(findInArray());
+
+    function findInArray() {
+        let count = 0;
+        let num = +prompt("Nhập kích thước của mảng kí tự "), a = [""];
+        for (let i = 0; i < num; i++) {
+            a[i] = prompt("Nhập a[" + i + "]");
+        }
+        let find_input = prompt("Nhập kí tự cần tìm trong mảng");
+        for (let i = 0; i <= a.length; i++) {
+            if (a[i] === find_input) {
+                count++;
+            }
+        }
+        if (count > 0)
+            return count;
+        else
+            return -1;
+    }
+</script>
+</body>
+</html>

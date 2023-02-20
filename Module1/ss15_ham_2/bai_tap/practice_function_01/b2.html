@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 2</title>
+</head>
+<body>
+<input type="number" oninput="increaseOne(this.value)">
+<div id="result"></div>
+<script>
+    function increaseOne(num) {
+        num++;
+        document.getElementById('result').innerText=(num);
+    }
+</script>
+</body>
+</html>

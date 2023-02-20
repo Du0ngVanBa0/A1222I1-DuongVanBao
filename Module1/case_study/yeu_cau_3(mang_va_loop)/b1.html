@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 1</title>
+</head>
+<body>
+<script>
+    let a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    let b = [];
+    for (let i = 0; i < a.length; i++) {
+        let sum = 0;
+        for (let j = 0; j <= i; j++) {
+            sum+=a[j];
+        }
+        b[i]=sum;
+    }
+    document.write(b.toString());
+    console.log(b);
+</script>
+</body>
+</html>
