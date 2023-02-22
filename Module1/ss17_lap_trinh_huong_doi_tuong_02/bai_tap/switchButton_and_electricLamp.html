@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> sự tương tác giữa hai đối tượng: công tắc và bóng đèn</title>
+</head>
+<body>
+<script>
+    class ElectricLamp {
+        constructor() {
+            this.status = false;
+        }
+
+        turnOff() {
+            this.status = false;
+        }
+
+        turnOn() {
+            this.status = true;
+        }
+    }
+
+    class SwitchButton {
+        constructor() {
+            this.status = false;
+            this.lamp = new ElectricLamp();
+        }
+
+        connectToLamp(EL) {
+            this.lamp = EL;
+        }
+
+        switchOff() {
+            this.status = false;
+            this.lamp.status = false;
+            console.log("Turn off");
+        }
+
+        switchOn() {
+            this.status = true;
+            this.lamp.status = true;
+            console.log("Turn on");
+        }
+    }
+    let huynhquang = new ElectricLamp();
+    let congtac = new SwitchButton();
+    congtac.connectToLamp(huynhquang);
+    for (let i=0;i<10;i++) {
+        congtac.switchOn();
+        console.log(huynhquang,congtac);
+        congtac.switchOff();
+        console.log(huynhquang,congtac);
+    }
+</script>
+</body>
+</html>

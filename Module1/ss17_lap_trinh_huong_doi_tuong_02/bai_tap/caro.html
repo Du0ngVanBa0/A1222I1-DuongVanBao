@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Phát triển trò chơi cờ ca-ro</title>
+    <style>
+        #caroDisplay{
+            position: relative;
+        }
+        .cell {
+            cursor: pointer;
+            color: red;
+            text-align: center;
+            background-color: #dadce0;
+            border: 1px solid black;
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body onload="startCaro()">
+<button onclick="startCaro()">Restart</button>
+<div id="caroDisplay"></div>
+<script>
+    class Cell {
+        size = 50;
+        value = "";
+
+        constructor(x, y) {
+            this.x = x;
+            this.y = y;
+        }
+
+        getCaroHtml() {
+            let top = this.x * this.size;
+            let left = this.y * this.size;
+            return "<div class='cell' id='cell-" + this.x + "-" + this.y + "' onclick='playCaro(" + this.x + ',' + this.y + ")'style= 'position:absolute; width: " + this.size + 'px; height: ' + this.size + 'px; left: ' + left + 'px; top: ' + top + 'px; line-height: ' + this.size + "px;'></div>";
+        }
+
+        draw() {
+            let cellElement = document.getElementById('cell-' + this.x + '-' + this.y);
+            cellElement.innerText = this.value;
+        }
+    }
+
+    class GameBoard {
+        cells = [];
+        isOver = false;
+        turn = "O";
+
+        constructor(rows, cols, idDisplay) {
+            this.rows = rows;
+            this.cols = cols;
+            this.resultId = idDisplay;
+        }
+
+        draw() {
+            let gameBoard = document.getElementById(this.resultId);
+            gameBoard.innerHTML = "";
+            for (let i = 0; i < this.rows; i++) {
+                let row = [];
+                this.cells.push(row);
+                for (let j = 0; j < this.cols; j++) {
+                    let cell = new Cell(i, j);
+                    row.push(cell);
+                    gameBoard.innerHTML += cell.getCaroHtml();
+                }
+            }
+        }
+
+        play(x, y) {
+            if (this.isOver) {
+                return;
+            }
+            if (this.cells[x][y].value === "") {
+                this.cells[x][y].value = this.turn;
+                this.cells[x][y].draw();
+                this.check(x, y);
+                this.turn = this.turn === "O" ? "X" : "O";
+            } else {
+                alert("This cell has been marked");
+            }
+        }
+
+        isEndGame(count) {
+            if (count >= 5) {
+                this.isOver = true;
+                alert("Player " + this.turn + " is the winner");
+            }
+        }
+
+        check(x, y) {
+            let i = 1, count = 1;
+            while ((y + i < this.cols) && this.cells[x][y + i].value === this.cells[x][y].value) {
+                count++;
+                i++;
+            }
+            i = 1;
+            while ((y - i >= 0) && this.cells[x][y - i].value === this.cells[x][y].value) {
+                count++;
+                i++;
+            }
+            this.isEndGame(count);
+
+            i = 1;
+            count = 1;
+            while ((x + i < this.rows) && this.cells[x + i][y].value === this.cells[x][y].value) {
+                count++;
+                i++;
+            }
+            i = 1;
+            while ((x - i >= 0) && this.cells[x - i][y].value === this.cells[x][y].value) {
+                count++;
+                i++;
+            }
+            this.isEndGame(count);
+
+            i = 1;
+            count = 1;
+            let j = 1;
+            while ((y + i < this.cols) && (x + i < this.rows) && this.cells[x + i][y + j].value === this.cells[x][y].value) {
+                count++;
+                i++;
+                j++;
+            }
+            i = 1;
+            j = 1;
+            while ((x - i >= 0) && (y - j >= 0) && this.cells[x - i][y - j].value === this.cells[x][y].value) {
+                count++;
+                i++;
+                j++;
+            }
+            this.isEndGame(count);
+
+            i = 1;
+            j = 1;
+            count = 1;
+            while ((x + i < this.cols) && (y - j >= 0) && this.cells[x + i][y - j].value === this.cells[x][y].value) {
+                count++;
+                i++;
+                j++;
+            }
+            i = 1;
+            j = 1;
+            while ((x - i < this.cols) && (y + j >= 0) && this.cells[x - i][y + j].value === this.cells[x][y].value) {
+                count++;
+                i++;
+                j++;
+            }
+            this.isEndGame(count);
+        }
+    }
+
+    function startCaro() {
+        game = new GameBoard(15, 15, "caroDisplay");
+        game.draw();
+    }
+
+    function playCaro(x, y) {
+        game.play(x, y);
+    }
+    game = new GameBoard(15, 15, "caroDisplay");
+    game.draw();
+</script>
+</body>
+</html>
