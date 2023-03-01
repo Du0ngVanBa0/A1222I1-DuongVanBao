@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hệ thống quản lý học viên CODEGYM</title>
+    <style>
+        table, td, tr {
+            margin-top: 10px;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+<button onclick="addStudent(students)">Thêm mới học viên</button>
+<button onclick="editStudent(students)">Sửa thông tin học viên</button>
+<button onclick="deleteStudent(students)">Xóa học viên</button>
+<div id="show"></div>
+<script>
+    class Student {
+        code = "";
+        name = "";
+        className = "";
+        email = "";
+        dOB = new Date();
+        module = 0;
+
+        constructor(code, name, className, email, dOB, module) {
+            this.code = code;
+            this.name = name;
+            this.className = className;
+            this.email = email;
+            this.dOB = new Date(dOB);
+            this.module = module;
+        }
+    }
+
+    function showStudent(arrStudent) {
+        document.getElementById('show').innerHTML = ""
+        let tblStudent = document.createElement("table");
+        let headerRow = tblStudent.insertRow(0);
+        headerRow.insertCell().innerHTML = "Mã học viên";
+        headerRow.insertCell().innerHTML = "Tên";
+        headerRow.insertCell().innerHTML = "Lớp";
+        headerRow.insertCell().innerHTML = "email";
+        headerRow.insertCell().innerHTML = "Ngày sinh";
+        headerRow.insertCell().innerHTML = "Module";
+
+        for (let i = 0; i < arrStudent.length; i++) {
+            let row = tblStudent.insertRow(i + 1);
+            row.insertCell().innerHTML = arrStudent[i].code;
+            row.insertCell().innerHTML = arrStudent[i].name;
+            row.insertCell().innerHTML = arrStudent[i].className;
+            row.insertCell().innerHTML = arrStudent[i].email;
+            row.insertCell().innerHTML = arrStudent[i].dOB.toLocaleDateString();
+            row.insertCell().innerHTML = arrStudent[i].module;
+        }
+        document.getElementById('show').appendChild(tblStudent);
+    }
+
+    let students = [
+        new Student("HV-001", "Dương Văn Bảo", "A12222I1", "duongvanbao@gmail.com", "2003-09-23", 1),
+        new Student("HV-002", "Dương Long Hung", "A12222I1", "adu@gmail.com", "2002-2-12", 1),
+        new Student("HV-003", "Dương Kho Hai", "A12222I1", "xyz@gmail.com", "1999-09-12", 1),
+        new Student("HV-004", "Dương Thu Hai", "A12222I1", "ahi@gmail.com", "2003-05-12", 1)
+    ];
+
+    function addStudent(arr) {
+        let isValid = false;
+        let newStudent = new Student();
+        newStudent.code = prompt("Enter students[" + (arr.length + 1) + "].code");
+        do {
+            let name = prompt("Enter students[" + (arr.length + 1) + "].name");
+            if (name.length <= 50) {
+                newStudent.name = name;
+                isValid = true;
+            } else {
+                alert("Name is too long. Enter name with no more than 50 characters.");
+            }
+        }
+        while (!isValid);
+        newStudent.className = prompt("Enter students[" + (arr.length + 1) + "].className");
+        newStudent.email = prompt("Enter students[" + (arr.length + 1) + "].email");
+        newStudent.dOB = new Date(prompt("Enter students[" + (arr.length + 1) + "].dOB"));
+        do {
+            let module = +prompt("Enter students[" + (arr.length + 1) + "].module(1->6)");
+            if (module >= 1 && module <= 6) {
+                newStudent.module = module;
+                isValid = true;
+            } else {
+                alert("Module must a number between 1 and 6");
+                isValid = false;
+            }
+        }
+        while (!isValid)
+        arr.push(newStudent);
+        showStudent(arr);
+    }
+
+    function editStudent(arr) {
+        let indexStudent = -1, isValid = false;
+        let codeSearch = prompt("Enter code student for search to edit");
+        for (let i = 0; i < arr.length; i++) {
+            if (codeSearch === arr[i].code) {
+                indexStudent = i;
+                break;
+            }
+        }
+        if (indexStudent === -1) {
+            alert("Can't find code");
+            return;
+        } else {
+            arr[indexStudent].code = prompt("Enter students[" + indexStudent + "].code");
+            do {
+                let name = prompt("Enter students[" + indexStudent + "].name");
+                if (name.length <= 50) {
+                    arr[indexStudent].name = name;
+                    isValid = true;
+                } else {
+                    alert("Name is too long. Enter name with no more than 50 characters.");
+                }
+            }
+            while (!isValid);
+            arr[indexStudent].className = prompt("Enter students[" + indexStudent + "].className");
+            arr[indexStudent].email = prompt("Enter students[" + indexStudent + "].email");
+            arr[indexStudent].dOB = new Date(prompt("Enter students[" + indexStudent + "].dOB"));
+            arr[indexStudent].module = +prompt("Enter students[" + indexStudent + "].module(1->6)");
+        }
+        showStudent(arr);
+    }
+
+    function deleteStudent(arr) {
+        let indexStudent = -1;
+        let codeSearch = prompt("Enter code student for search to delete");
+        for (let i = 0; i < arr.length; i++) {
+            if (codeSearch === arr[i].code) {
+                indexStudent = i;
+                break;
+            }
+        }
+        if (indexStudent === -1) {
+            alert("Can't find code");
+            return;
+        } else {
+            let confirmDelete = confirm("Are you sure delete " + arr[indexStudent].code)
+            if (confirmDelete) {
+                arr.splice(indexStudent, 1);
+                showStudent(arr);
+            } else
+                return;
+        }
+    }
+
+    showStudent(students);
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 1</title>
+</head>
+<body>
+<script>
+    let m = +prompt("Nhập m: ");
+    let n = +prompt("Nhập n: ");
+    let a = [];
+    for (let i = 0; i < m; i++) {
+        a[i] = [];
+        for (let j = 0; j < n; j++) {
+            a[i][j] = +prompt("Nhap a[" + i + "][" + j + "]=");
+        }
+    }
+    document.write(sumEven(a))
+
+    function sumEven(arr) {
+        let sum = 0;
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr[i].length; j++) {
+                if (arr[i][j]%2===0)
+                    sum+=arr[i][j];
+            }
+        }
+        return sum;
+    }
+</script>
+</body>
+</html>

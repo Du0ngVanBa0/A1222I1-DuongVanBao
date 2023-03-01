@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chương trình sử dụng Remote để điều khiển Tivi</title>
+</head>
+<body>
+<script>
+    class TiVi {
+        chanel = 1;
+        volume = 1;
+        isOn = false;
+
+        constructor() {
+        }
+
+        setChanel(num){
+            this.chanel = num;
+        }
+
+        increaseVolume(num){
+            this.volume+=num;
+        }
+
+        setIsOn(boolean){
+            this.isOn = boolean;
+        }
+    }
+
+    class Remote {
+        code;
+
+        switchChanel(tiVi,num) {
+            tiVi.chanel = num;
+        }
+
+        changeVolume(tiVi,num){
+            tiVi.volume = num;
+        }
+
+        turnOff(tiVi){
+            tiVi.isOn = false;
+        }
+        turnOn(tiVi){
+            tiVi.isOn = true;
+        }
+    }
+
+    let lg = new TiVi();
+    let ak207 = new Remote();
+    
+    console.log(lg);
+    lg.setIsOn(true);
+    lg.setChanel(7);
+    console.log(lg);
+    ak207.switchChanel(lg,3);
+    lg.increaseVolume(2);
+    console.log(lg);
+    ak207.turnOff(lg);
+    console.log(lg);
+</script>
+</body>
+</html>

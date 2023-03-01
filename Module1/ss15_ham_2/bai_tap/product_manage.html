@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>quan li san pham</title>
+</head>
+<body>
+<div id="add">
+    <h2>Add new product</h2>
+    <input type="text" placeholder="New Product" id="newAddName">
+    <button onclick="addProduct()">Add</button>
+</div>
+<div id="edit">
+    <h2>Edit product</h2>
+    <input type="text" placeholder="New Product" id="newEditName">
+    <button id="editBtn">Edit</button>
+</div>
+<div id="show"></div>
+<script>
+    let product = ["Sony Xperia", "Sansung Galaxy", "Nokia 6", "Xiaomi Redmi Note 4", "Apple iphone 6S", "Xiaomi Mi 5s Plus", "Apple iphone 8 Plus", "Fujitsu F-04E", "Oppo A71"];
+
+    function deleteProduct(arr, i) {
+        arr.splice(i, 1);
+        showProduct(arr);
+    }
+
+    function showProduct(a) {
+        let tblShow = document.createElement("table");
+        for (let i = 0; i < a.length; i++) {
+            let row = tblShow.insertRow();
+            row.insertCell().innerHTML = i;
+            row.insertCell().innerHTML = a[i];
+            let deleteBtn = row.insertCell();
+            deleteBtn.appendChild(document.createElement("button")).innerHTML = "Delete";
+            deleteBtn.addEventListener("click", function () {
+                deleteProduct(a, i);
+            });
+            let editBtn = row.insertCell();
+            editBtn.appendChild(document.createElement("button")).innerHTML = "Edit";
+            editBtn.addEventListener("click", function () {
+                insertEditProduct(a, i);
+            })
+        }
+        document.getElementById('show').innerHTML = "";
+        document.getElementById('show').appendChild(tblShow);
+    }
+
+    function addProduct() {
+        let newProduct = document.getElementById('newAddName').value;
+        product.push(newProduct);
+        showProduct(product);
+        document.getElementById('newName').value = "";
+    }
+
+    function insertEditProduct(arr, i) {
+        document.getElementById('newEditName').value = arr[i];
+        //create a clone edit Button
+        let cloneEditBtn = document.getElementById('editBtn').cloneNode(true);
+        document.getElementById('editBtn').replaceWith(cloneEditBtn);
+        document.getElementById('editBtn').addEventListener("click", function () {
+            editProduct(arr, i);
+        })
+    }
+
+    function editProduct(arr, i) {
+        let newProduct = document.getElementById('newEditName').value;
+        arr[i] = newProduct;
+        showProduct(arr);
+    }
+
+    showProduct(product);
+</script>
+</body>
+</html>

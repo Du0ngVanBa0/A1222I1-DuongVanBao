@@ -6,11 +6,11 @@
 </head>
 <body>
 <script>
-    let check_input = prompt("Nhập số cần kiểm tra");
+    let check_input = +prompt("Nhập số cần kiểm tra");
     alert(isPositiveNumber(check_input));
 
     function isPositiveNumber(num) {
-        if (num>0)
+        if (num>0 && num%1===0)
             return true;
         else
             return false;

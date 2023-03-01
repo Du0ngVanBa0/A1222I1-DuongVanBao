@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 3</title>
+</head>
+<body>
+<script>
+    let numerators = [5, 2, 5];
+    let denominators = [6, 3, 4];
+    max = 0;
+    for (let i=1;i<numerators.length;i++){
+        if ((numerators[i]/denominators[i])>(numerators[max]/denominators[max]))
+            max = i;
+    }
+    document.write(max);
+</script>
+</body>
+</html>

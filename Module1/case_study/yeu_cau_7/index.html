@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hệ thống quản lý bài tập CaseStudy module 1</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+<nav id="headNav">
+    <a href="https://james.codegym.vn/" target="_blank"><img src="./images/codegym_icon.png" alt=""></a>
+    <h2>Hệ thống quản lý bài tập CaseStudy module 1</h2>
+</nav>
+<div id="bodyPage">
+    <div id="list_div">
+        <div class="dropdown">Yêu cầu 1</div>
+        <ul class="list">
+            <a target="_blank" href="../yeu_cau_1(if%20va%20switch_case)/b1.html"><li>Bài 1</li></a>
+            <a target="_blank" href="../yeu_cau_1(if%20va%20switch_case)/b2.html"><li>Bài 2</li></a>
+        </ul>
+        <div class="dropdown">Yêu cầu 2</div>
+        <ul class="list">
+            <a target="_blank" href="../yeu_cau_2(loop)/b1.html"><li>Bài 1</li></a>
+            <a target="_blank" href="../yeu_cau_2(loop)/b2.html"><li>Bài 2</li></a>
+            <a target="_blank" href="../yeu_cau_2(loop)/b3.html"><li>Bài 3</li></a>
+        </ul>
+        <div class="dropdown">Yêu cầu 3</div>
+        <ul class="list">
+            <a target="_blank" href="../yeu_cau_3(mang_va_loop)/b1.html"><li>Bài 1</li></a>
+            <a target="_blank" href="../yeu_cau_3(mang_va_loop)/b2.html"><li>Bài 2</li></a>
+            <a target="_blank" href="../yeu_cau_3(mang_va_loop)/b3.html"><li>Bài 3</li></a>
+            <a target="_blank" href="../yeu_cau_3(mang_va_loop)/b4.html"><li>Bài 4</li></a>
+        </ul>
+        <div class="dropdown">Yêu cầu 4</div>
+        <ul class="list">
+            <a target="_blank" href="../yeu_cau_4(string)/b1.html"><li>Bài 1</li></a>
+            <a target="_blank" href="../yeu_cau_4(string)/b2.html"><li>Bài 2</li></a>
+            <a target="_blank" href="../yeu_cau_4(string)/b3.html"><li>Bài 3</li></a>
+        </ul>
+        <div class="dropdown">Yêu cầu 5</div>
+        <ul class="list">
+            <a target="_blank" href="../yeu_cau_5(mang_2_chieu)/b1.html"><li>Bài 1</li></a>
+            <a target="_blank" href="../yeu_cau_5(mang_2_chieu)/b2.html"><li>Bài 2</li></a>
+            <a target="_blank" href="../yeu_cau_5(mang_2_chieu)/b3.html"><li>Bài 3</li></a>
+        </ul>
+        <div class="dropdown">Yêu cầu 6</div>
+        <ul class="list">
+            <a target="_blank" href="../yeu_cau_6(oop)/manage_student.html"><li>Manage Student</li></a>
+        </ul>
+    </div>
+    <div id="show_div"></div>
+</div>
+<script>
+    let dropdownBtn = document.getElementsByClassName('dropdown');
+    let list = document.getElementsByClassName('list');
+
+    for (let i = 0; i < dropdownBtn.length; i++) {
+        dropdownBtn[i].addEventListener("click",function () {
+            this.classList.toggle("clicked");
+            list[i].classList.toggle("active");
+        })
+    }
+</script>
+</body>
+</html>

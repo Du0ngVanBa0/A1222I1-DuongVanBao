@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 1</title>
+</head>
+<body>
+<script>
+    let str = prompt("Nhập xâu kí tự:");
+    document.write("<pre>"+str + "<br></pre>");
+
+    function transform(str) {
+        let newStr = "";
+        for (let i = 0; i < str.length; i++) {
+            if (str[i] !== " ") {
+                if (str[i-1]===" " || i===0){
+                    newStr += str[i].toUpperCase();
+                }
+                else {
+                    newStr += str[i].toLowerCase();
+                }
+            } else {
+                if (str[i+1]!==" "){
+                    newStr += str[i];
+                }
+            }
+        }
+        return newStr;
+    }
+    let newString = transform(str)
+    document.write(newString);
+
+</script>
+</body>
+</html>

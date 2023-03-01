@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra từ đối xứng</title>
+</head>
+<body>
+<script>
+    function isPalindrome(str) {
+        let start = 0;
+        let end = str.length - 1;
+        while (start < end) {
+            if (str[start] !== str[end]) {
+                return false;
+            }
+            start++;
+            end--;
+        }
+        return true;
+    }
+    document.write(isPalindrome("motor"));
+</script>
+</body>
+</html>

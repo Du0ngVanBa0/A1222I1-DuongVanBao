@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bouncing ball</title>
+</head>
+<body onkeydown="gb.moveBar(event)">
+<canvas id="myCanvas" width="480" height="320" style="border: 1px solid black"></canvas>
+<div>score: <span id="scoreNum">0</span></div>
+<script>
+
+    canvas = document.getElementById('myCanvas');
+    ctx = canvas.getContext("2d");
+
+    class Ball {
+
+        constructor() {
+            this.x = canvas.width / 2;
+            this.y = canvas.height - 20;
+            this.r = 10;
+            this.speedX = 1;
+            this.speedY = -1;
+        }
+
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+            ctx.fillStyle = "darkblue";
+            ctx.fill();
+            ctx.closePath();
+        }
+    }
+
+    class Bar {
+        constructor() {
+            this.w = 100;
+            this.h = 9;
+            this.x = canvas.width / 2 - this.w / 2;
+            this.y = canvas.height - this.h;
+        }
+
+        draw() {
+            ctx.beginPath();
+            ctx.rect(this.x, this.y, this.w, this.h);
+            ctx.fillStyle = "red";
+            ctx.fill();
+        }
+    }
+
+    class GameBoard {
+        isOver = false;
+        draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            this.bar.draw();
+            this.ball.draw();
+            let ballX = this.ball.x;
+            let ballY = this.ball.y;
+            let ballR = this.ball.r;
+            if (ballY + this.ball.speedY + ballR > canvas.height ){
+                this.isOver = true;
+                return;
+            }
+            if (ballX + this.ball.speedX + ballR > canvas.width || ballX + this.ball.speedX < ballR) {
+                this.ball.speedX = -this.ball.speedX;
+            }
+            if ( ballY + this.ball.speedY - ballR < 0) {
+                this.ball.speedY = -this.ball.speedY;
+            }
+            if (ballY + this.ball.speedY + ballR > canvas.height - this.bar.h && ballX + this.ball.speedX + ballR > this.bar.x && ballX + this.ball.speedX + ballR < this.bar.x + this.bar.w) {
+                this.ball.speedY = -this.ball.speedY;
+                this.score();
+            }
+
+            this.ball.x += this.ball.speedX;
+            this.ball.y += this.ball.speedY;
+
+        }
+
+        moveBar(e) {
+            if (((this.bar.x <= 0) && e.keyCode === 37 )|| this.isOver===true) {
+                return;
+            } else if (this.bar.x + this.bar.w >= canvas.width && e.keyCode === 39) {
+                return;
+            } else switch (e.keyCode) {
+                case 39:
+                    this.bar.x += 20;
+                    break;
+                case 37:
+                    this.bar.x -= 20;
+                    break;
+            }
+        }
+
+
+        start() {
+            document.getElementById("scoreNum").innerHTML = 0;
+            this.bar = new Bar();
+            this.ball = new Ball();
+            window.setInterval(() => this.draw(), 5);
+        }
+
+        score() {
+            let point = +document.getElementById("scoreNum").innerHTML;
+            document.getElementById("scoreNum").innerHTML = point + 1;
+            console.log(point);
+        }
+    }
+
+    let gb = new GameBoard();
+    gb.start();
+</script>
+</body>
+</html>

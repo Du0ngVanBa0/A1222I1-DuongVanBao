@@ -5,6 +5,26 @@
     <title>bai 2</title>
 </head>
 <body>
-
+<script>
+    let A = [7, 2, 5, 3, 5, 3];
+    let B = [7, 2, 5, 6, 4, 1,10,3, 5, 3];
+    let C = []
+    for (let i = 0; i < B.length; i++) {
+        if (A.indexOf(B[i]) === -1) {
+            C.push(B[i]);
+        }
+    }
+    for (let i = 0; i < C.length; i++) {
+        for (let j = i + 1; j < C.length; j++) {
+            if (C[i] > C[j]) {
+                let temp;
+                temp = C[i];
+                C[i] = C[j];
+                C[j] = temp;
+            }
+        }
+    }
+    document.write(C.toString());
+</script>
 </body>
 </html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 3</title>
+</head>
+<body>
+<script>
+    function commonCharacterCount(s1, s2) {
+        let count = 0;
+        for (let i = 0; i < s1.length; i++) {
+            if(s2.indexOf(s1[i])!==-1){
+                count++;
+                s2.splice(i,1);
+            }
+        }
+        return count;
+    }
+    console.log(commonCharacterCount("aaddaa","aao"))
+</script>
+</body>
+</html>
