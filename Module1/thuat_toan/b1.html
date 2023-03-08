@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 1</title>
+</head>
+<body>
+<script>
+    let inp = prompt("Enter string:");
+    let inpArr = inp.trim().split(",");
+
+    for (let i = 0; i < inpArr.length; i++) {
+        if (inpArr[i] === "") {
+            inpArr.splice(i, 1);
+        }
+    }
+    console.log(inpArr);
+    document.write(isEqualFrequency(inpArr));
+
+    function Frequency(arr, x) {
+        let count = 0;
+        for (let i in arr) {
+            if ((1 * arr[i] === 1 * arr[x])) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    function isEqualFrequency(arr) {
+        if (arr.length === 1) {
+            return false;
+        } else {
+            let count = Frequency(arr, 0);
+            for (let i = 1; i < arr.length; i++) {
+                if (Frequency(arr, i) !== count) {
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
+</script>
+</body>
+</html>

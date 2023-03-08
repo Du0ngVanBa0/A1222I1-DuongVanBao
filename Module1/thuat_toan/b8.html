@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 8</title>
+</head>
+<body>
+<script>
+    let parent = prompt("Enter an parent array: ");
+    let parentArray = parent.trim().split(",");
+    parentArray = parentArray.map(function (num) {
+        return Number(num);
+    })
+    let child = prompt("Enter an child array: ");
+    let childArray = child.trim().split(",");
+    childArray = childArray.map(function (num) {
+        return Number(num);
+    })
+    document.write(countAppear(childArray,parentArray));
+
+    function returnNotMatch(a) {
+        let result = [];
+        {
+            for (let i = 0; i < a.length; i++) {
+                if (result.indexOf(a[i]) === -1) {
+                    result.push(a[i]);
+                }
+            }
+        }
+        return result;
+    }
+
+    function countAppear(ch, pa) {
+        ch = returnNotMatch(ch);
+        let appear = 0;
+        let temp = [];
+        for (let i = 0; i < ch.length; i++) {
+            appear = 0;
+            for (let j = 0; j < pa.length; j++) {
+                if (ch[i] === pa[j])
+                    appear++;
+            }
+            temp.push(appear);
+        }
+        let min = temp[0];
+        for (let i = 1; i < temp.length; i++) {
+            if (min > temp[i]){
+                min = temp[i];
+            }
+        }
+        return min;
+    }
+</script>
+</body>
+</html>

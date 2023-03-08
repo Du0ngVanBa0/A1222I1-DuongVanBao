@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 7</title>
+</head>
+<body>
+<script>
+    let n = +prompt("Nhập số dòng(cột) mảng 2 chiều n x n");
+    let a = [];
+    for (let i = 0; i < n; i++) {
+        a[i] = [];
+        for (let j = 0; j < n; j++) {
+            a[i][j] = +prompt("Nhap a[" + i + "][" + j + "]");
+        }
+    }
+    document.write(toAscendingPrimeArr(a).toString());
+
+    function isPrime(x) {
+        if (x <= 1) {
+            return false;
+        }
+        for (let i = 2; i <= Math.sqrt(x); i++) {
+            if (x % i === 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function sortArray(a) {
+        let min = 0, index = 0;
+        for (let i = 0; i < a.length; i++) {
+            min = a[i], index = i;
+            for (let j = i + 1; j < a.length; j++) {
+                if (a[j] < min) {
+                    min = a[j];
+                    index = j;
+                }
+            }
+            if (index !== i) {
+                temp = a[i];
+                a[i] = min;
+                a[index] = temp;
+            }
+        }
+        return a;
+    }
+
+    function toAscendingPrimeArr(arr) {
+        let result = [];
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr.length; j++) {
+                console.log(arr[i][j]);
+                if (isPrime(arr[i][j]) === true && result.indexOf(arr[i][j]) === -1) {
+                    result.push(arr[i][j]);
+                }
+            }
+        }
+        return sortArray(result);
+    }
+</script>
+</body>
+</html>

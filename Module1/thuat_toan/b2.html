@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 2</title>
+</head>
+<body>
+<script>
+    let first = prompt("Enter first string");
+    let second = prompt("Enter second string");
+    document.write(countEqualString(first,second).toString());
+    function countEqualString(str1, str2) {
+        let f = str1, s = str2;
+        let count = 0 ;
+        for (let i = 0; i < f.length; i++) {
+            let find = s.indexOf(f[i]);
+            console.log(find);
+            if (find!==-1) {
+                s = s.replace(f[i],"");
+                count++;
+            }
+        }
+        console.log(s);
+        return count;
+    }
+</script>
+</body>
+</html>

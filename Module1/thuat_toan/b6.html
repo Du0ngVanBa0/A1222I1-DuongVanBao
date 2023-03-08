@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 6</title>
+</head>
+<body>
+<script>
+    let s = prompt("Enter a string to check");
+    document.write(findChar(s).toString());
+    function findChar(str) {
+        let arr = [];
+        debugger
+        for (let i = 0; i < str.length; i++) {
+            if (arr.indexOf(str[i]) === -1) {
+                for (let j = 0; j < str.length; j++) {
+                    if (str[i] === str[j] && i !== j) {
+                        arr.push(str[i]);
+                    }
+                }
+            }
+        }
+        return arr;
+    }
+</script>
+</body>
+</html>

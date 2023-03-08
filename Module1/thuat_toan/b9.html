@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 9</title>
+</head>
+<body>
+<script>
+    let L = +prompt("Enter L:");
+    let R = +prompt("Enter R:");
+    document.write(countRoundNum(L,R));
+
+    function checkRoundNum(n) {
+        let first, last;
+        last = n % 10;
+        while (n >= 10) {
+            n = Math.trunc(n/10);
+            console.log(n);
+        }
+        first = n;
+        return first === last;
+    }
+
+    function countRoundNum(l, r) {
+        if (l <= r) {
+            let count = 0;
+            for (let i = l; i <= r; i++) {
+                if (checkRoundNum(i) === true) {
+                    count++;
+                }
+            }
+            return count;
+        } else
+            return -1;
+    }
+</script>
+</body>
+</html>

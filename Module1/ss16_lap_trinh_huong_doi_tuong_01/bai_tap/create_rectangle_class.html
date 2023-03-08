@@ -5,36 +5,38 @@
     <title>xay dung lop mo ta hinh chu nhat</title>
 </head>
 <body>
-<canvas width="1368px" height="600px" id="myCanvas" style="border:1px solid #d3d3d3;" ></canvas>
+<canvas width="1368px" height="600px" id="myCanvas" style="border:1px solid #d3d3d3;"></canvas>
 <script>
-    let Rectangle = function (length,width) {
-        this.length = length;
-        this.width = width;
-        this.area = function () {
-            return this.length*this.width;
+    class Rectangle {
+        constructor(length,width) {
+            this.length = length;
+            this.width = width;
         }
-        this.perimeter = function () {
-            return (this.length+this.width)*2;
+        area = function () {
+            return this.length * this.width;
         }
-        this.visualDisplay = function () {
+        perimeter = function () {
+            return (this.length + this.width) * 2;
+        }
+        visualDisplay = function () {
             let ctx = document.getElementById('myCanvas').getContext("2d");
             ctx.beginPath();
-            ctx.rect(0,0,this.length,this.width);
+            ctx.rect(0, 0, this.length, this.width);
             ctx.stroke();
         }
-        this.setLength = function (l) {
+        setLength = function (l) {
             this.length = l;
         }
-        this.setWidth = function (w) {
+        setWidth = function (w) {
             this.width = w;
         }
     }
 
-    let rect = new Rectangle(500,200);
+    let rect = new Rectangle(500, 200);
     rect.setLength(1000);
     rect.setWidth(500);
     rect.visualDisplay();
-    document.writeln("<br>Dien tich: "+rect.area()+"Chu vi: "+rect.perimeter());
+    document.writeln("<br>Dien tich: " + rect.area() + "Chu vi: " + rect.perimeter());
 </script>
 </body>
 </html>

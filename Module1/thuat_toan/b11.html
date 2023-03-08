@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 11</title>
+</head>
+<body>
+<script>
+    let str= prompt("Enter String");
+    str = str.trim().split(",");
+    let arr = str.map(function (num) {
+        return Number(num);
+    })
+
+    if (arr[0] > 0 && arr[0] < 109 && arr[1] > 0 && arr[1] < 109 && arr[2] > 0 && arr[2] < 109) {
+        document.write(minBuy(arr[0], arr[1], arr[2]).toString());
+    } else {
+        document.write("Không thỏa điều kiện");
+    }
+
+    function minBuy(X, Y, Z) {
+        debugger;
+        let min = 0, total = 0;
+        while (total < Z) {
+            if (total + X + Y <= Z || (X <= (Z-total))) {
+                total += (X + Y);
+                min += X;
+            } else {
+                min++;
+                total++;
+            }
+        }
+        return min;
+    }
+</script>
+</body>
+</html>

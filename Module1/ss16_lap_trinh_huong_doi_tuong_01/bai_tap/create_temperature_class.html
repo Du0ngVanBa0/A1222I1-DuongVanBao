@@ -6,18 +6,20 @@
 </head>
 <body>
 <script>
-    let Temperature = function (indexC) {
-        this.indexC = indexC;
-        this.changeCtoF = function () {
+    class Temperature {
+        constructor(indexC) {
+            this.indexC = indexC;
+        }
+        getCtoF = function () {
             return (this.indexC*1.8)+32;
         }
-        this.changeCtoKelvin = function () {
+        getCtoKelvin = function () {
             return this.indexC+273.15;
         }
     }
 
     let temper = new Temperature(25);
-    document.write("Chuyển "+temper.indexC+" sang độ F: "+temper.changeCtoF()+" và độ Kelvin: "+temper.changeCtoKelvin())
+    document.write("Chuyển "+temper.indexC+" sang độ F: "+temper.getCtoF()+" và độ Kelvin: "+temper.getCtoKelvin())
 </script>
 </body>
 </html>

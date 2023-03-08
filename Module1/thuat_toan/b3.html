@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 3</title>
+</head>
+<body>
+<script>
+    let inp = prompt("Enter an array: ");
+    let inpArray = inp.trim().split(",");
+    inpArray = inpArray.map(function (num) {
+        return Number(num);
+    })
+    document.write(checkBeautyArray(inpArray));
+
+    function checkBeautyArray(a) {
+        for (let i = 1; i < a.length - 1; i++) {
+            let sum1 = 0, sum2 = 0;
+            for (let j = 0; j < i; j++) {
+                sum1 += a[j];
+            }
+            for (let k = i + 1; k < a.length; k++) {
+                sum2 += a[k];
+            }
+            console.log(sum2,sum1);
+            if (sum2 === sum1){
+                return true;
+            }
+        }
+        return false;
+    }
+</script>
+</body>
+</html>

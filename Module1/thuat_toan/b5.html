@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 5</title>
+</head>
+<body>
+<script>
+    let inp = prompt("Enter an array: ");
+    let inpArray = inp.trim().split(",");
+    inpArray = inpArray.map(function (num) {
+        return Number(num);
+    })
+    sortAscending(inpArray);
+    document.write(inpArray);
+
+    function sortAscending(a) {
+        for (let i = 0; i < a.length; i++) {
+            if (a[i] !== -1) {
+                let min = a[i], index = i;
+                debugger
+                for (let j = i + 1; j < a.length; j++) {
+                    if (a[j]<min && a[j]!==-1){
+                        min = a[j];
+                        index = j;
+                    }
+                }
+                if (index!==i){
+                    let temp = a[i];
+                    a[i] = min;
+                    a[index] = temp ;
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 10</title>
+</head>
+<body>
+<script>
+    let inpStr = prompt("Enter a string ");
+    let inpVnd = +prompt("Enter vnd Binh have");
+    let inpStrArray = inpStr.trim().split(",");
+    inpStrArray = inpStrArray.map(function (num) {
+        return Number(num);
+    })
+    document.write(maxEarn(inpStrArray,inpVnd));
+
+    function maxEarn(arr, vnd) {
+        let max = vnd, earn = 0;
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = i + 1; j < arr.length; j++) {
+                if (arr[i]>0) {
+                    earn = vnd - arr[i];
+                    earn += arr[j];
+                    if (max < earn) {
+                        max = earn;
+                    }
+                }
+            }
+        }
+        return max;
+    }
+</script>
+</body>
+</html>

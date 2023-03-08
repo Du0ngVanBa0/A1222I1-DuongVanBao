@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 4</title>
+</head>
+<body>
+<script>
+    let s = prompt("Enter a string");
+    document.write(editStr(s));
+    function editStr(str) {
+        let arr = [];
+        for (let i = 0; i < str.length; i++) {
+            if (str[i].toUpperCase()===str[i]){
+                if (arr.length !== 0){
+                    arr.push(" ");
+                }
+                arr.push(str[i].toLowerCase());
+            }
+            else {
+                arr.push(str[i]);
+            }
+        }
+        console.log(arr);
+        return (arr.join(""));
+    }
+</script>
+</body>
+</html>

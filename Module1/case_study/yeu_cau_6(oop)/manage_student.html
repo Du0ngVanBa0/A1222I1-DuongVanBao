@@ -22,7 +22,7 @@
         name = "";
         className = "";
         email = "";
-        dOB = new Date();
+        dOB = "";
         module = 0;
 
         constructor(code, name, className, email, dOB, module) {
@@ -30,7 +30,7 @@
             this.name = name;
             this.className = className;
             this.email = email;
-            this.dOB = new Date(dOB);
+            this.dOB = dOB;
             this.module = module;
         }
     }
@@ -52,17 +52,17 @@
             row.insertCell().innerHTML = arrStudent[i].name;
             row.insertCell().innerHTML = arrStudent[i].className;
             row.insertCell().innerHTML = arrStudent[i].email;
-            row.insertCell().innerHTML = arrStudent[i].dOB.toLocaleDateString();
+            row.insertCell().innerHTML = arrStudent[i].dOB;
             row.insertCell().innerHTML = arrStudent[i].module;
         }
         document.getElementById('show').appendChild(tblStudent);
     }
 
     let students = [
-        new Student("HV-001", "Dương Văn Bảo", "A12222I1", "duongvanbao@gmail.com", "2003-09-23", 1),
-        new Student("HV-002", "Dương Long Hung", "A12222I1", "adu@gmail.com", "2002-2-12", 1),
-        new Student("HV-003", "Dương Kho Hai", "A12222I1", "xyz@gmail.com", "1999-09-12", 1),
-        new Student("HV-004", "Dương Thu Hai", "A12222I1", "ahi@gmail.com", "2003-05-12", 1)
+        new Student("HV-001", "Dương Văn Bảo", "A12222I1", "duongvanbao@gmail.com", "23/09/2003", 1),
+        new Student("HV-002", "Dương Long Hung", "A12222I1", "adu@gmail.com", "12/02/2002", 1),
+        new Student("HV-003", "Dương Kho Hai", "A12222I1", "xyz@gmail.com", "12/09/1999", 1),
+        new Student("HV-004", "Dương Thu Hai", "A12222I1", "ahi@gmail.com", "12/05/2001", 1)
     ];
 
     function addStudent(arr) {
@@ -81,7 +81,18 @@
         while (!isValid);
         newStudent.className = prompt("Enter students[" + (arr.length + 1) + "].className");
         newStudent.email = prompt("Enter students[" + (arr.length + 1) + "].email");
-        newStudent.dOB = new Date(prompt("Enter students[" + (arr.length + 1) + "].dOB"));
+        do {
+            let dOB = prompt("Enter students[" + (arr.length + 1) + "].dOB(dd/mm/yyyy)");
+            let dobArray = dOB.split("/");
+            if (dobArray.length===3 && 1*dobArray[0]>=1 && 1*dobArray[0]<=31 && 1*dobArray[1]>=1 && 1*dobArray[1]<=12 && 1*dobArray[2]>=1900 && 1*dobArray[2]< (new Date().getFullYear())) {
+                newStudent.dOB = dOB;
+                isValid = true;
+            } else {
+                alert("This dob is not valid (dd/mm/yyyy).");
+                isValid = false;
+            }
+        }
+        while (!isValid);
         do {
             let module = +prompt("Enter students[" + (arr.length + 1) + "].module(1->6)");
             if (module >= 1 && module <= 6) {
@@ -123,7 +134,7 @@
             while (!isValid);
             arr[indexStudent].className = prompt("Enter students[" + indexStudent + "].className");
             arr[indexStudent].email = prompt("Enter students[" + indexStudent + "].email");
-            arr[indexStudent].dOB = new Date(prompt("Enter students[" + indexStudent + "].dOB"));
+            arr[indexStudent].dOB =prompt("Enter students[" + indexStudent + "].dOB(dd/mm/yyyy)");
             arr[indexStudent].module = +prompt("Enter students[" + indexStudent + "].module(1->6)");
         }
         showStudent(arr);
