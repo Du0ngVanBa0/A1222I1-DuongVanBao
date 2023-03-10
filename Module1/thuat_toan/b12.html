@@ -7,15 +7,43 @@
 <body>
 <script>
     let str = prompt("Enter String");
-    str = str.trim().split(",");
-    let arr = str.map(function (num) {
+    let arr = str.trim().split(",");
+    arr = arr.map(function (num) {
         return Number(num);
     })
 
-    function countTaxi(a) {
-        for (let i = 0; i < a.length; i++) {
+    document.write(countMinTaxi(arr).toString());
 
+    function countMinTaxi(a) {
+        let s = 0, board = [], draft = [];
+        let count = 0;
+        debugger;
+        for (let i = 0; i < a.length; i++) {
+            debugger;
+            if (board.indexOf(i) === -1) {
+                s = a[i];
+                board.push(i);
+                if (s < 4) {
+                    draft = [];
+                    for (let j = 0; j < a.length; j++) {
+                        if (a[i] + a[j] === 4 && board.indexOf(j) === -1) {
+                            board.push(j);
+                            break;
+                        }
+                        if (s + a[j] <= 4 && board.indexOf(j) === -1) {
+                            s += a[j];
+                            draft.push(j);
+                            if (s === 4) {
+                                board.push(draft);
+                                break;
+                            }
+                        }
+                    }
+                }
+                count++;
+            }
         }
+        return count;
     }
 </script>
 </body>

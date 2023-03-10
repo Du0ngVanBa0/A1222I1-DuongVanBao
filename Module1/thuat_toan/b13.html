@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 13</title>
+</head>
+<body>
+<script>
+    let str = prompt("Enter String");
+    let arr = str.trim().split(",");
+    arr = arr.map(function (num) {
+        return Number(num);
+    })
+    document.write(findSecondBig(arr));
+
+    function findSecondBig(arr) {
+        let temp, a = [];
+        for (let i = 0; i < arr.length; i++) {
+            a.push(arr[i]);
+        }
+        for (let i = 0; i < a.length; i++) {
+            for (let j = i + 1; j < a.length; j++) {
+                if (a[j] > a[i]) {
+                    temp = a[i];
+                    a[i] = a[j];
+                    a[j] = temp;
+                }
+            }
+        }
+        console.log(a, arr);
+        temp = 1;
+        while (temp < a.length) {
+            if (a[temp] === a[0]) {
+                temp++;
+            } else {
+                return arr.indexOf(a[temp]);
+            }
+        }
+        return -1;
+    }
+</script>
+</body>
+</html>

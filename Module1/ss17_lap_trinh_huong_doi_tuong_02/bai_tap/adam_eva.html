@@ -45,12 +45,20 @@
         }
 
         checkApple(Apple) {
-            return Apple.getWeight();
+            if (Apple.getWeight() <= 0)
+                return false;
+            else
+                return true;
         }
 
         eat(Apple) {
-            Apple.decrease();
-            this.weight++;
+            if (this.checkApple(Apple)) {
+                Apple.decrease();
+                this.weight++;
+            }
+            else{
+                console.log("This apple out of weight!");
+            }
         }
 
         say(str) {
@@ -61,18 +69,19 @@
             return this.name;
         }
 
-        setName(str){
+        setName(str) {
             this.name = str;
         }
 
-        getWeight(){
+        getWeight() {
             return this.weight;
         }
 
-        setWeight(integer){
+        setWeight(integer) {
             this.weight = integer;
         }
     }
+
     let adam = new Human();
     let apple = new Apple();
     adam.eat(apple);

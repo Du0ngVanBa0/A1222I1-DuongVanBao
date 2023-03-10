@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 14</title>
+</head>
+<body>
+<script>
+    let inp = prompt("Enter a string");
+    document.write(countDiffChar(inp));
+
+    function countDiffChar(str) {
+        let check = [];
+        for (let i = 0; i < str.length; i++) {
+            if (check.indexOf(str[i]) === -1) {
+                check.push(str[i]);
+            }
+        }
+        return check.length;
+    }
+</script>
+</body>
+</html>
