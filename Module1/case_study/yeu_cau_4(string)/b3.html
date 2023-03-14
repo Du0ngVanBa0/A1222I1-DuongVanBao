@@ -7,16 +7,19 @@
 <body>
 <script>
     function commonCharacterCount(s1, s2) {
-        let count = 0;
+        let arr = [];
         for (let i = 0; i < s1.length; i++) {
-            if(s2.indexOf(s1[i])!==-1){
-                count++;
-                s2.splice(i,1);
+            for (let j = 0; j < s2.length; j++) {
+                if (s1[i] === s2[j] && arr.indexOf(j)===-1){
+                    arr.push(j);
+                    break;
+                }
             }
         }
-        return count;
+        return arr.length;
     }
-    console.log(commonCharacterCount("aaddaa","aao"))
+
+    console.log(commonCharacterCount("aabcc", "adcaa"))
 </script>
 </body>
 </html>

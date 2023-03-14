@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Student</title>
+</head>
+<style>
+    table, td, tr, th {
+        margin-top: 10px;
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+</style>
+<body>
+<button onclick="addStudent(students.length)">Thêm mới học viên</button>
+<button onclick="findStudent()">Tìm học viên</button>
+<button onclick="sortStudent()">Sắp xếp học viên</button>
+<div id="show"></div>
+<script>
+    class Student {
+        code = "";
+        name = "";
+        className = "";
+        email = "";
+        dOB = "";
+        module = -1;
+
+        constructor(code, name, className, email, dOB, module) {
+            this.code = code;
+            this.name = name;
+            this.className = className;
+            this.email = email;
+            this.dOB = dOB;
+            this.module = module;
+        }
+    }
+
+    let students = [
+        new Student("HV-001", "Dương Văn Bảo", "A12222I1", "duongvanbao@gmail.com", "23/09/2003", 1),
+        new Student("HV-002", "Dương Long Hung", "A12222I1", "adu@gmail.com", "12/02/2002", 2),
+        new Student("HV-003", "Dương Kho Hai", "A12222I1", "xyz@gmail.com", "12/09/1999", 3),
+        new Student("HV-004", "Dương Thu Hai", "A12222I1", "ahi@gmail.com", "12/05/2001", 4)
+    ];
+
+    function showStudents(arrStudent) {
+        let tbl = "<table><tr><th>Mã học viên</th><th>Tên</th><th>Lớp</th><th>email</th><th>Ngày sinh</th><th>Module</th><th colspan='2'>Chức năng</th></tr>";
+        for (let i = 0; i < arrStudent.length; i++) {
+            tbl += "<tr>"
+            tbl += "<td>" + arrStudent[i].code + "</td>";
+            tbl += "<td>" + arrStudent[i].name + "</td>";
+            tbl += "<td>" + arrStudent[i].className + "</td>";
+            tbl += "<td>" + arrStudent[i].email + "</td>";
+            tbl += "<td>" + arrStudent[i].dOB + "</td>";
+            tbl += "<td>" + arrStudent[i].module + "</td>";
+            tbl += "<td><button onclick='addStudent(" + i + ")'>Sửa</button></td>"
+            tbl += "<td><button onclick='deleteStudent(" + i + ")'>Xóa</button></td>" + "</tr>";
+        }
+        tbl += "</table>";
+        document.getElementById('show').innerHTML = tbl;
+    }
+
+    function addStudent(index) {
+        let isValid = false;
+        let newStudent = new Student();
+        newStudent.code = prompt("Enter students[" + (index + 1) + "].code");
+        do {
+            let name = prompt("Enter students[" + (index + 1) + "].name");
+            if (name.length <= 50) {
+                newStudent.name = name;
+                isValid = true;
+            } else {
+                alert("Name is too long. Enter name with no more than 50 characters.");
+            }
+        }
+        while (!isValid);
+        newStudent.className = prompt("Enter students[" + (index + 1) + "].className");
+        newStudent.email = prompt("Enter students[" + (index + 1) + "].email");
+        do {
+            let dOB = prompt("Enter students[" + (index + 1) + "].dOB(dd/mm/yyyy)");
+            let dobArray = dOB.split("/");
+            if (dobArray.length === 3 && 1 * dobArray[0] >= 1 && 1 * dobArray[0] <= 31 && 1 * dobArray[1] >= 1 && 1 * dobArray[1] <= 12 && 1 * dobArray[2] >= 1900 && 1 * dobArray[2] < (new Date().getFullYear())) {
+                newStudent.dOB = dOB;
+                isValid = true;
+            } else {
+                alert("This dob is not valid (dd/mm/yyyy).");
+                isValid = false;
+            }
+        }
+        while (!isValid);
+        do {
+            let module = +prompt("Enter students[" + (index + 1) + "].module(1->6)");
+            if (module >= 1 && module <= 6) {
+                newStudent.module = module;
+                isValid = true;
+            } else {
+                alert("Module must a number between 1 and 6");
+                isValid = false;
+            }
+        }
+        while (!isValid)
+        students[index] = newStudent;
+        showStudents(students);
+     }
+
+    function findStudent(str) {
+                        students.
+    }
+
+    function deleteStudent(index) {
+        let confirmDelete = confirm("Are you sure delete " + students[index].code)
+        if (confirmDelete) {
+            students.splice(index, 1);
+            showStudents(students);
+        }
+    }
+
+    showStudents(students);
+</script>
+</body>
+</html>

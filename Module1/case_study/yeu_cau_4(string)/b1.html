@@ -7,26 +7,31 @@
 <body>
 <script>
     let str = prompt("Nhập xâu kí tự:");
-    document.write("<pre>"+str + "<br></pre>");
+    document.write("<pre>" + str + "<br></pre>");
 
     function transform(str) {
         let newStr = "";
+        // let arr = str.split(" ");
+        // for (let i = 0; i < arr.length; i++) {
+        //     newStr[i] = arr.charAt(0).toUpperCase()+arr.substring(1);
+        // }
+
         for (let i = 0; i < str.length; i++) {
             if (str[i] !== " ") {
-                if (str[i-1]===" " || i===0){
+                if (str[i - 1] === " " || i === 0) {
                     newStr += str[i].toUpperCase();
-                }
-                else {
+                } else {
                     newStr += str[i].toLowerCase();
                 }
             } else {
-                if (str[i+1]!==" "){
+                if (str[i + 1] !== " ") {
                     newStr += str[i];
                 }
             }
         }
         return newStr;
     }
+
     let newString = transform(str)
     document.write(newString);
 

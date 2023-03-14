@@ -6,7 +6,48 @@
 </head>
 <body>
 <script>
-    
+    let name_check = prompt("Enter a name to check");
+    let type_check = prompt("Enter type to check");
+    document.write(checkNameSet(name_check, type_check));
+
+    function checkPackage(str) {
+        if (str.toLowerCase() === str) {
+            for (let i = 1; i < str.length - 1; i++) {
+                if (str[i] !== "_" && (str.codePointAt(i) < 95 || str.codePointAt(i) > 122))
+                    return false;
+            }
+            return true;
+        } else
+            return false;
+    }
+
+    function checkClass(str) {
+        if (str[0].toUpperCase() === str[0]) {
+            debugger;
+            for (let i = 1; i < str.length; i++) {
+                str[i] = str[i].toLowerCase();
+                if (str.codePointAt(i)<95 || str.codePointAt(i)>122){
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+
+    function checkNameSet(name, type) {
+        switch (type.toLowerCase()) {
+            case "package":
+                return checkPackage(name);
+                break;
+            case "class":
+                return checkClass(name);
+                break;
+            default:
+                return false;
+                break;
+        }
+    }
 </script>
 </body>
 </html>

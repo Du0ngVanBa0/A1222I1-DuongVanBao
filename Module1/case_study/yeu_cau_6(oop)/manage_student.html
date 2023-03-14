@@ -35,7 +35,7 @@
         }
     }
 
-    function showStudent(arrStudent) {
+    function showStudents(arrStudent) {
         document.getElementById('show').innerHTML = ""
         let tblStudent = document.createElement("table");
         let headerRow = tblStudent.insertRow(0);
@@ -84,7 +84,7 @@
         do {
             let dOB = prompt("Enter students[" + (arr.length + 1) + "].dOB(dd/mm/yyyy)");
             let dobArray = dOB.split("/");
-            if (dobArray.length===3 && 1*dobArray[0]>=1 && 1*dobArray[0]<=31 && 1*dobArray[1]>=1 && 1*dobArray[1]<=12 && 1*dobArray[2]>=1900 && 1*dobArray[2]< (new Date().getFullYear())) {
+            if (dobArray.length === 3 && 1 * dobArray[0] >= 1 && 1 * dobArray[0] <= 31 && 1 * dobArray[1] >= 1 && 1 * dobArray[1] <= 12 && 1 * dobArray[2] >= 1900 && 1 * dobArray[2] < (new Date().getFullYear())) {
                 newStudent.dOB = dOB;
                 isValid = true;
             } else {
@@ -105,11 +105,11 @@
         }
         while (!isValid)
         arr.push(newStudent);
-        showStudent(arr);
+        showStudents(arr);
     }
 
     function editStudent(arr) {
-        let indexStudent = -1, isValid = false;
+        let indexStudent = -1;
         let codeSearch = prompt("Enter code student for search to edit");
         for (let i = 0; i < arr.length; i++) {
             if (codeSearch === arr[i].code) {
@@ -122,22 +122,13 @@
             return;
         } else {
             arr[indexStudent].code = prompt("Enter students[" + indexStudent + "].code");
-            do {
-                let name = prompt("Enter students[" + indexStudent + "].name");
-                if (name.length <= 50) {
-                    arr[indexStudent].name = name;
-                    isValid = true;
-                } else {
-                    alert("Name is too long. Enter name with no more than 50 characters.");
-                }
-            }
-            while (!isValid);
+            arr[indexStudent].name = prompt("Enter students[" + indexStudent + "].name");
             arr[indexStudent].className = prompt("Enter students[" + indexStudent + "].className");
             arr[indexStudent].email = prompt("Enter students[" + indexStudent + "].email");
-            arr[indexStudent].dOB =prompt("Enter students[" + indexStudent + "].dOB(dd/mm/yyyy)");
+            arr[indexStudent].dOB = prompt("Enter students[" + indexStudent + "].dOB(dd/mm/yyyy)");
             arr[indexStudent].module = +prompt("Enter students[" + indexStudent + "].module(1->6)");
         }
-        showStudent(arr);
+        showStudents(arr);
     }
 
     function deleteStudent(arr) {
@@ -156,13 +147,13 @@
             let confirmDelete = confirm("Are you sure delete " + arr[indexStudent].code)
             if (confirmDelete) {
                 arr.splice(indexStudent, 1);
-                showStudent(arr);
+                showStudents(arr);
             } else
                 return;
         }
     }
 
-    showStudent(students);
+    showStudents(students);
 </script>
 </body>
 </html>
