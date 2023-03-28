@@ -15,16 +15,10 @@
 <button onclick="addStudent(students.length)">Thêm mới học viên</button>
 <button onclick="findStudent()">Tìm học viên</button>
 <button onclick="sortStudent()">Sắp xếp học viên</button>
+<button onclick="showStudents(students)">Danh sách học viên</button>
 <div id="show"></div>
 <script>
     class Student {
-        code = "";
-        name = "";
-        className = "";
-        email = "";
-        dOB = "";
-        module = -1;
-
         constructor(code, name, className, email, dOB, module) {
             this.code = code;
             this.name = name;
@@ -37,9 +31,9 @@
 
     let students = [
         new Student("HV-001", "Dương Văn Bảo", "A12222I1", "duongvanbao@gmail.com", "23/09/2003", 1),
-        new Student("HV-002", "Dương Long Hung", "A12222I1", "adu@gmail.com", "12/02/2002", 2),
-        new Student("HV-003", "Dương Kho Hai", "A12222I1", "xyz@gmail.com", "12/09/1999", 3),
-        new Student("HV-004", "Dương Thu Hai", "A12222I1", "ahi@gmail.com", "12/05/2001", 4)
+        new Student("HV-002", "Bùi Long Anh", "A12222I1", "adu@gmail.com", "12/02/2002", 2),
+        new Student("HV-003", "Cao Kho Cao", "A12222I1", "xyz@gmail.com", "12/09/1999", 3),
+        new Student("HV-004", "Trần Thu An", "A12222I1", "ahi@gmail.com", "12/05/2001", 4)
     ];
 
     function showStudents(arrStudent) {
@@ -60,9 +54,23 @@
     }
 
     function addStudent(index) {
-        let isValid = false;
+        let isValid;
         let newStudent = new Student();
-        newStudent.code = prompt("Enter students[" + (index + 1) + "].code");
+        do {
+            let code = prompt("Enter students[" + (index + 1) + "].code");
+            isValid = true;
+            for (let i = 0; i < students.length; i++) {
+                if (students[i].code === code) {
+                    alert("Code exist!");
+                    isValid = false;
+                    break;
+                }
+            }
+            if (isValid === true){
+                newStudent.code = code;
+            }
+        }
+        while (!isValid);
         do {
             let name = prompt("Enter students[" + (index + 1) + "].name");
             if (name.length <= 50) {
@@ -70,6 +78,7 @@
                 isValid = true;
             } else {
                 alert("Name is too long. Enter name with no more than 50 characters.");
+                isValid = false;
             }
         }
         while (!isValid);
@@ -100,10 +109,60 @@
         while (!isValid)
         students[index] = newStudent;
         showStudents(students);
-     }
+    }
 
-    function findStudent(str) {
-                        students.
+    function findStudent() {
+        let temp = -1, str = prompt("Enter 'Mã học viên' to search");
+        for (let i = 0; i < students.length; i++) {
+            if (students[i].code === str) {
+                temp = i;
+                break;
+            }
+        }
+        if (temp !== -1) {
+            let tbl = "<table><tr><th>Mã học viên</th><th>Tên</th><th>Lớp</th><th>email</th><th>Ngày sinh</th><th>Module</th></tr>";
+            tbl += "<tr>"
+            tbl += "<td>" + students[temp].code + "</td>";
+            tbl += "<td>" + students[temp].name + "</td>";
+            tbl += "<td>" + students[temp].className + "</td>";
+            tbl += "<td>" + students[temp].email + "</td>";
+            tbl += "<td>" + students[temp].dOB + "</td>";
+            tbl += "<td>" + students[temp].module + "</td>";
+            tbl += "</table>";
+            document.getElementById('show').innerHTML = tbl;
+        } else {
+            alert("Can't find this student!");
+        }
+    }
+
+    function sortStudent() {
+        let min, temp;
+        for (let i = 0; i < students.length; i++) {
+            min = i;
+            for (let j = i + 1; j < students.length; j++) {
+                if (isAscName(min, j) === false) {
+                    min = j;
+                }
+            }
+            if (min !== i) {
+                temp = students[min];
+                students[min] = students[i];
+                students[i] = temp;
+            }
+        }
+        showStudents(students);
+    }
+
+    function isAscName(f, s) {
+        let fNameArray = students[f].name.split(" ");
+        let sNameArray = students[s].name.split(" ");
+        let fName = fNameArray[fNameArray.length - 1];
+        let sName = sNameArray[sNameArray.length - 1];
+        if (fName.codePointAt(0) > sName.codePointAt(0)) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     function deleteStudent(index) {

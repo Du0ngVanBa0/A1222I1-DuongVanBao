@@ -24,6 +24,7 @@ a {
 #bodyPage {
     height: 100%;
     display: flex;
+    border: 1px solid #4285f4;
 }
 
 #list_div {
@@ -31,12 +32,10 @@ a {
     color: #818181;
     padding: 20px;
     width: 30%;
-    border: 1px solid black;
 }
 
 #show_div {
     width: 70%;
-    border: 1px solid black;
 }
 
 ul {
