@@ -4,13 +4,13 @@ import java.util.Scanner;
 
 public class First20Prime {
     public static void main(String[] args) {
-        int numbers = 20, N = 2, count = 0;
+        int numbers = 20, n = 2, count = 0;
         while (count < numbers) {
-            if (isPrime(N)) {
-                System.out.print(N + "    ");
+            if (isPrime(n)) {
+                System.out.print(n + "    ");
                 count++;
             }
-            N++;
+            n++;
         }
     }
 
