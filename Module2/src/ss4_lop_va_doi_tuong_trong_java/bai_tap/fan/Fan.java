@@ -1,7 +1,8 @@
 package ss4_lop_va_doi_tuong_trong_java.bai_tap.fan;
 
 public class Fan {
-    private int speed = 1;
+    private final int SLOW =1, MEDIUM =2, FAST =3;
+    private int speed = SLOW;
     private boolean on = false;
     private double radius = 5;
     private String color = "blue";
