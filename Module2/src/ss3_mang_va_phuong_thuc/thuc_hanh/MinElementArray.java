@@ -1,5 +1,4 @@
 package ss3_mang_va_phuong_thuc.thuc_hanh;
-
 public class MinElementArray {
     public static int minValue(int[] array) {
         int index = 0;
