@@ -83,4 +83,9 @@ public class TennisGame {
         else score = "Win for player2";
         return score;
     }
+
+    public static void main(String[] args) {
+        TennisGame tennis = new TennisGame();
+        System.out.println("The Game On is :" + tennis.getScore("asdasd", "asdda", 4, 4));
+    }
 }

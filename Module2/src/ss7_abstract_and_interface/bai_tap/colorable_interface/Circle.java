@@ -1,5 +1,7 @@
 package ss7_abstract_and_interface.bai_tap.colorable_interface;
 
+import java.util.ArrayList;
+
 public class Circle extends Shape {
     private double radius = 1.0;
 
