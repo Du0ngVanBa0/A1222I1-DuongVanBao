@@ -30,6 +30,14 @@ public class MyLinkedList {
         }
     }
 
+    public Node get(int index) {
+        Node temp = head;
+        for (int i = 0; i < index; i++) {
+            temp = temp.next;
+        }
+        return temp;
+    }
+
     public void addFirst(Object data) {
         Node temp = head;
         head = new Node(data);
