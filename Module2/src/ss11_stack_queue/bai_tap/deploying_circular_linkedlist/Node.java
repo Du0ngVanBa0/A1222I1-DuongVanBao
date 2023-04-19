@@ -1,0 +1,10 @@
+package ss11_stack_queue.bai_tap.deploying_circular_linkedlist;
+
+public class Node {
+    public int data;
+    public Node link;
+
+    public Node(int data) {
+        this.data = data;
+    }
+}
