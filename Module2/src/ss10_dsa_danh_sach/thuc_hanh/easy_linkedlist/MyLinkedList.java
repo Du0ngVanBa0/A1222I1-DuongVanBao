@@ -10,16 +10,20 @@ public class MyLinkedList {
     }
 
     public void add(int index, Object data) {
-        Node temp = head;
-        Node holder;
+        if (index ==0){
+            addFirst(data);
+        }else {
+            Node temp = head;
+            Node holder;
 
-        for (int i = 0; i < index - 1 && temp.next != null; i++) {
-            temp = temp.next;
+            for (int i = 0; i < index - 1 && temp.next != null; i++) {
+                temp = temp.next;
+            }
+            holder = temp.next;
+            temp.next = new Node(data);
+            temp.next.next = holder;
+            numNodes++;
         }
-        holder = temp.next;
-        temp.next = new Node(data);
-        temp.next.next = holder;
-        numNodes++;
     }
 
     public void printList() {
