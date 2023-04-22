@@ -77,13 +77,13 @@ public class ProductManager {
     public void sortAscPriceProduct() {
         AscPriceComparator ascPriceComparator = new AscPriceComparator();
         System.out.println("-----Sort ascending price-----");
-        Collections.sort(productList,ascPriceComparator);
+        productList.sort(ascPriceComparator);
     }
 
     public void sortDescPriceProduct() {
         DescPriceComparator descPriceComparator = new DescPriceComparator();
-        System.out.println("-----Sort ascending price-----");
-        Collections.sort(productList,descPriceComparator);
+        System.out.println("-----Sort descending price-----");
+        productList.sort(descPriceComparator);
     }
 
     public void showProduct() {
