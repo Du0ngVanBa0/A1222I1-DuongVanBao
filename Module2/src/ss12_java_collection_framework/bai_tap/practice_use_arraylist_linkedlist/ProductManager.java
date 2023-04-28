@@ -4,13 +4,16 @@ import ss12_java_collection_framework.thuc_hanh.sort_by_comparable_comparator.St
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 public class ProductManager {
-    ArrayList<Product> productList;
+//    ArrayList<Product> productList;
+    LinkedList<Product> productList;
 
     public ProductManager() {
-        productList = new ArrayList<>();
+//        productList = new ArrayList<>();
+        productList = new LinkedList<>();
     }
 
     public void addProduct(Product product) {
