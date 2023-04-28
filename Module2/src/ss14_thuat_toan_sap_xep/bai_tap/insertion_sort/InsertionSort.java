@@ -1,23 +1,17 @@
-package ss14_thuat_toan_sap_xep.bai_tap.insertion_sort_step_by_step;
+package ss14_thuat_toan_sap_xep.bai_tap.insertion_sort;
 
 import java.util.Scanner;
 
-public class InsertionSortStepByStep {
-    public static void insertionSortStepByStep(int[] list) {
+public class InsertionSort {
+    public static void insertionSort(int[] list) {
         for (int i = 1; i < list.length; i++) {
             int pos = i;
             while (pos > 0 && list[pos] < list[pos - 1]) {
-                System.out.println("Swap " + list[pos] + " with " + list[pos - 1]);
                 int temp = list[pos];
                 list[pos] = list[pos - 1];
                 list[pos - 1] = temp;
                 pos--;
             }
-            System.out.println("List after the  " + i + "' sort: ");
-            for (int num : list) {
-                System.out.print(num + "\t");
-            }
-            System.out.println();
         }
     }
 
@@ -35,6 +29,11 @@ public class InsertionSortStepByStep {
             System.out.print(j + "\t");
         }
         System.out.println();
-        insertionSortStepByStep(list);
+        insertionSort(list);
+        System.out.print("Your list after sort: ");
+        for (int j : list) {
+            System.out.print(j + "\t");
+        }
+        System.out.println();
     }
 }
