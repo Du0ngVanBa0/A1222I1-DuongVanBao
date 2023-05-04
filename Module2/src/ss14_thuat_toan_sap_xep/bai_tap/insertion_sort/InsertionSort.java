@@ -5,12 +5,13 @@ import java.util.Scanner;
 public class InsertionSort {
     public static void insertionSort(int[] list) {
         for (int i = 1; i < list.length; i++) {
-            int pos = i;
-            while (pos > 0 && list[pos] < list[pos - 1]) {
-                int temp = list[pos];
+            int pos = i, x = list[pos];
+            while (pos > 0 && x < list[pos - 1]) {
                 list[pos] = list[pos - 1];
-                list[pos - 1] = temp;
                 pos--;
+            }
+            if (list[pos] != x) {
+                list[pos] = x;
             }
         }
     }

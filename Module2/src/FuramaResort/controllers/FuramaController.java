@@ -1,11 +1,15 @@
 package FuramaResort.controllers;
 
+import FuramaResort.services.CustomerServiceImpl;
+import FuramaResort.services.EmployeeServiceImpl;
+
 import java.util.Scanner;
 
 public class FuramaController {
     public static void main(String[] args) {
         displayMainMenu();
     }
+
     public static void displayMainMenu() {
         int choice = -1;
         do {
@@ -140,12 +144,16 @@ public class FuramaController {
             if (choice < 1 || choice > 4) {
                 System.out.println("Only receive number 1->4!");
             } else {
+                CustomerServiceImpl customerService = new CustomerServiceImpl();
                 switch (choice) {
                     case 1:
+                        customerService.display();
                         break;
                     case 2:
+                        customerService.add();
                         break;
                     case 3:
+                        customerService.edit();
                         break;
                     case 4:
                         System.out.println("---Return main menu---");
@@ -161,19 +169,23 @@ public class FuramaController {
             Scanner sc = new Scanner(System.in);
             System.out.print("1\tDisplay list employees\n" +
                     "2\tAdd new employee\n" +
-                    "3\tEdit employee`\n" +
+                    "3\tEdit employee\n" +
                     "4\tReturn main menu\n" +
                     "Enter your choice(1->4): ");
             choice = Integer.parseInt(sc.nextLine());
             if (choice < 1 || choice > 4) {
                 System.out.println("Only receive number 1->4!");
             } else {
+                EmployeeServiceImpl employeeService = new EmployeeServiceImpl();
                 switch (choice) {
                     case 1:
+                        employeeService.display();
                         break;
                     case 2:
+                        employeeService.add();
                         break;
                     case 3:
+                        employeeService.edit();
                         break;
                     case 4:
                         System.out.println("---Return main menu---");

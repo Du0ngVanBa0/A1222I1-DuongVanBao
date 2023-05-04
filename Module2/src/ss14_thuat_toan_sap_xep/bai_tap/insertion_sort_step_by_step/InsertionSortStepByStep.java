@@ -5,13 +5,20 @@ import java.util.Scanner;
 public class InsertionSortStepByStep {
     public static void insertionSortStepByStep(int[] list) {
         for (int i = 1; i < list.length; i++) {
-            int pos = i;
-            while (pos > 0 && list[pos] < list[pos - 1]) {
-                System.out.println("Swap " + list[pos] + " with " + list[pos - 1]);
-                int temp = list[pos];
+            int pos = i, x = list[pos];
+            while (pos > 0 && x < list[pos - 1]) {
+                System.out.println("-Change " + list[pos] + " in  index " + pos + " to " + list[pos - 1]);
                 list[pos] = list[pos - 1];
-                list[pos - 1] = temp;
                 pos--;
+                System.out.print("List after the change: ");
+                for (int num : list) {
+                    System.out.print(num + "\t");
+                }
+                System.out.println();
+            }
+            if (list[pos]!=x) {
+                System.out.println("-Change " + list[pos] + " in  index " + pos + " to " + x);
+                list[pos] = x;
             }
             System.out.println("List after the  " + i + "' sort: ");
             for (int num : list) {

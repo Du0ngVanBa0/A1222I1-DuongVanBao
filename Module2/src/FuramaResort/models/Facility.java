@@ -4,6 +4,6 @@ public abstract class Facility {
     String name;
     int area;
     int cost;
-    int maxNumPeople;
-
+    int maxPeople;
+    String typeHire;
 }
