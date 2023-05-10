@@ -31,7 +31,7 @@ public class CustomerServiceImpl implements ICustomerService {
         do {
             System.out.print("Enter Employee's type:\n1. Diamond\n2. Platinum\n3. Gold\n4. Silver\n5. Member\nEnter number(1->5): ");
             valid = Integer.parseInt(sc.nextLine());
-        } while (valid != 1 && valid != 2 && valid != 3 && valid != 4 && valid != 5);
+        } while (valid < 1 || valid > 5);
         String type = "";
         switch (valid) {
             case 1:

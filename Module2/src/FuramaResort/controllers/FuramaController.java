@@ -2,6 +2,7 @@ package FuramaResort.controllers;
 
 import FuramaResort.services.CustomerServiceImpl;
 import FuramaResort.services.EmployeeServiceImpl;
+import FuramaResort.services.FacilityServiceImpl;
 
 import java.util.Scanner;
 
@@ -116,12 +117,16 @@ public class FuramaController {
             if (choice < 1 || choice > 4) {
                 System.out.println("Only receive number 1->4!");
             } else {
+                FacilityServiceImpl facilityService = new FacilityServiceImpl();
                 switch (choice) {
                     case 1:
+                        facilityService.display();
                         break;
                     case 2:
+                        facilityService.add();
                         break;
                     case 3:
+                        facilityService.displayMaintenance();
                         break;
                     case 4:
                         System.out.println("---Return main menu---");
