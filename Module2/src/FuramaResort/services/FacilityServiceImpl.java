@@ -20,7 +20,7 @@ public class FacilityServiceImpl implements IFacilityService {
 
     @Override
     public void display() {
-        facility.forEach(Map.Entry);
+//        facility.forEach(Map.Entry);
     }
 
     @Override
