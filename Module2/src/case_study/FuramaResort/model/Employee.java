@@ -1,12 +1,14 @@
 package case_study.FuramaResort.model;
 
+import java.util.Date;
+
 public class Employee extends Person{
     private String employeeCode;
     private String level;
     private String position;
     private int salary;
 
-    public Employee(String fullName, String dOB, boolean isMale, String identityCard, String phoneNumber, String email, String employeeCode, String level, String position, int salary) {
+    public Employee(String fullName, Date dOB, boolean isMale, String identityCard, String phoneNumber, String email, String employeeCode, String level, String position, int salary) {
         super(fullName, dOB, isMale, identityCard, phoneNumber, email);
         this.employeeCode = employeeCode;
         this.level = level;
@@ -40,6 +42,22 @@ public class Employee extends Person{
 
     public int getSalary() {
         return salary;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "employeeCode='" + employeeCode + '\'' +
+                ", level='" + level + '\'' +
+                ", position='" + position + '\'' +
+                ", salary=" + salary +
+                ", fullName='" + fullName + '\'' +
+                ", dOB=" + dOB +
+                ", isMale=" + isMale +
+                ", identityCard='" + identityCard + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 
     public void setSalary(int salary) {

@@ -1,14 +1,16 @@
 package case_study.FuramaResort.model;
 
+import java.util.Date;
+
 public abstract class Person {
     String fullName;
-    String dOB;
+    Date dOB;
     boolean isMale;
     String identityCard;
     String phoneNumber;
     String email;
 
-    public Person(String fullName, String dOB, boolean isMale, String identityCard, String phoneNumber, String email) {
+    public Person(String fullName, Date dOB, boolean isMale, String identityCard, String phoneNumber, String email) {
         this.fullName = fullName;
         this.dOB = dOB;
         this.isMale = isMale;
@@ -25,11 +27,11 @@ public abstract class Person {
         this.fullName = fullName;
     }
 
-    public String getdOB() {
+    public Date getDOB() {
         return dOB;
     }
 
-    public void setdOB(String dOB) {
+    public void setDOB(Date dOB) {
         this.dOB = dOB;
     }
 

@@ -1,11 +1,13 @@
 package case_study.FuramaResort.model;
 
+import java.util.Date;
+
 public class Customer extends Person{
     private String customerCode;
     private String typeCustomer;
     private String address;
 
-    public Customer(String fullName, String dOB, boolean isMale, String identityCard, String phoneNumber, String email, String customerCode, String typeCustomer, String address) {
+    public Customer(String fullName, Date dOB, boolean isMale, String identityCard, String phoneNumber, String email, String customerCode, String typeCustomer, String address) {
         super(fullName, dOB, isMale, identityCard, phoneNumber, email);
         this.customerCode = customerCode;
         this.typeCustomer = typeCustomer;
