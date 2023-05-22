@@ -17,12 +17,30 @@ public class EmployeeRepository implements IEmployeeService {
 
     static {
         employeePath = "E:\\CodeGym\\A1222I1-DuongVanBao\\Module2\\src\\case_study\\FuramaResort\\data\\employee.csv";
+        employeeList = (new ReadAndWriteFile().readEmployeeFile(employeePath));
         sc = new Scanner(System.in);
     }
 
     @Override
     public void edit() {
+        System.out.print("--Edit Employee--\nEnter Employee's code: ");
+        String code = sc.nextLine();
+        int index = findCode(code);
+        if (index != -1) {
+            System.out.printf("--Edit employee's code: %s --\n", code);
 
+        } else {
+            System.out.println("--Can't find Employee's code--");
+        }
+    }
+
+    private int findCode(String code) {
+        for (int i = 0; i < employeeList.size(); i++) {
+            if (employeeList.get(i).getEmployeeCode().equals(code)) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     @Override
