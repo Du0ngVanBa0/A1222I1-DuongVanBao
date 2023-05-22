@@ -37,10 +37,17 @@ public class EmployeeRepository implements IEmployeeService {
     public void add() {
         System.out.print("Enter Employee's code: ");
         String code = sc.nextLine();
-        int valid;
+        int valid = 0;
         do {
-            System.out.print("Enter Employee's level:\n1. Trung cap\n2. Cao Dang\n3. Dai hoc\n4. Sau dai hoc\nEnter number(1->4): ");
-            valid = Integer.parseInt(sc.nextLine());
+            try {
+                System.out.print("Enter Employee's level:\n1. Trung cap\n2. Cao Dang\n3. Dai hoc\n4. Sau dai hoc\nEnter number(1->4): ");
+                valid = Integer.parseInt(sc.nextLine());
+                if (valid != 1 && valid != 2 && valid != 3 && valid != 4) {
+                    System.out.println("->Error: Only receive number 1->4!");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("->Error: Please enter integer number to choose!");
+            }
         } while (valid != 1 && valid != 2 && valid != 3 && valid != 4);
         String level = "";
         switch (valid) {
@@ -57,9 +64,17 @@ public class EmployeeRepository implements IEmployeeService {
                 level = "Sau dai hoc";
                 break;
         }
+        valid = 0;
         do {
-            System.out.print("Enter Employee's position:\n1. Le tan\n2. Phuc vu\n3. Chuyen vien\n4. Giam sat\n5. Quan ly\n6. Giam doc\nEnter number(1->5): ");
-            valid = Integer.parseInt(sc.nextLine());
+            try {
+                System.out.print("Enter Employee's position:\n1. Le tan\n2. Phuc vu\n3. Chuyen vien\n4. Giam sat\n5. Quan ly\n6. Giam doc\nEnter number(1->6): ");
+                valid = Integer.parseInt(sc.nextLine());
+                if (valid != 1 && valid != 2 && valid != 3 && valid != 4 && valid != 5 && valid != 6) {
+                    System.out.println("->Error: Only receive number 1->6!");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("->Error: Please enter integer number to choose!");
+            }
         } while (valid != 1 && valid != 2 && valid != 3 && valid != 4 && valid != 5 && valid != 6);
         String position = "";
         switch (valid) {
@@ -82,25 +97,50 @@ public class EmployeeRepository implements IEmployeeService {
                 position = "Giam doc";
                 break;
         }
-        System.out.print("Enter Employee's salary: ");
-        int salary = Integer.parseInt(sc.nextLine());
+        valid = 0;
+        int salary = 0;
+        do {
+            System.out.print("Enter Employee's salary: ");
+            try {
+                salary = Integer.parseInt(sc.nextLine());
+                if (salary < 0) {
+                    System.out.println("->Error: Salary must be a integer number >=0 ");
+                }
+                valid = 1;
+            } catch (NumberFormatException e) {
+                System.out.println("->Error: Please enter integer number!");
+            }
+        } while (valid == 0 || salary < 0);
         System.out.print("Enter Employee's full name: ");
         String fullName = sc.nextLine();
         Date dOB = new Date();
         valid = 0;
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        dateFormat.setLenient(false);
         do {
             try {
-                System.out.print("Enter Employee's day of birth(01/01/2003): ");
+                System.out.print("Enter Employee's day of birth(dd/MM/yyyy): ");
                 dOB = dateFormat.parse(sc.nextLine());
-                valid = 1;
+                if (dOB.after(new Date())) {
+                    System.out.println("->Error: Date of Birth must be before this date");
+                } else {
+                    valid = 1;
+                }
             } catch (ParseException ex) {
-                System.out.println("Wrong format date(01/01/2003)!");
+                System.out.println("->Error: Wrong format date(dd/MM/yyyy)!");
             }
         } while (valid == 0);
+        valid = 0;
         do {
-            System.out.print("Enter Employee's gender:\n1. Male\n2. Female\nEnter number(1 or 2): ");
-            valid = Integer.parseInt(sc.nextLine());
+            try {
+                System.out.print("Enter Employee's gender:\n1. Male\n2. Female\nEnter number(1 or 2): ");
+                valid = Integer.parseInt(sc.nextLine());
+                if (valid != 1 && valid != 2) {
+                    System.out.println("->Error: Please choose 1 or 2!");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("->Error: Please enter integer number to choose!");
+            }
         } while (valid != 1 && valid != 2);
         boolean isMale = (valid == 1);
         System.out.print("Enter Employee's identity card: ");

@@ -1,8 +1,9 @@
 package case_study.FuramaResort.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Employee extends Person{
+public class Employee extends Person {
     private String employeeCode;
     private String level;
     private String position;
@@ -46,13 +47,14 @@ public class Employee extends Person{
 
     @Override
     public String toString() {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
         return "Employee{" +
                 "employeeCode='" + employeeCode + '\'' +
                 ", level='" + level + '\'' +
                 ", position='" + position + '\'' +
                 ", salary=" + salary +
                 ", fullName='" + fullName + '\'' +
-                ", dOB=" + dOB +
+                ", dOB=" + simpleDateFormat.format(dOB) +
                 ", isMale=" + isMale +
                 ", identityCard='" + identityCard + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +

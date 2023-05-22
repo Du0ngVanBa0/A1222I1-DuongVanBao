@@ -26,7 +26,7 @@ public class ReadAndWriteFile {
     public String employeeToString(Employee employee) {
         String str = "";
         str += employee.getFullName() + ",";
-        str += employee.getDOB() + ",";
+        str += getDateString(employee.getDOB()) + ",";
         str += employee.isMale() + ",";
         str += employee.getIdentityCard() + ",";
         str += employee.getPhoneNumber() + ",";
@@ -67,5 +67,10 @@ public class ReadAndWriteFile {
             System.out.println("Ngày sinh sai định dạng!");
         }
         return null;
+    }
+
+    public String getDateString(Date date) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        return simpleDateFormat.format(date);
     }
 }
