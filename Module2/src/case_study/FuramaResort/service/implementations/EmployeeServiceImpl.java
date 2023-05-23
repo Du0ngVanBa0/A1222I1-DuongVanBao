@@ -1,7 +1,7 @@
 package case_study.FuramaResort.service.implementations;
 
 import case_study.FuramaResort.model.Employee;
-import case_study.FuramaResort.repository.implementations.EmployeeRepository;
+import case_study.FuramaResort.repository.implementations.EmployeeRepositoryImpl;
 import case_study.FuramaResort.service.interfaces.IEmployeeService;
 import case_study.FuramaResort.utils.Validation;
 
@@ -13,7 +13,7 @@ import java.util.Scanner;
 
 
 public class EmployeeServiceImpl implements IEmployeeService {
-    EmployeeRepository<Employee> employeeRepository = new EmployeeRepository<>();
+    EmployeeRepositoryImpl<Employee> employeeRepository = new EmployeeRepositoryImpl<>();
     Scanner sc = new Scanner(System.in);
 
     @Override
@@ -32,7 +32,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
         } while (true);
     }
 
-    public void displayEditEmployeeMenu(int index) {
+    private void displayEditEmployeeMenu(int index) {
         List<Employee> employeeList = employeeRepository.getList();
         Employee employee = employeeList.get(index);
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
@@ -113,7 +113,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
         return -1;
     }
 
-    public String enterLevel() {
+    private String enterLevel() {
         int valid = 0;
         do {
             try {
@@ -121,22 +121,22 @@ public class EmployeeServiceImpl implements IEmployeeService {
                 valid = Integer.parseInt(sc.nextLine());
                 if (valid != 1 && valid != 2 && valid != 3 && valid != 4) {
                     System.out.println("->Error: Only receive number 1->4!");
+                } else {
+                    switch (valid) {
+                        case 1:
+                            return "Trung cap";
+                        case 2:
+                            return "Cao dang";
+                        case 3:
+                            return "Dai hoc";
+                        case 4:
+                            return "Sau dai hoc";
+                    }
                 }
             } catch (NumberFormatException e) {
                 System.out.println("->Error: Please enter integer number to choose!");
             }
-        } while (valid != 1 && valid != 2 && valid != 3 && valid != 4);
-        switch (valid) {
-            case 1:
-                return "Trung cap";
-            case 2:
-                return "Cao dang";
-            case 3:
-                return "Dai hoc";
-            case 4:
-                return "Sau dai hoc";
-        }
-        return null;
+        } while (true);
     }
 
     @Override
@@ -148,7 +148,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
         }
     }
 
-    public String enterPosition() {
+    private String enterPosition() {
         int valid = 0;
         do {
             try {
@@ -156,29 +156,29 @@ public class EmployeeServiceImpl implements IEmployeeService {
                 valid = Integer.parseInt(sc.nextLine());
                 if (valid != 1 && valid != 2 && valid != 3 && valid != 4 && valid != 5 && valid != 6) {
                     System.out.println("->Error: Only receive number 1->6!");
+                } else {
+                    switch (valid) {
+                        case 1:
+                            return "Le tan";
+                        case 2:
+                            return "Phuc vu";
+                        case 3:
+                            return "Chuyen vien";
+                        case 4:
+                            return "Giam sat";
+                        case 5:
+                            return "Quan ly";
+                        case 6:
+                            return "Giam doc";
+                    }
                 }
             } catch (NumberFormatException e) {
                 System.out.println("->Error: Please enter integer number to choose!");
             }
-        } while (valid != 1 && valid != 2 && valid != 3 && valid != 4 && valid != 5 && valid != 6);
-        switch (valid) {
-            case 1:
-                return "Le tan";
-            case 2:
-                return "Phuc vu";
-            case 3:
-                return "Chuyen vien";
-            case 4:
-                return "Giam sat";
-            case 5:
-                return "Quan ly";
-            case 6:
-                return "Giam doc";
-        }
-        return null;
+        } while (true);
     }
 
-    public int enterSalary() {
+    private int enterSalary() {
         int salary = 0;
         do {
             System.out.print("Enter Employee's salary: ");
@@ -195,7 +195,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
         } while (true);
     }
 
-    public String enterFullName() {
+    private String enterFullName() {
         String fullName;
         do {
             System.out.print("Enter Employee's full name(Ex: Duong Van Bao): ");
@@ -208,7 +208,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
         } while (true);
     }
 
-    public Date enterDOB() {
+    private Date enterDOB() {
         Date dOB;
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         dateFormat.setLenient(false);
@@ -229,7 +229,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
         } while (true);
     }
 
-    public boolean enterIsMale() {
+    private boolean enterIsMale() {
         int valid;
         do {
             try {
@@ -246,10 +246,10 @@ public class EmployeeServiceImpl implements IEmployeeService {
         } while (true);
     }
 
-    public String enterIdentityCard() {
+    private String enterIdentityCard() {
         String identityCard = "";
         do {
-            System.out.print("Enter Employee's Identity Card: ");
+            System.out.print("Enter Employee's Identity Card(a number has 9 or 12 digits): ");
             identityCard = sc.nextLine();
             if (new Validation().isIdentityCard(identityCard)) {
                 return identityCard;
@@ -259,7 +259,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
         } while (true);
     }
 
-    public String enterPhoneNumber() {
+    private String enterPhoneNumber() {
         String phoneNumber;
         do {
             System.out.print("Enter Employee's phone number(starting with 0 and having 10 digits): ");
@@ -272,7 +272,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
         } while (true);
     }
 
-    public String enterEmail() {
+    private String enterEmail() {
         String email;
         do {
             System.out.print("Enter Employee's email(Ex: abc@abc.xyz): ");

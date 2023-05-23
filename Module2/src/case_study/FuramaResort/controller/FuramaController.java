@@ -1,5 +1,6 @@
 package case_study.FuramaResort.controller;
 
+import case_study.FuramaResort.service.implementations.CustomerServiceImpl;
 import case_study.FuramaResort.service.implementations.EmployeeServiceImpl;
 
 import java.util.Scanner;
@@ -161,12 +162,16 @@ public class FuramaController {
                 if (choice < 1 || choice > 4) {
                     System.out.println("->Error: Only receive number 1->4!");
                 } else {
+                    CustomerServiceImpl customerService = new CustomerServiceImpl();
                     switch (choice) {
                         case 1:
+                            customerService.display();
                             break;
                         case 2:
+                            customerService.add();
                             break;
                         case 3:
+                            customerService.edit();
                             break;
                         case 4:
                             System.out.println("---Return main menu---");

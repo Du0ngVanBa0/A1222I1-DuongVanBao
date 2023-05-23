@@ -4,6 +4,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class Validation {
+    private static final String CUSTOMER_CODE_REGEX = "^KH-\\d{4}$";
     private static final String EMPLOYEE_CODE_REGEX = "^NV-\\d{4}$";
     private static final String NAME_REGEX = "^[A-Z][a-z]+(\\s[A-Z][a-z]+)+$";
     private static final String EMAIL_REGEX = ".{0,}";
@@ -43,6 +44,10 @@ public class Validation {
 
     public boolean isEmployeeCode(String code) {
         return code.matches(EMPLOYEE_CODE_REGEX);
+    }
+
+    public boolean isCustomerCode(String code) {
+        return code.matches(CUSTOMER_CODE_REGEX);
     }
 
     public boolean isName(String name) {
