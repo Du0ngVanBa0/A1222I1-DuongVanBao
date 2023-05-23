@@ -1,5 +1,7 @@
 package case_study.FuramaResort.repository.interfaces;
 
-public interface IEmployeeRepository extends IRepository {
-    void edit();
+import java.util.List;
+
+public interface IEmployeeRepository<T> extends IRepository<T> {
+    void edit(List<T> newList);
 }

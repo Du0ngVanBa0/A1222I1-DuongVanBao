@@ -1,15 +1,23 @@
 package case_study.FuramaResort.repository.implementations;
 
-import case_study.FuramaResort.repository.interfaces.IRepository;
+import case_study.FuramaResort.repository.interfaces.ICustomerRepository;
 
-public class CustomerRepository implements IRepository {
+import java.util.List;
+
+public class CustomerRepository<T> implements ICustomerRepository<T> {
+
     @Override
-    public void display() {
+    public void edit() {
 
     }
 
     @Override
-    public void add() {
+    public List<T> getList() {
+        return null;
+    }
+
+    @Override
+    public void addToList(Object obj) {
 
     }
 }

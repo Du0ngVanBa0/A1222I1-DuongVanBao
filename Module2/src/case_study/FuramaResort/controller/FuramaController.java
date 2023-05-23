@@ -1,7 +1,6 @@
 package case_study.FuramaResort.controller;
 
 import case_study.FuramaResort.service.implementations.EmployeeServiceImpl;
-import case_study.FuramaResort.service.interfaces.IEmployeeService;
 
 import java.util.Scanner;
 
@@ -203,6 +202,7 @@ public class FuramaController {
                             employeeService.add();
                             break;
                         case 3:
+                            employeeService.edit();
                             break;
                         case 4:
                             System.out.println("---Return main menu---");

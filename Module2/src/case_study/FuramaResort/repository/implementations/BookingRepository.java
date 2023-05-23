@@ -1,15 +1,17 @@
 package case_study.FuramaResort.repository.implementations;
 
-import case_study.FuramaResort.repository.interfaces.IRepository;
+import case_study.FuramaResort.repository.interfaces.IBookingRepository;
 
-public class BookingRepository implements IRepository {
+import java.util.List;
+
+public class BookingRepository<T> implements IBookingRepository<T> {
     @Override
-    public void display() {
-
+    public List<T> getList() {
+        return null;
     }
 
     @Override
-    public void add() {
+    public void addToList(Object obj) {
 
     }
 }

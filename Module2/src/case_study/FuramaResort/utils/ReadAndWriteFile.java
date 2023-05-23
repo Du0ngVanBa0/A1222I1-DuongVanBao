@@ -15,8 +15,21 @@ public class ReadAndWriteFile {
             File file = new File(path);
             BufferedWriter bw = new BufferedWriter(new FileWriter(file, true));
             String newLine = employeeToString(employee);
-            bw.newLine();
             bw.write(newLine);
+            bw.newLine();
+            bw.close();
+        } catch (IOException e) {
+            System.out.println("File không tồn tại hoặc đã xảy ra lỗi!");
+        }
+    }
+
+    public void rewriteEmployeeFile(String path, List<Employee> employeeList) {
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter(path, false));
+            for (Employee employee : employeeList) {
+                bw.write(employeeToString(employee));
+                bw.newLine();
+            }
             bw.close();
         } catch (IOException e) {
             System.out.println("File không tồn tại hoặc đã xảy ra lỗi!");

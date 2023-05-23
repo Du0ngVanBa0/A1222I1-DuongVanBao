@@ -1,7 +1,9 @@
 package case_study.FuramaResort.repository.interfaces;
 
-public interface IRepository {
-    void display();
+import java.util.List;
 
-    void add();
+public interface IRepository<T> {
+    List<T> getList();
+
+    void addToList(T obj);
 }

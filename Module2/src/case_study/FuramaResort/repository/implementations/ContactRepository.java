@@ -1,15 +1,22 @@
 package case_study.FuramaResort.repository.implementations;
 
-import case_study.FuramaResort.repository.interfaces.IRepository;
+import case_study.FuramaResort.repository.interfaces.IContactRepository;
 
-public class ContactRepository implements IRepository {
+import java.util.List;
+
+public class ContactRepository<T> implements IContactRepository<T> {
     @Override
-    public void display() {
+    public List<T> getList() {
+        return null;
+    }
+
+    @Override
+    public void addToList(Object obj) {
 
     }
 
     @Override
-    public void add() {
+    public void edit() {
 
     }
 }
