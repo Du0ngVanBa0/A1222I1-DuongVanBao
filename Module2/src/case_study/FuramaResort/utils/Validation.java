@@ -7,7 +7,7 @@ public class Validation {
     private static final String CUSTOMER_CODE_REGEX = "^KH-\\d{4}$";
     private static final String EMPLOYEE_CODE_REGEX = "^NV-\\d{4}$";
     private static final String NAME_REGEX = "^[A-Z][a-z]+(\\s[A-Z][a-z]+)+$";
-    private static final String EMAIL_REGEX = ".{0,}";
+    private static final String EMAIL_REGEX = "^[\\w.]+@[\\w&&[^_]]+([.][\\w&&[^_]]+){1,2}$";
     private static final String PHONE_NUMBER_REGEX = "^0\\d{9}$";
     private static final String IDENTITY_CARD_REGEX = "^\\d{9}(\\d{3})?$";
 
