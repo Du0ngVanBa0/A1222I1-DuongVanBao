@@ -140,37 +140,7 @@ public class FacilityServiceImpl implements IFacilityService {
         } while (true);
         //Enter Villa's hire type
         System.out.println("Enter Villa's hire type:");
-        int valid = 0;
-        String typeHire = "";
-        do {
-            try {
-                System.out.print("1.\tYear\n" +
-                        "2.\tMonth\n" +
-                        "3.\tDay\n" +
-                        "4.\tHour\n" +
-                        "Enter your choice(1->4): ");
-                valid = Integer.parseInt(sc.nextLine());
-                if (valid < 1 || valid > 4) {
-                    System.out.println("->Error: Only receive number 1->4!");
-                }
-            } catch (NumberFormatException e) {
-                System.out.println("->Error: Please enter integer number to choose!");
-            }
-        } while (valid < 1 || valid > 4);
-        switch (valid) {
-            case 1:
-                typeHire = "Year";
-                break;
-            case 2:
-                typeHire = "Month";
-                break;
-            case 3:
-                typeHire = "Day";
-                break;
-            case 4:
-                typeHire = "Hour";
-                break;
-        }
+        String typeHire = enterHireType();
         System.out.print("Enter Villa's standard: ");
         String standard = enterStandard();
         //Enter Villa's pool area
