@@ -11,7 +11,7 @@ public class ContactRepository<T> implements IContactRepository<T> {
     }
 
     @Override
-    public void addToList(Object obj) {
+    public void addNew(Object obj) {
 
     }
 

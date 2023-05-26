@@ -3,12 +3,12 @@ package case_study.FuramaResort.model;
 public abstract class Facility {
     String facilityCode;
     String facilityName;
-    int area;
+    double area;
     int cost;
     int maxPeople;
     String typeHire;
 
-    public Facility(String facilityCode, String facilityName, int area, int cost, int maxPeople, String typeHire) {
+    public Facility(String facilityCode, String facilityName, double area, int cost, int maxPeople, String typeHire) {
         this.facilityCode = facilityCode;
         this.facilityName = facilityName;
         this.area = area;
@@ -33,7 +33,7 @@ public abstract class Facility {
         this.facilityName = facilityName;
     }
 
-    public int getArea() {
+    public double getArea() {
         return area;
     }
 
@@ -63,5 +63,17 @@ public abstract class Facility {
 
     public void setTypeHire(String typeHire) {
         this.typeHire = typeHire;
+    }
+
+    @Override
+    public String toString() {
+        return "Facility{" +
+                "facilityCode='" + facilityCode + '\'' +
+                ", facilityName='" + facilityName + '\'' +
+                ", area=" + area +
+                ", cost=" + cost +
+                ", maxPeople=" + maxPeople +
+                ", typeHire='" + typeHire + '\'' +
+                '}';
     }
 }

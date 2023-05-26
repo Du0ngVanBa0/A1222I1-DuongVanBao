@@ -9,7 +9,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class FacilityServiceImpl implements IFacilityService {
+public class    FacilityServiceImpl implements IFacilityService {
     static LinkedHashMap<Facility, Integer> facility;
     static Scanner sc;
 

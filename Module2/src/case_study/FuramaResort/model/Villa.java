@@ -3,10 +3,10 @@ package case_study.FuramaResort.model;
 public class Villa extends Facility {
 
     private String standard;
-    private int areaPool;
+    private double areaPool;
     private int numFloor;
 
-    public Villa(String facilityCode, String facilityName, int area, int cost, int maxPeople, String typeHire, String standard, int areaPool, int numFloor) {
+    public Villa(String facilityCode, String facilityName, double area, int cost, int maxPeople, String typeHire, String standard, double areaPool, int numFloor) {
         super(facilityCode, facilityName, area, cost, maxPeople, typeHire);
         this.standard = standard;
         this.areaPool = areaPool;
@@ -21,7 +21,7 @@ public class Villa extends Facility {
         this.standard = standard;
     }
 
-    public int getAreaPool() {
+    public double getAreaPool() {
         return areaPool;
     }
 

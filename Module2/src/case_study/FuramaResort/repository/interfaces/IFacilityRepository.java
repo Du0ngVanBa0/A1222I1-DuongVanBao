@@ -1,5 +1,9 @@
 package case_study.FuramaResort.repository.interfaces;
 
-public interface IFacilityRepository<T> extends IRepository<T>{
+import java.util.LinkedHashMap;
+
+public interface IFacilityRepository<T> extends IRepository<T> {
     void displayMaintenance();
+
+    LinkedHashMap<T, Integer> getMap();
 }

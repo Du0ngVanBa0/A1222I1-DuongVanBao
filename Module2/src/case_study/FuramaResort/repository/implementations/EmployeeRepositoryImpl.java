@@ -6,7 +6,7 @@ import case_study.FuramaResort.utils.ReadAndWriteFile;
 
 import java.util.List;
 
-public class EmployeeRepositoryImpl<T> implements IEmployeeRepository<T> {
+public class EmployeeRepositoryImpl implements IEmployeeRepository<Employee> {
     static final String EMPLOYEE_PATH;
 
     static {
@@ -14,17 +14,17 @@ public class EmployeeRepositoryImpl<T> implements IEmployeeRepository<T> {
     }
 
     @Override
-    public List<T> getList() {
-        return (List<T>) new ReadAndWriteFile().readEmployeeFile(EMPLOYEE_PATH);
+    public List<Employee> getList() {
+        return new ReadAndWriteFile().readEmployeeFile(EMPLOYEE_PATH);
     }
 
     @Override
-    public void addToList(T employee) {
+    public void addNew(Employee employee) {
         new ReadAndWriteFile().writeEmployeeFile(EMPLOYEE_PATH, (Employee) employee);
     }
 
     @Override
-    public void edit(List<T> newList) {
-        new ReadAndWriteFile().rewriteEmployeeFile(EMPLOYEE_PATH, (List<Employee>) newList);
+    public void edit(List<Employee> newList) {
+        new ReadAndWriteFile().rewriteEmployeeFile(EMPLOYEE_PATH, newList);
     }
 }

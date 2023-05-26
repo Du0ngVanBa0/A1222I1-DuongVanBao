@@ -6,7 +6,7 @@ import case_study.FuramaResort.utils.ReadAndWriteFile;
 
 import java.util.List;
 
-public class CustomerRepositoryImpl<T> implements ICustomerRepository<T> {
+public class CustomerRepositoryImpl implements ICustomerRepository<Customer> {
     static final String CUSTOMER_PATH;
 
     static {
@@ -15,17 +15,17 @@ public class CustomerRepositoryImpl<T> implements ICustomerRepository<T> {
     }
 
     @Override
-    public List<T> getList() {
-        return (List<T>) new ReadAndWriteFile().readCustomerFile(CUSTOMER_PATH);
+    public List<Customer> getList() {
+        return new ReadAndWriteFile().readCustomerFile(CUSTOMER_PATH);
     }
 
     @Override
-    public void addToList(T customer) {
-        new ReadAndWriteFile().writeCustomerFile(CUSTOMER_PATH, (Customer) customer);
+    public void addNew(Customer customer) {
+        new ReadAndWriteFile().writeCustomerFile(CUSTOMER_PATH, customer);
     }
 
     @Override
-    public void edit(List<T> newList) {
-        new ReadAndWriteFile().rewriteCustomerFile(CUSTOMER_PATH, (List<Customer>) newList);
+    public void edit(List<Customer> newList) {
+        new ReadAndWriteFile().rewriteCustomerFile(CUSTOMER_PATH, newList);
     }
 }

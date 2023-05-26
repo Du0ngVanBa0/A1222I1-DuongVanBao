@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CustomerServiceImpl implements ICustomerService {
-    CustomerRepositoryImpl<Customer> customerRepository = new CustomerRepositoryImpl<>();
+    CustomerRepositoryImpl customerRepository = new CustomerRepositoryImpl();
     Scanner sc = new Scanner(System.in);
 
     @Override
@@ -35,7 +35,7 @@ public class CustomerServiceImpl implements ICustomerService {
         String phoneNumber = enterPhoneNumber();
         String email = enterEmail();
         String address = enterAddress();
-        customerRepository.addToList(new Customer(fullName, dOB, isMale, identityCard, phoneNumber, email, code, type, address));
+        customerRepository.addNew(new Customer(fullName, dOB, isMale, identityCard, phoneNumber, email, code, type, address));
     }
 
     @Override
@@ -178,7 +178,7 @@ public class CustomerServiceImpl implements ICustomerService {
         do {
             System.out.print("Enter Customer's full name(Ex: Duong Van Bao): ");
             fullName = sc.nextLine();
-            if (new Validation().isName(fullName)) {
+            if (new Validation().isFullName(fullName)) {
                 return fullName;
             } else {
                 System.out.println("->Error: Wrong format of Customer's full name(Duong Van Bao)");

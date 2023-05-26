@@ -13,7 +13,7 @@ import java.util.Scanner;
 
 
 public class EmployeeServiceImpl implements IEmployeeService {
-    EmployeeRepositoryImpl<Employee> employeeRepository = new EmployeeRepositoryImpl<>();
+    EmployeeRepositoryImpl employeeRepository = new EmployeeRepositoryImpl();
     Scanner sc = new Scanner(System.in);
 
     @Override
@@ -200,7 +200,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
         do {
             System.out.print("Enter Employee's full name(Ex: Duong Van Bao): ");
             fullName = sc.nextLine();
-            if (new Validation().isName(fullName)) {
+            if (new Validation().isFullName(fullName)) {
                 return fullName;
             } else {
                 System.out.println("->Error: Wrong format of Employee's full name(Duong Van Bao)");
@@ -307,6 +307,6 @@ public class EmployeeServiceImpl implements IEmployeeService {
         String identityCard = enterIdentityCard();
         String phoneNumber = enterPhoneNumber();
         String email = enterEmail();
-        employeeRepository.addToList(new Employee(fullName, dOB, isMale, identityCard, phoneNumber, email, code, level, position, salary));
+        employeeRepository.addNew(new Employee(fullName, dOB, isMale, identityCard, phoneNumber, email, code, level, position, salary));
     }
 }

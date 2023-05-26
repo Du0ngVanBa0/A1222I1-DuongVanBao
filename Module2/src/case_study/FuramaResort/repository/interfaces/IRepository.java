@@ -5,5 +5,5 @@ import java.util.List;
 public interface IRepository<T> {
     List<T> getList();
 
-    void addToList(T obj);
+    void addNew(T obj);
 }

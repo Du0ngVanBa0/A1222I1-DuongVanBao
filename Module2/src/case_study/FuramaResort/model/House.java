@@ -2,9 +2,9 @@ package case_study.FuramaResort.model;
 
 public class House extends Facility{
     private String standard;
-    private int numFloor;
+    private double numFloor;
 
-    public House(String facilityCode, String facilityName, int area, int cost, int maxPeople, String typeHire, String standard, int numFloor) {
+    public House(String facilityCode, String facilityName, double area, int cost, int maxPeople, String typeHire, String standard, int numFloor) {
         super(facilityCode, facilityName, area, cost, maxPeople, typeHire);
         this.standard = standard;
         this.numFloor = numFloor;
@@ -18,7 +18,7 @@ public class House extends Facility{
         this.standard = standard;
     }
 
-    public int getNumFloor() {
+    public double getNumFloor() {
         return numFloor;
     }
 

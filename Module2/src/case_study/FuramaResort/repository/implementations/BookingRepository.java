@@ -11,7 +11,7 @@ public class BookingRepository<T> implements IBookingRepository<T> {
     }
 
     @Override
-    public void addToList(Object obj) {
+    public void addNew(Object obj) {
 
     }
 }

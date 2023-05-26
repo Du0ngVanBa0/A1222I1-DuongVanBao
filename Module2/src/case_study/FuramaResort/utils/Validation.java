@@ -4,12 +4,28 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class Validation {
+    private static final String VILLA_CODE_REGEX = "^SVVL-\\d{4}$";
+    private static final String ROOM_CODE_REGEX = "^SVRO-\\d{4}$";
+    private static final String HOUSE_CODE_REGEX = "^SVHO-\\d{4}$";
     private static final String CUSTOMER_CODE_REGEX = "^KH-\\d{4}$";
     private static final String EMPLOYEE_CODE_REGEX = "^NV-\\d{4}$";
-    private static final String NAME_REGEX = "^[A-Z][a-z]+(\\s[A-Z][a-z]+)+$";
+    private static final String FULL_NAME_REGEX = "^[A-Z][a-z]+(\\s[A-Z][a-z]+)+$";
+    private static final String SERVICE_NAME_REGEX = "^[A-Z][a-z]+(\\s[A-Z][a-z]+)*$";
     private static final String EMAIL_REGEX = "^[\\w.]+@[\\w&&^_]+(.[\\w&&^_]+){1,2}$";
     private static final String PHONE_NUMBER_REGEX = "^0\\d{9}$";
     private static final String IDENTITY_CARD_REGEX = "^\\d{9}(\\d{3})?$";
+
+    public boolean isVillaCode(String code) {
+        return code.matches(VILLA_CODE_REGEX);
+    }
+
+    public boolean isHouseCode(String code) {
+        return code.matches(HOUSE_CODE_REGEX);
+    }
+
+    public boolean isRoomCode(String code) {
+        return code.matches(ROOM_CODE_REGEX);
+    }
 
     public boolean isPhoneNumber(String phoneNumber) {
         return phoneNumber.matches(PHONE_NUMBER_REGEX);
@@ -50,7 +66,11 @@ public class Validation {
         return code.matches(CUSTOMER_CODE_REGEX);
     }
 
-    public boolean isName(String name) {
-        return name.matches(NAME_REGEX);
+    public boolean isFullName(String name) {
+        return name.matches(FULL_NAME_REGEX);
+    }
+
+    public boolean isServiceName(String name) {
+        return name.matches(SERVICE_NAME_REGEX);
     }
 }
