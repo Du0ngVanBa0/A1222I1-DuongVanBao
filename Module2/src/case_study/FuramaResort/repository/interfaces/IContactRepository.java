@@ -1,5 +1,7 @@
 package case_study.FuramaResort.repository.interfaces;
 
-public interface IContactRepository<T> extends IRepository<T>{
+import case_study.FuramaResort.model.Contact;
+
+public interface IContactRepository extends IRepository<Contact>{
     void edit();
 }

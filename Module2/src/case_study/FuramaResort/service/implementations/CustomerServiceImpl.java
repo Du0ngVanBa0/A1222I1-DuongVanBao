@@ -17,16 +17,7 @@ public class CustomerServiceImpl implements ICustomerService {
 
     @Override
     public void add() {
-        String code = "";
-        do {
-            System.out.print("Enter Customer's code(Ex: KH-1234): ");
-            code = sc.nextLine();
-            if (new Validation().isCustomerCode(code)) {
-                break;
-            } else {
-                System.out.println("->Error: Wrong format of Customer's code(KH-1234)");
-            }
-        } while (true);
+        String code = enterCode();
         String type = enterType();
         String fullName = enterFullName();
         Date dOB = enterDOB();
@@ -36,6 +27,32 @@ public class CustomerServiceImpl implements ICustomerService {
         String email = enterEmail();
         String address = enterAddress();
         customerRepository.addNew(new Customer(fullName, dOB, isMale, identityCard, phoneNumber, email, code, type, address));
+        System.out.println("-Add successfully-");
+    }
+
+    private String enterCode() {
+        String code = "";
+        boolean valid = false;
+        do {
+            System.out.print("Enter Customer's code(Ex: KH-1234): ");
+            code = sc.nextLine();
+            if (new Validation().isCustomerCode(code)) {
+                valid = true;
+                List<Customer> customerList = customerRepository.getList();
+                for (Customer customer : customerList) {
+                    if (customer.getCustomerCode().equals(code)) {
+                        System.out.println("This Customer's code already exist!");
+                        valid = false;
+                        break;
+                    }
+                }
+                if (valid) {
+                    return code;
+                }
+            } else {
+                System.out.println("->Error: Wrong format of Customer's code(KH-1234)");
+            }
+        } while (true);
     }
 
     @Override

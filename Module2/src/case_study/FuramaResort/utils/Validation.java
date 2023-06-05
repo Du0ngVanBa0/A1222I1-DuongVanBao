@@ -54,6 +54,15 @@ public class Validation {
         return age >= 18;
     }
 
+    public boolean isBeginBookingDate(Date beginDate) {
+        Date now = new Date();
+        return !(beginDate.before(now));
+    }
+
+    public boolean isEndBookingDate(Date beginDate,Date endDate){
+        return !(endDate.before(beginDate));
+    }
+
     public boolean isEmail(String email) {
         return email.matches(EMAIL_REGEX);
     }

@@ -1,9 +1,11 @@
 package case_study.FuramaResort.repository.interfaces;
 
+import case_study.FuramaResort.model.Facility;
+
 import java.util.LinkedHashMap;
 
-public interface IFacilityRepository<T> extends IRepository<T> {
-    void displayMaintenance();
+public interface IFacilityRepository extends IRepository<Facility> {
+    LinkedHashMap<Facility,Integer> getMaintenance();
 
-    LinkedHashMap<T, Integer> getMap();
+    LinkedHashMap<Facility, Integer> getMap();
 }

@@ -285,19 +285,35 @@ public class EmployeeServiceImpl implements IEmployeeService {
         } while (true);
     }
 
-
-    @Override
-    public void add() {
+    private String enterCode() {
         String code = "";
+        boolean valid = false;
         do {
             System.out.print("Enter Employee's code(Ex: NV-1234): ");
             code = sc.nextLine();
             if (new Validation().isEmployeeCode(code)) {
-                break;
+                valid = true;
+                List<Employee> employeeList = employeeRepository.getList();
+                for (Employee employee : employeeList) {
+                    if (employee.getEmployeeCode().equals(code)) {
+                        System.out.println("->Error: This Employee's code already exist");
+                        valid = false;
+                        break;
+                    }
+                }
+                if (valid) {
+                    return code;
+                }
             } else {
                 System.out.println("->Error: Wrong format of Employee's code(NV-1234)");
             }
         } while (true);
+    }
+
+
+    @Override
+    public void add() {
+        String code = enterCode();
         String level = enterLevel();
         String position = enterPosition();
         int salary = enterSalary();
@@ -308,5 +324,6 @@ public class EmployeeServiceImpl implements IEmployeeService {
         String phoneNumber = enterPhoneNumber();
         String email = enterEmail();
         employeeRepository.addNew(new Employee(fullName, dOB, isMale, identityCard, phoneNumber, email, code, level, position, salary));
+        System.out.println("-Add successfully-");
     }
 }

@@ -1,8 +1,6 @@
 package case_study.FuramaResort.controller;
 
-import case_study.FuramaResort.service.implementations.CustomerServiceImpl;
-import case_study.FuramaResort.service.implementations.EmployeeServiceImpl;
-import case_study.FuramaResort.service.implementations.FacilityServiceImpl;
+import case_study.FuramaResort.service.implementations.*;
 
 import java.util.Scanner;
 
@@ -99,12 +97,21 @@ public class FuramaController {
                 if (choice < 1 || choice > 6) {
                     System.out.println("->Error: Only receive number 1->6!");
                 } else {
+                    BookingServiceImpl bookingService = new BookingServiceImpl();
+                    ContactServiceImpl contactService = new ContactServiceImpl();
                     switch (choice) {
                         case 1:
+                            bookingService.add();
                             break;
                         case 2:
+                            bookingService.display();
                             break;
                         case 3:
+                            break;
+                        case 4:
+                            contactService.display();
+                            break;
+                        case 5:
                             break;
                         case 6:
                             System.out.println("---Return main menu---");

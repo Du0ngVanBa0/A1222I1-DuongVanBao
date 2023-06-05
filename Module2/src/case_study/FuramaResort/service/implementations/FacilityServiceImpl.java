@@ -4,7 +4,7 @@ import case_study.FuramaResort.model.Facility;
 import case_study.FuramaResort.model.House;
 import case_study.FuramaResort.model.Room;
 import case_study.FuramaResort.model.Villa;
-import case_study.FuramaResort.repository.implementations.FacilityRepository;
+import case_study.FuramaResort.repository.implementations.FacilityRepositoryImpl;
 import case_study.FuramaResort.service.interfaces.IFacilityService;
 import case_study.FuramaResort.utils.Validation;
 
@@ -13,17 +13,15 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class FacilityServiceImpl implements IFacilityService {
-    FacilityRepository facilityRepository = new FacilityRepository();
+    FacilityRepositoryImpl facilityRepository = new FacilityRepositoryImpl();
     Scanner sc = new Scanner(System.in);
 
     @Override
     public void displayMaintenance() {
-        LinkedHashMap<Facility, Integer> facilityIntegerLinkedHashMap = facilityRepository.getMap();
+        LinkedHashMap<Facility, Integer> facilityMaintenance = facilityRepository.getMaintenance();
         System.out.println("--Display Maintenance Facility List--");
-        for (Map.Entry<Facility, Integer> facilityIntegerEntry : facilityIntegerLinkedHashMap.entrySet()) {
-            if (facilityIntegerEntry.getValue() >= 5) {
-                System.out.println(facilityIntegerEntry.getKey() + " was used " + facilityIntegerEntry.getValue() + " time(s)");
-            }
+        for (Map.Entry<Facility, Integer> facilityIntegerEntry : facilityMaintenance.entrySet()) {
+            System.out.println(facilityIntegerEntry.getKey() + " was used " + facilityIntegerEntry.getValue() + " time(s)");
         }
     }
 
@@ -79,7 +77,11 @@ public class FacilityServiceImpl implements IFacilityService {
             System.out.print("Enter Villa's code(Ex: SVVL-1234): ");
             code = sc.nextLine();
             if (new Validation().isVillaCode(code)) {
-                break;
+                if (isExistCode(code)) {
+                    System.out.println("->Error: This Villa's code already exist!");
+                } else {
+                    break;
+                }
             } else {
                 System.out.println("->Error: Villa's code must be SVVL-yyyy with y is a number 0-9!");
             }
@@ -172,6 +174,7 @@ public class FacilityServiceImpl implements IFacilityService {
             }
         } while (true);
         facilityRepository.addNew(new Villa(code, name, area, cost, maxPeople, typeHire, standard, areaPool, numFloor));
+        System.out.println("-Add successfully-");
     }
 
     private void addHouse() {
@@ -181,7 +184,11 @@ public class FacilityServiceImpl implements IFacilityService {
             System.out.print("Enter House's code(Ex: SVHO-1234): ");
             code = sc.nextLine();
             if (new Validation().isHouseCode(code)) {
-                break;
+                if (isExistCode(code)) {
+                    System.out.println("->Error: This House's code already exist!");
+                } else {
+                    break;
+                }
             } else {
                 System.out.println("->Error: House's code must be SVHO-yyyy with y is a number 0-9!");
             }
@@ -259,6 +266,16 @@ public class FacilityServiceImpl implements IFacilityService {
             }
         } while (true);
         facilityRepository.addNew(new House(code, name, area, cost, maxPeople, typeHire, standard, numFloor));
+        System.out.println("-Add successfully-");
+    }
+
+    private boolean isExistCode(String code) {
+        for (Facility facility : facilityRepository.getList()) {
+            if (facility.getFacilityCode().equals(code)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private void addRoom() {
@@ -268,7 +285,11 @@ public class FacilityServiceImpl implements IFacilityService {
             System.out.print("Enter Room's code(Ex: SVRO-1234): ");
             code = sc.nextLine();
             if (new Validation().isRoomCode(code)) {
-                break;
+                if (isExistCode(code)) {
+                    System.out.println("->Error: This Room's code already exist!");
+                } else {
+                    break;
+                }
             } else {
                 System.out.println("->Error: Room's code must be SVRO-yyyy with y is a number 0-9!");
             }
@@ -331,6 +352,7 @@ public class FacilityServiceImpl implements IFacilityService {
         System.out.println("Enter Room's free service: ");
         String freeService = sc.nextLine();
         facilityRepository.addNew(new Room(code, name, area, cost, maxPeople, typeHire, freeService));
+        System.out.println("-Add successfully-");
     }
 
     private String enterHireType() {
