@@ -10,7 +10,7 @@ create table Ordertbl(
 	oID tinyint auto_increment primary key,
     cID tinyint,
     oDate date not null,
-    oTotalPrice int not null,
+    oTotalPrice int,
     foreign key(cID) references Customertbl(cID)
 );
 
