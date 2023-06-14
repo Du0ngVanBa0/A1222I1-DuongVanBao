@@ -91,3 +91,18 @@ group by ma_nhan_vien
 select *, year(datediff(ngay_sinh,now()))
 from khach_hang
 where (dia_chi like '%Đà Nẵng%' or dia_chi like '%Quảng Trị%');
+
+-- 13. 
+select ten_dich_vu_di_kem, sum(so_luong) as so_luong_dich_vu_di_kem
+from dich_vu_di_kem DV
+join hop_dong_chi_tiet CT on DV.ma_dich_vu_di_kem = CT.ma_dich_vu_di_kem
+group by DV.ma_dich_vu_di_kem
+having so_luong_dich_vu_di_kem = (
+	select max(so_luong_dich_vu_di_kem)
+	from(
+		select sum(so_luong) as so_luong_dich_vu_di_kem
+		from  hop_dong_chi_tiet
+		group by ma_dich_vu_di_kem
+	) as t
+);
+
