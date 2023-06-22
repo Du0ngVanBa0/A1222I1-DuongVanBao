@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Roboto";
+    font-size: 16px;
+}
+
+main {
+    width: 640px;
+    margin: 24px auto;
+    text-align: justify;
+}
+
+h1 {
+    font-family: "Times New Roman";
+    padding-bottom: 2px;
+    border-bottom: darkgrey solid 1px;
+}
+
+#sub_title {
+    margin-bottom: 18px;
+    padding-top: 2px;
+}
+
+.paragraph {
+    text-indent: 32px;
+    margin-bottom: 8px;
+}
+
+.bold_txt {
+    font-weight: bold;
+}
+
+.light_blue_txt {
+    color: #2984c8;
+}
+
+.blue_txt {
+    color: rgb(0, 0, 255);
+}
+
+sup {
+    font-size: 10px;
+}
