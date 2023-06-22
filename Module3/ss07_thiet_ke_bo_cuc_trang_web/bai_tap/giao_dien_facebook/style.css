@@ -1,0 +1,71 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+:root{
+    --fb-color: #1877F2;
+    --background-fb: #F0F2F5;
+}
+input[type="search"] {
+    outline: none; /* Loại bỏ đường viền khi được focus */
+}
+input[type="search"]::-webkit-search-cancel-button {
+    display: none;
+}
+header{
+    height: 40px;
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    align-items:center;
+    position: fixed;
+    z-index: 1;
+    background-color: white;
+}
+#body_container{
+    height: 100%;
+    padding-top: 70px;
+    background-color: var(--background-fb);
+}
+#body_container:after{
+    clear: both;
+}
+.sidebar{
+    display: inline-block;
+    position: fixed;
+    width: 20%;
+    height: 100%;
+    background-color: var(--fb-color);
+}
+.content{
+    margin-left: 20%;
+    display: inline-block;
+    width: 79%;
+}
+.logo{
+    fill: var(--fb-color);
+}
+.search_container{
+    margin-left: 20%;
+    border: 1px solid black;
+    border-radius: 50px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+    background-color: var(--background-fb);
+    width: 590px;
+}
+.search{
+    height: 40px;
+    font-size: 15px;
+    width: 100%;
+    border: none;
+    background-color: transparent;
+}
+.search:active{
+    background-color: transparent;
+}
+.search_icon{
+    margin: 0 5px;
+}

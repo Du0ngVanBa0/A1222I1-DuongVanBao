@@ -1,0 +1,139 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Tahoma;
+    font-size: 12px;
+}
+
+#main{
+    width: 100%;
+    padding: 0;
+}
+
+#left{
+    width: 20%;
+    min-height: 400px;
+    float:left;
+    background-color: #F0F2F5;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+#content{
+    width: 60%;
+    min-height: 400px;
+    float:left;
+}
+
+#right{
+    width: 20%;
+    min-height: 400px;
+    float:left;
+    background-color: #F0F2F5;
+    display: flex;
+    flex-direction: column;
+}
+
+#footer{
+    height: 60px;
+    clear: both;
+    background-color: dimgray;
+}
+
+#menu{
+    height: 60px;
+    margin:0;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: black;
+    clear: both;
+    font-size: 20px;
+}
+
+#menu ul, #menu li{
+    padding:0;
+    margin:0;
+}
+
+#menu li{
+    position: relative;
+    float: left;
+    list-style: none;
+    margin: 0;
+    padding:0;
+}
+
+#menu li a{
+    width:100px;
+    display: block;
+    text-decoration:none;
+    text-align: center;
+    line-height: 60px;
+    background-color: black;
+    color: white;
+}
+
+#menu ul ul li a{
+    width: 200px;
+    text-align: left;
+    padding-left: 10px;
+}
+
+#menu li a:hover{
+    background-color: red;
+}
+
+#menu ul ul{
+    position: absolute;
+    top: 60px;
+    left: 0px;
+    visibility: hidden;
+}
+
+#menu ul li:hover ul{
+    visibility: visible;
+}
+
+#footer{
+    text-align: center;
+    line-height: 60px;
+    font-size: 20px;
+    color: white;
+}
+
+#content{
+    padding: 12px;
+}
+
+.head_content{
+    font-size: 30px;
+    margin-top: 20px;
+}
+
+.paragraph_content{
+    font-size: 17px;
+    margin-top: 12px;
+    margin-bottom: 20px;
+}
+
+.ads{
+    padding: 40px;
+    background-color: #CDCDCD;
+    width: 200px;
+    text-align: center;
+    font-size: 25px;
+    border: 1px solid #000000;
+    margin: 20px auto;
+}
+
+.link_left{
+    font-size: 25px;
+    text-decoration: none;
+    margin: 10px 0;
+    color: #1877F2;
+}
