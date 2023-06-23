@@ -1,17 +1,17 @@
-*{
+* {
     box-sizing: border-box;
 }
 
-body{
+body {
     font-family: Arial, Tahoma;
     font-size: 12px;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
-a:visited{
+a:visited {
     color: black;
 }
 
@@ -23,78 +23,133 @@ a:active {
     color: chartreuse;
 }
 
-#main{
+#main {
     width: 100%;
     padding: 0;
 }
 
-#head{
+#head {
     background-color: #F5F5F5;
-    margin-bottom:5px;
+    margin-bottom: 5px;
 }
 
-#head-link{
+#head-link {
     height: 30px;
     line-height: 30px;
     background-color: #F5F5F5;
-    margin-bottom:5px;
+    margin-bottom: 5px;
     clear: both;
     font-size: 20px;
     text-align: center;
 }
 
-#head-link a{
+#head-link a {
     padding: 0 10px;
 }
 
-#head-link a:not(:last-child){
+#head-link a:not(:last-child) {
     border-right: 2px solid black;
 }
 
-.content_container{
-    width: 100%;
-
+.content_container {
+    display: inline-block;
 }
 
-#left{
+#left {
     width: 30%;
     top: 0;
     bottom: 0;
-    float:left;
+    float: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: #F0F2F5;
     margin-bottom: 5px;
 }
 
-#content{
+#content {
     width: 70%;
-    float:left;
+    float: left;
     display: flex;
     flex-direction: column;
 }
 
-#footer{
+#footer {
     height: 50px;
     clear: both;
     background-color: #F0F2F5;
     line-height: 50px;
     text-align: center;
-    font-size: 20px;
 }
 
-#description{
+#description {
     margin-left: 20px;
-    font-size: 20px;
     font-family: Tahoma;
 }
 
-#main_video{
+.common_txt {
+    font-size: 20px;
+}
+
+#main_video {
     margin: 0 auto;
 }
 
-.bold_txt{
+.bold_txt {
     font-weight: bolder;
 }
 
-.top_video{
+.top_video {
     padding: 10px 20px;
+    width: 95%;
+}
+
+@media only screen and (max-width: 1000px) {
+    iframe {
+        height: 400px !important;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .common_txt {
+        font-size: 17px;
+    }
+
+    a {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    #content {
+        width: 100%;
+    }
+
+    #left {
+        width: 100%;
+    }
+
+    .top_video a {
+        display: flex;
+        align-items: center;
+    }
+
+    .top_video a img {
+        width: 40%;
+        margin-right: 10px;
+    }
+
+    a {
+        font-size: 12px;
+    }
+
+    iframe {
+        height: 300px !important;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .common_txt {
+        font-size: 15px;
+    }
 }
