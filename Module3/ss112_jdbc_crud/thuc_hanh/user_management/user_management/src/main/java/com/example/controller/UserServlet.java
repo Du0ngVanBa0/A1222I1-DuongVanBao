@@ -39,6 +39,18 @@ public class UserServlet extends HttpServlet {
 
         try {
             switch (action) {
+                case "list-store":
+                    listUserStore(request,response);
+                    break;
+                case "test-use-tran":
+                    testUseTran(request,response);
+                    break;
+                case "test-without-tran":
+                    testWithoutTran(request,response);
+                    break;
+                case "permission":
+                    addUserPermission(request,response);
+                    break;
                 case "search":
                     listUserCountry(request, response);
                     break;
@@ -51,6 +63,9 @@ public class UserServlet extends HttpServlet {
                 case "delete":
                     deleteUser(request, response);
                     break;
+                case "delete-store":
+                    deleteUserStore(request, response);
+                    break;
                 case "sort":
                     sortForm(request, response);
                     break;
@@ -61,6 +76,37 @@ public class UserServlet extends HttpServlet {
         } catch (SQLException ex) {
             throw new ServletException(ex);
         }
+    }
+
+    private void deleteUserStore(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        userDAO.deleteUserStore(id);
+
+        users = userDAO.selectAllUsers();
+        request.setAttribute("listUser", users);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/users?action=show");
+        dispatcher.forward(request, response);
+    }
+
+    private void listUserStore(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        users = userDAO.selectAllUsersStore();
+        request.setAttribute("listUser", users);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/user/list.jsp");
+        dispatcher.forward(request, response);
+    }
+
+    private void testUseTran(HttpServletRequest request, HttpServletResponse response) {
+        userDAO.insertUpdateUseTransaction();
+    }
+
+    private void testWithoutTran(HttpServletRequest request, HttpServletResponse response) {
+        userDAO.insertUpdateWithoutTransaction();
+    }
+
+    private void addUserPermission(HttpServletRequest request, HttpServletResponse response) {
+        User user = new User("quan", "quan.nguyen@codegym.vn", "vn");
+        int[] permission = {1, 2, 4};
+        userDAO.addUserTransaction(user, permission);
     }
 
     private void sortForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -92,6 +138,9 @@ public class UserServlet extends HttpServlet {
                 case "edit":
                     updateUser(request, response);
                     break;
+                case "edit-store":
+                    updateUserStore(request, response);
+                    break;
                 default:
                     listUser(request, response);
                     break;
@@ -99,6 +148,18 @@ public class UserServlet extends HttpServlet {
         } catch (SQLException ex) {
             throw new ServletException(ex);
         }
+    }
+
+    private void updateUserStore(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        String name = request.getParameter("name");
+        String email = request.getParameter("email");
+        String country = request.getParameter("country");
+
+        User book = new User(id, name, email, country);
+        userDAO.updateUserStore(book);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/users?action=show");
+        dispatcher.forward(request, response);
     }
 
     private void listUser(HttpServletRequest request, HttpServletResponse response)
@@ -118,7 +179,8 @@ public class UserServlet extends HttpServlet {
     private void showEditForm(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        User existingUser = userDAO.selectUser(id);
+//        User existingUser = userDAO.selectUser(id);
+        User existingUser = userDAO.getUserById(id);
         RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/user/edit.jsp");
         request.setAttribute("user", existingUser);
         dispatcher.forward(request, response);
@@ -131,8 +193,8 @@ public class UserServlet extends HttpServlet {
         String email = request.getParameter("email");
         String country = request.getParameter("country");
         User newUser = new User(1, name, email, country);
-        userDAO.insertUser(newUser);
-//        response.sendRedirect("/users");
+//        userDAO.insertUser(newUser);
+        userDAO.insertUserStore(newUser);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/users?action=show");
         dispatcher.forward(request, response);
     }

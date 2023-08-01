@@ -1,107 +1,139 @@
+drop database if exists furama;
 create database furama;
 use furama;
-create table vi_tri(
-	ma_vi_tri int auto_increment primary key,
-    ten_vi_tri varchar(45)
+create table position (
+position_id int auto_increment primary key,
+position_name varchar(45)
 );
-
-create table trinh_do(
-	ma_trinh_do int auto_increment primary key,
-    ten_trinh_do varchar(45)
+create table education_degree (
+education_degree_id int auto_increment primary key,
+education_degree_name varchar(45)
 );
-
-create table bo_phan(
-	ma_bo_phan int auto_increment primary key,
-    ten_bo_phan varchar(45)
+create table division (
+division_id int auto_increment primary key,
+division_name varchar(45)
 );
-
-create table loai_khach(
-	ma_loai_khach int auto_increment primary key,
-    ten_loai_khach varchar(45)
+create table user (
+username varchar(255) primary key,
+password varchar(255)
 );
-
-create table kieu_thue(
-	ma_kieu_thue int auto_increment primary key,
-    ten_kieu_thue varchar(45)
+create table employee (
+employee_id int auto_increment primary key,
+employee_name varchar(45) not null,
+employee_birthday date not null,
+employee_id_card varchar(45) not null,
+employee_salary double not null,
+employee_phone varchar(45) not null,
+employee_email varchar(45),
+employee_address varchar(45),
+position_id int not null,
+education_degree_id int not null,
+division_id int not null,
+username varchar(255),
+foreign key (position_id) references position (position_id),
+foreign key (education_degree_id) references education_degree(education_degree_id),
+foreign key (division_id) references division(division_id),
+foreign key (username) references user(username)
 );
-
-create table loai_dich_vu(
-	ma_loai_dich_vu int auto_increment primary key,
-    ten_loai_dich_vu varchar(45)
+create table role (
+role_id int auto_increment primary key,
+role_name varchar(255)
 );
-
-create table dich_vu(
-	ma_dich_vu int auto_increment primary key,
-    ten_dich_vu varchar(45) not null,
-    dien_tich int,
-    chi_phi_thue double not null default 0,
-    so_nguoi_toi_da int,
-    ma_kieu_thue int,
-    ma_loai_dich_vu int,
-    tieu_chuan_phong varchar(45),
-    mo_ta_tien_nghi_khac varchar(45),
-    dien_tich_ho_boi double,
-    so_tang int,
-    foreign key(ma_loai_dich_vu) references loai_dich_vu(ma_loai_dich_vu),
-    foreign key(ma_kieu_thue) references kieu_thue(ma_kieu_thue)
+create table user_role (
+role_id int,
+username varchar(255),
+foreign key(role_id) references role(role_id),
+foreign key (username) references user(username)
 );
-
-create table dich_vu_di_kem(
-	ma_dich_vu_di_kem int auto_increment primary key,
-    ten_dich_vu_di_kem varchar(45) not null,
-    gia double not null default 0,
-    don_vi varchar(10) not null,
-    trang_thai varchar(45)
+create table customer_type (
+customer_type_id int auto_increment primary key,
+customer_type_name varchar(45)
 );
-
-create table nhan_vien(
-	ma_nhan_vien int auto_increment primary key,
-    ho_ten varchar(45) not null,
-    ngay_sinh date not null,
-    so_cmnd varchar(45) not null,
-    luong double not null default 0,
-    so_dien_thoai varchar(45) not null,
-    email varchar(45),
-    dia_chi varchar(45),
-    ma_vi_tri int,
-    foreign key (ma_vi_tri) references vi_tri(ma_vi_tri),
-    ma_trinh_do int,
-    foreign key (ma_trinh_do) references trinh_do(ma_trinh_do), 
-    ma_bo_phan int,
-    foreign key (ma_bo_phan) references bo_phan(ma_bo_phan)
+create table customer (
+customer_id int auto_increment primary key,
+customer_type_id int not null,
+customer_name varchar(45) not null,
+customer_birthday date not null,
+customer_gender bit(1) not null,
+customer_id_card varchar(45) not null,
+customer_phone varchar(45) Not null,
+customer_email varchar(45),
+customer_address varchar(45),
+foreign key(customer_type_id) references customer_type (customer_type_id)
 );
-
-create table khach_hang(
-	ma_khach_hang int auto_increment primary key,
-    ma_loai_khach int,
-    foreign key (ma_loai_khach) references loai_khach(ma_loai_khach),
-    ho_ten varchar(45) not null,
-    ngay_sinh date not null,
-    gioi_tinh bit(1) not null,
-    so_cmnd varchar(45) not null,
-    so_dien_thoai varchar(45) not null,
-    email varchar(45),
-    dia_chi varchar(45)
+create table service_type (
+service_type_id int auto_increment primary key,
+service_type_name varchar(45)
 );
-
-create table hop_dong(
-	ma_hop_dong int primary key,
-    ngay_lam_hop_dong datetime not null,
-    ngay_ket_thuc datetime not null,
-    tien_dat_coc double not null default 0,
-    ma_nhan_vien int,
-    foreign key (ma_nhan_vien) references nhan_vien(ma_nhan_vien),
-    ma_khach_hang int,
-    foreign key (ma_khach_hang) references khach_hang(ma_khach_hang),
-    ma_dich_vu int,
-    foreign key (ma_dich_vu) references dich_vu(ma_dich_vu)
+create table rent_type (
+ rent_type_id int auto_increment primary key,
+ rent_type_name varchar(45),
+ rent_type_cost double
+ );
+ create table service (
+ service_id int auto_increment primary key,
+ service_name varchar(45) not null,
+ service_area int,
+ service_cost double not null,
+ service_max_people int,
+ rent_type_id int not null,
+ service_type_id int not null,
+ standard_room varchar(45),
+ description_other_convenience varchar(45),
+ pool_area double,
+ number_of_floors int,
+ foreign key (rent_type_id) references rent_type(rent_type_id),
+ foreign key (service_type_id) references service_type(service_type_id)
+ );
+create table contract (
+contract_id int auto_increment primary key,
+contract_start_day datetime not null,
+contract_end_day datetime not null,
+contract_deposit double not null,
+contract_total_money double not null,
+employee_id int not null,
+customer_id int not null,
+service_id int not null,
+foreign key (employee_id) references employee(employee_id),
+foreign key (customer_id) references customer(customer_id),
+foreign key (service_id) references service(service_id)
 );
-
-create table hop_dong_chi_tiet(
-	ma_hop_dong_chi_tiet int auto_increment primary key,
-    ma_hop_dong int,
-    ma_dich_vu_di_kem int,
-    so_luong int not null default 0,
-    foreign key(ma_hop_dong) references hop_dong(ma_hop_dong),
-    foreign key (ma_dich_vu_di_kem) references dich_vu_di_kem(ma_dich_vu_di_kem)
+create table attach_service (
+attach_service_id int auto_increment primary key,
+attach_service_name varchar(45) not null,
+attach_service_cost double not null,
+attach_service_unit int not null,
+attach_service_status varchar(45)
 );
+create table contract_detail (
+contract_detail_id int auto_increment primary key,
+contract_id int not null,
+attach_service_id int not null,
+quantity int not null,
+foreign key (contract_id) references contract(contract_id),
+foreign key (attach_service_id) references attach_service(attach_service_id)
+);
+insert into customer_type(customer_type_name)
+	values("Diamond"),
+    ("Platinium"),
+    ("Gold"),
+    ("Silver"),
+    ("Member");
+insert into role(role_name) 
+	values("admin"),("subadmin");
+insert into user
+	values("staff123","123456"),
+	("admin123","123456");
+insert into user_role 
+    values(1,"admin123"),
+    (2,"staff123");
+insert into position (position_name)
+	values('Management'),
+    ('Staff');
+insert into division(division_name)
+	values("Accounting"),
+    ("Engineering");
+insert into education_degree(education_degree_name)
+	values("Bachelor"),
+    ("Engineering"),
+    ("Nope");

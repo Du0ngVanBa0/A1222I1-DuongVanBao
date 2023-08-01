@@ -11,10 +11,22 @@ public interface IUserDAO {
     public User selectUser(int id);
 
     public List<User> selectAllUsers();
+    public List<User> selectAllUsersStore();
 
     public List<User> selectUserByCountry(String inp);
 
-    public boolean deleteUser(int id) throws SQLException;
+    public void deleteUser(int id) throws SQLException;
+    public void deleteUserStore(int id);
 
-    public boolean updateUser(User user) throws SQLException;
+    public void updateUser(User user) throws SQLException;
+    public void updateUserStore(User user);
+
+    public User getUserById(int id);
+
+    public void insertUserStore(User user);
+
+    public void addUserTransaction(User user, int[] permission);
+
+    public void insertUpdateWithoutTransaction();
+    public void insertUpdateUseTransaction();
 }
