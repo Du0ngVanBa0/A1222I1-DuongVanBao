@@ -13,11 +13,8 @@ import java.util.Optional;
 @RequestMapping("/sandwich")
 public class SandwichController {
     @PostMapping("/save")
-    public String save(@RequestParam(name = "condiments", defaultValue = "none") String[] condiments, Model model) {
-        model.addAttribute("selected",condiments);
-        for (String e: condiments){
-            System.out.println(e);
-        }
+    public String save(@RequestParam(name = "condiments") Optional<String[]> condiments, Model model) {
+        model.addAttribute("selected",condiments.orElse(new String[]{""}));
         return "index";
     }
     @GetMapping("")

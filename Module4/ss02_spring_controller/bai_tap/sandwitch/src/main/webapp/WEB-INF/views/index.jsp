@@ -12,8 +12,7 @@
     <title>Title</title>
 </head>
 <body>
-<c:if test="${selected!=null}">
-    <strong>Selected:
+<c:if test="${selected!=null}">    <strong>Selected:
         <c:forEach items="${selected}" var="e">${e} </c:forEach>
     </strong>
 </c:if>

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class StudentController {
     @Autowired
-    StudentService studentService;
+     studentService;
 
     @GetMapping("/student/list")
     public String displayList(Model model) {

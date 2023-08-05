@@ -1,12 +1,14 @@
 package dvb.repository;
 
-import dvb.bean.Student;
+import dvb.model.Student;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Repository
 public class StudentRepositoryImpl implements StudentRepository {
     private static Map<String, Student> studentMap;
 

@@ -1,6 +1,6 @@
 package dvb.repository;
 
-import dvb.bean.Student;
+import dvb.model.Student;
 
 import java.util.List;
 
