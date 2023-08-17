@@ -14,4 +14,6 @@ public interface IProductService {
     void update(int id, Product product);
 
     void save(Product product);
+
+    List<Product> findByName(String name);
 }

@@ -1,45 +1,44 @@
 package dvb.service;
 
 import dvb.model.Product;
+import dvb.repository.IProductRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
+@Service
 public class ProductServiceImpl implements IProductService {
-    private static Map<Integer, Product> productMap;
-
-    static {
-        productMap = new HashMap<>();
-        productMap.put(1, new Product(1, "lan nach", 500, "tri dau dau hieu qua", "thai duong"));
-        productMap.put(2, new Product(2, "quat tran", 1200, "quat rat mat", "shinji"));
-        productMap.put(3, new Product(3, "ao", 530, "ao trang dep", "adu pro"));
-        productMap.put(4, new Product(4, "ban phim", 2300, "layout 68", "dareu"));
-    }
+    @Autowired
+    private IProductRepository productRepository;
 
     @Override
     public List<Product> findAll() {
-        return new ArrayList<>(productMap.values());
+        return productRepository.findAll();
     }
 
     @Override
     public void remove(int id) {
-        productMap.remove(id);
+        productRepository.remove(id);
     }
 
     @Override
     public Product findByID(int id) {
-        return productMap.get(id);
+        return findByID(id);
     }
 
     @Override
     public void update(int id, Product product) {
-        productMap.put(id, product);
+        update(id, product);
     }
 
     @Override
     public void save(Product product) {
-        productMap.put(product.getId(), product);
+        save(product);
+    }
+
+    @Override
+    public List<Product> findByName(String name) {
+        return productRepository.findByName(name);
     }
 }

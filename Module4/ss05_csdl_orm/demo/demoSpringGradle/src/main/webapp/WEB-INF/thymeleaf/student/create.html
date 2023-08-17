@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"><head>
+    <meta charset="UTF-8">
+  <title>Create new student</title>
+</head>
+<body>
+<h1>Create new Student</h1>
+<form th:action="@{/student/create}" method="post" th:object="${student}">
+  <table>
+    <tr>
+      <td>ID</td>
+      <td th:if="${action == 'create'}">
+        <input type="text" th:field="*{id}"/>
+      </td>
+      <td th:if="${action == 'edit'}">
+        <span th:text="*{id}"></span>
+        <input type="hidden" th:field="*{id}"/>
+      </td>
+    </tr>
+    <tr>
+      <td>Name</td>
+      <td><input type="text" th:field="*{name}"/></td>
+    </tr>
+    <tr>
+      <td>Address</td>
+      <td><input type="text" th:field="*{address}"/></td>
+    </tr>
+    <!--<tr>
+      <td>Hobby</td>
+      <td>
+        <span th:each="h : ${hobbies}" >
+          <input type="checkbox" th:field="*{hobbies}" th:value="${h}" th:id="${h}"> <label th:text="${h}" th:for="${h}"></label>
+        </span>
+      </td>
+    </tr>-->
+    <tr>
+      <td colspan="2">
+        <input type="submit" value="Create">
+      </td>
+    </tr>
+  </table>
+  <input type="hidden" name="action" th:value="${action}">
+</form>
+</body>
+</html>

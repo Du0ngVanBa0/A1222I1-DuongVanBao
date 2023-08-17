@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List Student</title>
+  </head>
+<body>
+<h1 th:text="#{title.list}">List students abcd</h1>
+<a th:href="@{/student/create}">Create new student</a>
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Hobby</th>
+    <th>Detail</th>
+    <th>Edit</th>
+  </tr>
+    <tr th:each="student : ${students}" th:object="${student}">
+      <td th:text="*{id}"></td>
+      <td th:text="*{name}"></td>
+      <td th:text="*{address}"></td>
+      <!--<td th:text="*{displayHobbies()}"></td>-->
+      <td>
+        <a th:href="@{/student/detail/{id}(id=*{id})}">Detail 1</a>
+        <a th:href="@{/student/detail2(id=*{id})}">Detail 2</a>
+      </td>
+      <td>
+        <a th:href="@{/student/edit(id=*{id})}">Edit</a>
+      </td>
+    </tr>
+</table>
+</body>
+</html>
