@@ -27,6 +27,14 @@ public class BlogController {
     @GetMapping("")
     public String showIndex(Model model) {
         model.addAttribute("blogs", blogService.findAll());
+        model.addAttribute("categories", categoryService.findAll());
+        return "/views/blog/index";
+    }
+
+    @GetMapping("/searchCategory")
+    public String showCategoryList(Model model, @RequestParam("cateID") int id) {
+        model.addAttribute("blogs", blogService.findByCategory(id));
+        model.addAttribute("categories", categoryService.findAll());
         return "/views/blog/index";
     }
 

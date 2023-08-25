@@ -21,5 +21,7 @@ public interface BlogService {
 
     List<Blog> findByHead(String inp);
 
+    List<Blog> findByCategory(int cateID);
+
     void deleteById(int id);
 }

@@ -53,6 +53,11 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
+    public List<Blog> findByCategory(int cateID) {
+        return blogRepository.findAllBlogByCategoryID(cateID);
+    }
+
+    @Override
     public void deleteById(int id) {
         blogRepository.deleteById(id);
     }
