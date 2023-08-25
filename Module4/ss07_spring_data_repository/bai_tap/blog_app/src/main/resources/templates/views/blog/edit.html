@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="/layout :: head"></head>
+<head th:replace="~{/views/blog/layout :: head}"></head>
 <body>
 <h3>Edit Blog</h3>
 <p>
@@ -20,9 +20,15 @@
             <label>Content</label>
             <textarea th:field="*{content}" cols="30" rows="10"></textarea>
         </div>
+        <div>
+            <label>Category</label>
+            <select th:field="*{category}">
+                <option th:each="c: ${categories}" th:text="${c.name}" th:value="${c.categoryId}"></option>
+            </select>
+        </div>
         <input type="submit" value="Edit"/>
     </form>
 </div>
-<footer th:replace="/layout :: footer"></footer>
+<footer th:replace="~{/views/blog/layout::footer}"></footer>
 </body>
 </html>

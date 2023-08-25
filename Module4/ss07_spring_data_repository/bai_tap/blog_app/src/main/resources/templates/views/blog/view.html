@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="/layout :: head"></head>
+<head th:replace="~{/views/blog/layout :: head}"></head>
 <body>
 <h3>View Blog</h3>
 <p>
@@ -17,7 +17,11 @@
         <label>Content:</label>
         <label th:text="${blog.content}"></label>
     </div>
+    <div class="cusdetail">
+        <label>Category:</label>
+        <label th:text="${blog.category.name}"></label>
+    </div>
 </div>
-<footer th:replace="/layout :: footer"></footer>
+<footer th:replace="~{/views/blog/layout::footer}"></footer>
 </body>
 </html>

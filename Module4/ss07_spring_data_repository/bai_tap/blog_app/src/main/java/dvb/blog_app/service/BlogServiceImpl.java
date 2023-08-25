@@ -1,10 +1,14 @@
-package dvb.service;
+package dvb.blog_app.service;
 
-import dvb.entity.Blog;
-import dvb.repository.BlogRepository;
+import dvb.blog_app.entity.Blog;
+import dvb.blog_app.repository.BlogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -14,6 +18,7 @@ public class BlogServiceImpl implements BlogService {
 
     @Override
     public void create(Blog blog) {
+        blog.setReleasedDate(new Date());
         blogRepository.save(blog);
     }
 
@@ -30,6 +35,21 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public List<Blog> findAll() {
         return blogRepository.findAll();
+    }
+
+    @Override
+    public Page<Blog> findAll(Pageable pageable) {
+        return blogRepository.findAll(pageable);
+    }
+
+    @Override
+    public List<Blog> findAllSort() {
+        return blogRepository.findAll(Sort.by(Sort.Direction.ASC, "releasedDate"));
+    }
+
+    @Override
+    public List<Blog> findByHead(String inp) {
+        return blogRepository.findByHeadContaining(inp);
     }
 
     @Override

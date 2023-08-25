@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{/views/blog/layout::head}">
+</head>
+<body>
+<h3>Blog</h3>
+<p>
+    <a th:href="@{/blog/create}">
+        Add new blog
+    </a>
+</p>
+<table id="blog">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Head</th>
+        <th>Content</th>
+        <th>Category</th>
+        <th colspan="3"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="row : ${blogs}">
+        <td th:text="${row.id}"></td>
+        <td th:text="${row.head}"></td>
+        <td th:text="${row.content}"></td>
+        <td th:text="${row.category.name}"></td>
+        <td><a th:href="@{/blog/{id}/edit(id=${row.getId()})}">edit</a></td>
+        <td><a th:href="@{/blog/{id}/delete(id=${row.getId()})}">delete</a></td>
+        <td><a th:href="@{/blog/{id}/view(id=${row.getId()})}">view</a></td>
+    </tr>
+    </tbody>
+</table>
+<div th:if="${blogs.getTotalPages() > 1}">
+    <a th:each="pageNumber: ${pageNumbers}"
+       th:href="@{/blog/paging(page=${pageNumber}, size=${blogs.size})}"
+       th:text="${pageNumber}"
+       th:class="${pageNumber == blogs.number + 1} ? 'page' : 'page active'"></a>
+</div>
+<footer th:replace="~{/views/blog/layout::footer}"></footer>
+</body>
+</html>

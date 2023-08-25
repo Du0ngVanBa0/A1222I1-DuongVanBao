@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="/layout :: head"></head>
+<head th:replace="~{/views/blog/layout :: head}"></head>
 <body>
 <h3>Remove Blog</h3>
 <p>
@@ -14,15 +14,19 @@
         <input type="hidden" th:field="*{id}"/>
         <div>
             <label>Head</label>
-            <input type="text" th:field="*{head}"/>
+            <input type="text" readonly th:field="*{head}"/>
         </div>
         <div>
             <label>Content</label>
-            <input type="number" th:field="*{content}"/>
+            <textarea th:field="*{content}" readonly cols="30" rows="10"></textarea>
+        </div>
+        <div>
+            <label>Category</label>
+            <input type="text" readonly th:field="*{category.name}"/>
         </div>
         <input type="submit" value="Remove"/>
     </form>
 </div>
-<footer th:replace="/layout :: footer"></footer>
+<footer th:replace="~{/views/blog/layout::footer}"></footer>
 </body>
 </html>
