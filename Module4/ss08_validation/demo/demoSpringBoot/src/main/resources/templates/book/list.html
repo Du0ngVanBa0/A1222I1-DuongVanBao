@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List book</title>
+</head>
+<body>
+    <h1>List book</h1>
+    <a th:href="@{/book/create}">Create book</a>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Author</th>
+            <th>Publish</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Detail</th>
+        </tr>
+        <tr th:each="b : ${books}" th:object="${b}">
+            <td th:text="*{bookId}"></td>
+            <td th:text="*{name}"></td>
+            <td th:text="*{author}"></td>
+            <td th:text="*{#dates.format(publish, 'dd/MM/yyyy')}"></td>
+            <td th:text="*{price}"></td>
+            <td th:text="*{category.categoryName}"></td>
+            <td><a th:href="@{/book/detail(bookId=*{bookId})}">Detail</a></td>
+        </tr>
+    </table>
+</body>
+</html>
