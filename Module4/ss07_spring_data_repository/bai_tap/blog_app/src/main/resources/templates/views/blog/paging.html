@@ -9,6 +9,16 @@
         Add new blog
     </a>
 </p>
+<button><a href="/blog/sort">Sort By Released Date</a></button>
+<form action="/blog/search">
+    <label for="search_inp">Head</label>
+    <input id="search_inp" type="text" name="search_inp">
+    <input type="submit" value="Search">
+</form>
+<h3>Category search</h3>
+<a style="margin-right: 10px" th:each="c: ${categories}"
+   th:text="${c.name}"
+   th:href="@{/blog/searchCategory(cateID = ${c.getCategoryId()})}"></a>
 <table id="blog">
     <thead>
     <tr>

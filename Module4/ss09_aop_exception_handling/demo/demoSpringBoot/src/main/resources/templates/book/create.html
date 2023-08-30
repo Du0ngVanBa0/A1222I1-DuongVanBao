@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create book</title>
+</head>
+<body>
+    <h1>Create book</h1>
+    <form th:action="@{/book/create}" method="post" th:object="${book}">
+      <table>
+        <tr>
+          <td>ID</td>
+          <td><input type="text" th:field="*{bookId}"></td>
+          <td><span th:if="${#fields.hasErrors('bookId')}" th:errors="*{bookId}"></span></td>
+        </tr>
+        <tr>
+          <td>Name</td>
+          <td><input type="text" th:field="*{name}"></td>
+          <td><span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span></td>
+        </tr>
+        <tr>
+          <td>Author</td>
+          <td><input type="text" th:field="*{author}"></td>
+          <td><span th:if="${#fields.hasErrors('author')}" th:errors="*{author}"></span></td>
+        </tr>
+        <tr>
+          <td>Publish</td>
+          <td><input type="date" th:field="*{publish}"></td>
+          <td><span th:if="${#fields.hasErrors('publish')}" th:errors="*{publish}"></span></td>
+        </tr>
+        <tr>
+          <td>Price</td>
+          <td><input type="text" th:field="*{price}"></td>
+          <td><span th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></span></td>
+        </tr>
+        <tr>
+          <td>Category</td>
+          <td>
+            <select th:field="*{category}">
+              <option th:each="c : ${categories}" th:value="${c.categoryId}" th:text="${c.categoryName}"/>
+            </select>
+          </td>
+        </tr>
+      </table>
+      <input type="submit" value="Create Book"/>
+    </form>
+</body>
+</html>

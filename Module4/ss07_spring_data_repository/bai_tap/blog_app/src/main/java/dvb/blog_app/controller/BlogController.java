@@ -28,26 +28,26 @@ public class BlogController {
     public String showIndex(Model model) {
         model.addAttribute("blogs", blogService.findAll());
         model.addAttribute("categories", categoryService.findAll());
-        return "/views/blog/index";
+        return "/views/blog/paging";
     }
 
     @GetMapping("/searchCategory")
     public String showCategoryList(Model model, @RequestParam("cateID") int id) {
         model.addAttribute("blogs", blogService.findByCategory(id));
         model.addAttribute("categories", categoryService.findAll());
-        return "/views/blog/index";
+        return "/views/blog/paging";
     }
 
     @GetMapping("/search")
     public String showSearch(Model model, @RequestParam("search_inp") String inp) {
         model.addAttribute("blogs", blogService.findByHead(inp));
-        return "/views/blog/index";
+        return "/views/blog/paging";
     }
 
     @GetMapping("/sort")
     public String showSortIndex(Model model) {
         model.addAttribute("blogs", blogService.findAllSort());
-        return "/views/blog/index";
+        return "/views/blog/paging";
     }
 
 
