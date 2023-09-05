@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>give book back</title>
+    <style>
+        .error {
+            color: red;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+<h3 class="error" th:if="${error}" th:text="${error}"></h3>
+<form action="/rent/back" method="post">
+    <label for="rent_id">Enter rent id to get book back</label>
+    <br>
+    <input type="text" id="rent_id" name="rent_id">
+    <input type="submit">
+</form>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rent book</title>
+</head>
+<body>
+    <form action="/rent/create" method="post" th:object="${book}">
+        <h3>ID</h3>
+        <input th:field="*{id}" readonly>
+        <h3>Name</h3>
+        <input th:field="*{name}" readonly/>
+        <h3>Author</h3>
+        <input th:field="*{author}" readonly/>
+        <h3>Quantity</h3>
+        <input th:field="*{quantity}" readonly/>
+        <input type="submit" value="Rent">
+    </form>
+</body>
+</html>

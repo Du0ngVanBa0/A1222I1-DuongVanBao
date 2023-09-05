@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Book</title>
+    <style>
+        .error {
+            color: red;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+<h3 class="error" th:if="${error}" th:text="${error}"></h3>
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Author</th>
+        <th>Quantity</th>
+        <th>Rent</th>
+    </tr>
+    <tr th:each="row: ${books}">
+        <td th:text="${row.name}"></td>
+        <td th:text="${row.author}"></td>
+        <td th:text="${row.quantity}"></td>
+        <td><a th:href="@{/rent/create(id = ${row.id})}">Rent</a></td>
+    </tr>
+</table>
+</body>
+</html>
