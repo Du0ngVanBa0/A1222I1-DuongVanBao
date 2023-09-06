@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/rent")
@@ -38,35 +39,33 @@ public class RentController {
     }
 
     @PostMapping("/back")
-    public String giveBack(Model model, @RequestParam("rent_id") String id) {
+    public String giveBack(RedirectAttributes redirectAttributes, @RequestParam("rent_id") String id) {
         Rent rent = rentService.findByID(id);
         if (rent == null){
-            model.addAttribute("error", "Can't find that rent id!");
-            return "/give_back";
+            redirectAttributes.addFlashAttribute("error", "Can't find that rent id!");
+            return "redirect:/rent/back";
         }
         Book book = rent.getBook();
         book.setQuantity(book.getQuantity() + 1);
         rentService.delete(rent);
         bookService.rent(book);
-        model.addAttribute("error", "Give back that book successfully!");
-        model.addAttribute("books", bookService.findAll());
-        return "/index";
+        redirectAttributes.addFlashAttribute("error", "Give back that book successfully!");
+        return "redirect:/book";
     }
 
     @PostMapping("/create")
-    public String rent(Book book, Model model) {
-        if (book.getQuantity() <= 0) {
-            model.addAttribute("error", "Quantity = 0. Can't rent that book");
-            model.addAttribute("books", bookService.findAll());
-            return "/index";
+    public String rent(Book book, RedirectAttributes redirectAttributes) {
+        try {
+            book.setQuantity(book.getQuantity() - 1);
+            bookService.rent(book);
+            String rentCode = getRandomCode();
+            rentService.create(new Rent(rentCode, book));
+            redirectAttributes.addFlashAttribute("error", "Your rent code is " + rentCode);
+            return "redirect:/book";
+        }catch (Exception e){
+            redirectAttributes.addFlashAttribute("error", "Quantity = 0. Can't rent that book");
+            return "redirect:/book";
         }
-        book.setQuantity(book.getQuantity() - 1);
-        bookService.rent(book);
-        String rentCode = getRandomCode();
-        rentService.create(new Rent(rentCode, book));
-        model.addAttribute("books", bookService.findAll());
-        model.addAttribute("error", "Your rent code is " + rentCode);
-        return "/index";
     }
 
     private String getRandomCode() {

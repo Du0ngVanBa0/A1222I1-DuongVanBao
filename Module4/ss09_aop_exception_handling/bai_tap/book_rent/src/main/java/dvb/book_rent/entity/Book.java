@@ -15,6 +15,7 @@ public class Book {
 
     private String author;
 
+    @Min(0)
     private int quantity;
 
     public int getId() {
