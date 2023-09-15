@@ -46,6 +46,9 @@ public class Cart {
             Map.Entry<Product, Integer> productInCart = selectProductInCart(product);
             if (productInCart != null) {
                 int quantity = productInCart.getValue() + 1;
+                if (quantity>1000){
+                    quantity = 1;
+                }
                 products.replace(productInCart.getKey(), quantity);
             }
         }
@@ -59,6 +62,8 @@ public class Cart {
             if (productInCart != null) {
                 if (newQuantity > 0) {
                     products.replace(productInCart.getKey(), newQuantity);
+                } else if (newQuantity > 1000) {
+                    products.replace(productInCart.getKey(), 1);
                 } else {
                     products.remove(productInCart);
                 }

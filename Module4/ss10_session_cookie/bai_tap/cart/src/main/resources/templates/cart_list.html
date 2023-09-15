@@ -31,7 +31,7 @@
             <td>
                 <select th:id="'quantity'+${product.key.id}" class="form-select form-select-sm"
                         th:onchange="'changeQuantity('+${product.key.id}+')'">
-                    <option th:each="i : ${#numbers.sequence(1,100)}" th:value="${i}" th:text="${i}"
+                    <option th:each="i : ${#numbers.sequence(1,1000)}" th:value="${i}" th:text="${i}"
                             th:selected="${i==product.value}"></option>
                 </select>
             </td>
