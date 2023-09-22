@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List book</title>
+</head>
+<body>
+    <h1>List book</h1>
+    <a th:href="@{/book/create}">Create book</a>
+    Name: <input type="text" id="name" oninput="searchByName()"/>
+    <br/>
+    <button onclick="searchByName();">Search</button>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Author</th>
+            <th>Publish</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Detail</th>
+        </tr>
+        <tbody id="result">
+            <tr th:each="b : ${books}" th:object="${b}">
+                <td th:text="*{bookId}"></td>
+                <td th:text="*{name}"></td>
+                <td th:text="*{author}"></td>
+                <td th:text="*{#dates.format(publish, 'dd/MM/yyyy')}"></td>
+                <td th:text="*{price}"></td>
+                <td th:text="*{category.categoryName}"></td>
+                <td><a th:href="@{/book/detail(bookId=*{bookId})}">Detail</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        function searchByName() {
+            let bookName = $("#name").val();
+            $.ajax({
+                url: "http://localhost:8080/api/v1/book/search",
+                data: {
+                    name: bookName
+                },
+                type: "get",
+                dataType: "json",
+                success: function(res) {
+                    let result = "";
+                    for (let i = 0; i < res.length; i++) {
+                        result += "<tr>" +
+                            "<td>" + res[i].bookId + "</td>" +
+                            "<td>" + res[i].name + "</td>" +
+                            "<td>" + res[i].author + "</td>" +
+                            "<td>" + res[i].publish + "</td>" +
+                            "<td>" + res[i].price + "</td>" +
+                            "<td>" + res[i].category.categoryName + "</td>" +
+                            "<td><a href='/book/detail?bookId=" + res[i].bookId + "'>Detail</a></td>" +
+                                    "</tr>";
+                    }
+
+                    $("#result").html(result);
+                }
+            });
+        }
+    </script>
+</body>
+</html>

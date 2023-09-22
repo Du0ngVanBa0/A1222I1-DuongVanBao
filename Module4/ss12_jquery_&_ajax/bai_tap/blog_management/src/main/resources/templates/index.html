@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+<h3>Blog</h3>
+<label for="search_inp">Head</label>
+<input id="search_inp" type="text" name="search_inp">
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Head</th>
+        <th>Content</th>
+        <th>Category</th>
+    </tr>
+    </thead>
+    <tbody id="body_table">
+    </tbody>
+</table>
+<script>
+    $(document).ready(function () {
+        let page = 0;
+
+        function search() {
+            let head = $("#search_inp").val();
+            $.ajax({
+                url: "/api/blog/search",
+                data: {
+                    head
+                },
+                type: "POST",
+                success: function (data) {
+                    let content = "";
+                    for (let i = 0; i < data.length; i++) {
+                        content += getBlogHtml(data[i]);
+                    }
+                    $("#body_table").html(content);
+                }
+            });
+        }
+
+        function showList() {
+            $.ajax({
+                url: "/api/blog?page=" + page++,
+                type: "POST",
+                success: function (data) {
+                    let content = "";
+                    for (let i = 0; i < data.content.length; i++) {
+                        content += getBlogHtml(data.content[i]);
+                    }
+                    $("#more_row").remove();
+                    if (data.last == false) {
+                        content += "<tr id='more_row'><td><button id='more_btn'>More" + "</button></td></tr>"
+                    }
+                    $("#body_table").append(content);
+                    $("#more_btn").click(function () {
+                        showList();
+                    });
+                }
+            });
+        }
+
+        function getBlogHtml(blog) {
+            return "<tr>" +
+                "<td>" + blog.id + "</td>" +
+                "<td>" + blog.head + "</td>" +
+                "<td>" + blog.content + "</td>" +
+                "<td>" + blog.category.name + "</td>" +
+                +"</tr>"
+        }
+
+        $("#test").click(function () {
+            showList();
+        });
+
+        $("#search_inp").on('input', function () {
+            search();
+        });
+
+        showList();
+    })
+</script>
+</body>
+</html>
