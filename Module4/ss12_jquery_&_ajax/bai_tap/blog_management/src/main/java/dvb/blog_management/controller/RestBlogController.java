@@ -37,7 +37,7 @@ public class RestBlogController {
     @PostMapping
     public ResponseEntity<Page<Blog>> findAllPaging(@RequestParam("page") Optional<Integer> page, @RequestParam("size") Optional<Integer> size) {
         int currentPage = page.orElse(1);
-        int pageSize = size.orElse(5);
+        int pageSize = size.orElse(2);
         Pageable pageable = PageRequest.of(currentPage, pageSize);
         Page<Blog> blogs = (Page<Blog>) blogService.findAllPaging(pageable);
         int totalPage = blogs.getTotalPages();
