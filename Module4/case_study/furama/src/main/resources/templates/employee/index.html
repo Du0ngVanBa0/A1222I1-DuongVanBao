@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="/layout/layout.html :: head" th:with="pageTitle='List Employee'">
+</head>
+<body>
+<h3>Employee</h3>
+<p>
+    <a th:href="@{/employee/create}">
+        Add new employee
+    </a>
+</p>
+<form action="/employee/search">
+    <label for="search_inp">Name</label>
+    <input id="search_inp" type="text" name="search_inp">
+    <input type="submit" value="Search">
+</form>
+<table id="table" border="1">
+    <thead>
+    <tr>
+        <th>employee Id</th>
+        <th>name</th>
+        <th>birthday</th>
+        <th>card</th>
+        <th>salary</th>
+        <th>phone</th>
+        <th>email</th>
+        <th>address</th>
+        <th>position</th>
+        <th>division</th>
+        <th>education degree</th>
+        <th>user</th>
+        <th colspan="3"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="row : ${employees}">
+        <td th:text="${row.employeeId}"></td>
+        <td th:text="${row.name}"></td>
+        <td th:text="${#dates.format(row.birthday,'dd/MM/yyyy')}"></td>
+        <td th:text="${row.card}"></td>
+        <td th:text="${row.salary}"></td>
+        <td th:text="${row.phone}"></td>
+        <td th:text="${row.email}"></td>
+        <td th:text="${row.address}"></td>
+        <td th:text="${row.position.positionName}"></td>
+        <td th:text="${row.division.name}"></td>
+        <td th:text="${row.educationDegree.name}"></td>
+        <td th:text="${row.user.userName}"></td>
+        <td><a th:href="@{/employee/{id}/edit(id=${row.employeeId})}">edit</a></td>
+        <td><a th:href="@{/employee/{id}/delete(id=${row.employeeId})}" onclick="return confirm('Bạn có chắc muốn xóa nhân viên này không?')">delete</a></td>
+        <td><a th:href="@{/employee/{id}/view(id=${row.employeeId})}">view</a></td>
+    </tr>
+    </tbody>
+</table>
+<div th:if="${totalPage > 1}">
+    <a th:if="${searchAttr}"
+       th:each="i: ${#numbers.sequence(1, __${totalPage}__)}"
+       th:href="@{/employee/search/(search_inp=${searchAttr},page=${i}, size=${size})}"
+       th:text="${i}"
+       th:class="${i == currentPage + 1} ? 'page' : 'page active'"></a>
+    <a th:if="${searchAttr == null}"
+       th:each="i: ${#numbers.sequence(1, __${totalPage}__)}"
+       th:href="@{/employee/(page=${i}, size=${size})}"
+       th:text="${i}"
+       th:class="${i == currentPage + 1} ? 'page' : 'page active'"></a>
+</div>
+</body>
+</html>

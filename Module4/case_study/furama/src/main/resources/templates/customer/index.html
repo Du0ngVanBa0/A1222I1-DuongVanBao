@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="/layout/layout.html :: head" th:with="pageTitle='List Customer'">
+</head>
+<body>
+<h3>Customer</h3>
+<p>
+    <a th:href="@{/customer/create}">
+        Add new customer
+    </a>
+</p>
+<form action="/customer/search">
+    <label for="search_inp">Name</label>
+    <input id="search_inp" type="text" name="search_inp">
+    <input type="submit" value="Search">
+</form>
+<table id="table" border="1">
+    <thead>
+    <tr>
+        <th>customer Id</th>
+        <th>name</th>
+        <th>birthday</th>
+        <th>gender</th>
+        <th>Customer Type</th>
+        <th>card</th>
+        <th>phone</th>
+        <th>email</th>
+        <th>address</th>
+        <th colspan="3"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="row : ${customers}">
+        <td th:text="${row.customerId}"></td>
+        <td th:text="${row.name}"></td>
+        <td th:text="${#dates.format(row.birthday,'dd/MM/yyyy')}"></td>
+        <td th:if="${row.gender==true}">Nam</td>
+        <td th:if="${row.gender==false}">Nữ</td>
+        <td th:text="${row.CustomerType.name}"></td>
+        <td th:text="${row.card}"></td>
+        <td th:text="${row.phone}"></td>
+        <td th:text="${row.email}"></td>
+        <td th:text="${row.address}"></td>
+        <td><a th:href="@{/customer/{id}/edit(id=${row.customerId})}">edit</a></td>
+        <td><a th:href="@{/customer/{id}/delete(id=${row.customerId})}">delete</a></td>
+        <td><a th:href="@{/customer/{id}/view(id=${row.customerId})}">view</a></td>
+    </tr>
+    </tbody>
+</table>
+<div th:if="${totalPage > 1}">
+    <a th:if="${searchAttr}"
+       th:each="i: ${#numbers.sequence(1, __${totalPage}__)}"
+       th:href="@{/employee/search/(search_inp=${searchAttr},page=${i}, size=${size})}"
+       th:text="${i}"
+       th:class="${i == currentPage + 1} ? 'page' : 'page active'"></a>
+    <a th:if="${searchAttr == null}"
+       th:each="i: ${#numbers.sequence(1, __${totalPage}__)}"
+       th:href="@{/employee/(page=${i}, size=${size})}"
+       th:text="${i}"
+       th:class="${i == currentPage + 1} ? 'page' : 'page active'"></a>
+</div>
+</body>
+</html>

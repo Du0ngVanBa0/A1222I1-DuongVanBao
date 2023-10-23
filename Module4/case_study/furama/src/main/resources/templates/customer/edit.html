@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="/layout/layout.html :: head" th:with="pageTitle='Edit Customer'">
+</head>
+<body>
+<h3>Edit Customer</h3>
+<p>
+  <a th:href="@{/customer}">
+    Back to customer list
+  </a>
+</p>
+<div id="form">
+  <form th:action="@{/customer/edit}" th:object="${customer}"
+        method="POST">
+            <input type="hidden" th:field="*{customerId}"/>
+    <div>
+      <label>Name</label>
+      <input type="text" th:field="*{name}"/>
+      <h2 th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></h2>
+    </div>
+    <div>
+      <label>Birthday</label>
+      <input type="date" th:value="*{birthday}" th:field="*{birthday}"/>
+    </div>
+    <div>
+      <label>Gender</label>
+      <input class="lbl_radio" type="radio" th:checked="*{gender}" th:value="true" th:field="*{gender}"/> Nam
+      <input class="lbl_radio" type="radio"  th:checked="*{!gender}" th:value="false" th:field="*{gender}"/> Nữ
+    </div>
+    <div>
+      <label>Card</label>
+      <input type="text" th:field="*{card}"/>
+    </div>
+    <div>
+      <label>Phone</label>
+      <input type="text" th:field="*{phone}"/>
+    </div>
+    <div>
+      <label>Email</label>
+      <input type="text" th:field="*{email}"/>
+    </div>
+    <div>
+      <label>Address</label>
+      <input type="text" th:field="*{address}"/>
+    </div>
+    <div>
+      <label>Customer Type</label>
+      <select th:field="*{customerType}">
+        <option th:each="c: ${customerTypes}" th:text="${c.name}" th:value="${c.customerTypeId}"></option>
+      </select>
+    </div>
+    <input type="submit" value="Save"/>
+  </form>
+</div>
+</body>
+</html>

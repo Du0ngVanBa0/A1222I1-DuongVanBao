@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0fd90ac7-88dc-4750-8e02-681bb61b595e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/Module5.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module4/ss05_csdl_orm/thuc_hanh/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../Module4/ss05_csdl_orm/thuc_hanh/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module4/ss12_jquery_&amp;_ajax/bai_tap/phone_management/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../Module4/ss12_jquery_&amp;_ajax/bai_tap/phone_management/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module4/ss12_jquery_&amp;_ajax/bai_tap/phone_management/src/main/java/dvb/phone_management/controller/SmartphoneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module4/ss12_jquery_&amp;_ajax/bai_tap/phone_management/src/main/java/dvb/phone_management/controller/SmartphoneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module4/ss12_jquery_&amp;_ajax/bai_tap/phone_management/src/main/java/dvb/phone_management/entity/Smartphone.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module4/ss12_jquery_&amp;_ajax/bai_tap/phone_management/src/main/java/dvb/phone_management/entity/Smartphone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module4/ss12_jquery_&amp;_ajax/bai_tap/phone_management/src/main/resources/templates/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Module4/ss12_jquery_&amp;_ajax/bai_tap/phone_management/src/main/resources/templates/list.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2WwMBMePzbhinAfD8JIZvkR28CE" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0fd90ac7-88dc-4750-8e02-681bb61b595e" name="Default Changelist" comment="" />
+      <created>1697639052825</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1697639052825</updated>
+      <workItem from="1697639056750" duration="251000" />
+      <workItem from="1697983745935" duration="348000" />
+      <workItem from="1698058629670" duration="3477000" />
+      <workItem from="1698062383024" duration="301000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+</project>

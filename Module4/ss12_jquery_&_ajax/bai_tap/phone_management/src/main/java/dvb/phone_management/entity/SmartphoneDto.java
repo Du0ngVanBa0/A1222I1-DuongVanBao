@@ -1,19 +1,19 @@
 package dvb.phone_management.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 
-@Entity
-public class Smartphone {
-    @Id
-    @GeneratedValue
+public class SmartphoneDto {
     private int id;
 
+    @NotEmpty
     private String producer;
 
+    @NotEmpty
     private String model;
 
+    @DecimalMin(value = "0")
     private double price;
 
     public int getId() {
@@ -48,17 +48,9 @@ public class Smartphone {
         this.price = price;
     }
 
-    public Smartphone() {
-    }
-
-    public Smartphone(String producer, String model, double price) {
+    public SmartphoneDto(String producer, String model, double price) {
         this.producer = producer;
         this.model = model;
         this.price = price;
-    }
-
-    @Override
-    public String toString() {
-        return producer + ":" + model + " with price: " + price;
     }
 }

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="/layout/layout.html :: head" th:with="pageTitle='List Product'">
+</head>
+<body>
+<h3>Quản lý sản phẩm</h3>
+<p>
+    <a th:href="@{/product/create}">
+        Thêm sản phẩm
+    </a>
+</p>
+<form action="/product/search">
+    <label for="search_inp">Tên sản phẩm</label>
+    <input id="search_inp" type="text" name="search_inp">
+
+    <label for="search_inp_price">Giá bắt đầu</label>
+    <input id="search_inp_price" type="text" name="search_inp_price">
+
+    <label for="search_inp_type">Loại sản phẩm</label>
+    <select id="search_inp_type" name="search_inp_type">
+        <option th:each="c: ${productTypes}" th:text="${c.name}" th:value="${c.id}"></option>
+    </select>
+    <input type="submit" value="Search">
+</form>
+<h4 style="color: green" th:if="${add}">Thêm thành công</h4>
+<h4 style="color: red" th:if="${remove}">Xóa thành công</h4>
+<form action="/product/delete" method="post">
+    <table id="table" border="1">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Chọn</th>
+            <th>Tên sản phẩm</th>
+            <th>Giá bắt đầu</th>
+            <th>Loại sản phẩm</th>
+            <th>Tình trạng</th>
+            <th>Hành động</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="row : ${products}">
+            <td th:text="${row.id}"></td>
+            <td><input type="checkbox" name="ids" th:value="${row.id}"></td>
+            <td th:text="${row.name}"></td>
+            <td th:text="${row.price}"></td>
+            <td th:text="${row.productType.name}"></td>
+            <td th:text="${row.status}"></td>
+            <td><a th:href="@{/product/{id}/edit(id=${row.id})}">Sửa</a></td>
+        </tr>
+        </tbody>
+    </table>
+    <input type="submit" onclick="confirmDelete()" value="Xóa">
+</form>
+<div th:if="${totalPage > 1}">
+    <a th:if="${searchAttr}"
+       th:each="i: ${#numbers.sequence(1, __${totalPage}__)}"
+       th:href="@{/product/search/(search_inp=${searchAttr},search_inp_price=${searchAttr_price},search_inp_type=${searchAttr_type},page=${i}, size=${size})}"
+       th:text="${i}"
+       th:class="${i == currentPage + 1} ? 'page' : 'page active'"></a>
+    <a th:if="${searchAttr == null}"
+       th:each="i: ${#numbers.sequence(1, __${totalPage}__)}"
+       th:href="@{/product/(page=${i}, size=${size})}"
+       th:text="${i}"
+       th:class="${i == currentPage + 1} ? 'page' : 'page active'"></a>
+</div>
+</body>
+<script>
+    function confirmDelete() {
+        if (confirm('Bạn có chấp nhận xóa sản phẩm')) {
+        } else {
+            event.preventDefault()
+        }
+    }
+</script>
+</html>

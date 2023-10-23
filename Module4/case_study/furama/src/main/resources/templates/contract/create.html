@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="/layout/layout.html :: head" th:with="pageTitle='Create Contract'">
+</head>
+<body>
+<h3>Add Contract</h3>
+<p>
+    <a th:href="@{/contract}">
+        Back to contract list
+    </a>
+</p>
+<div id="form">
+    <form th:action="@{/contract/create}" th:object="${contract}"
+          method="POST">
+        <!--        <input type="hidden" th:field="*{contractId}"/>-->
+        <div>
+            <label>start Date</label>
+            <input type="date" th:field="*{startDate}"/>
+        </div>
+        <div>
+            <label>end Date</label>
+            <input type="date" th:field="*{endDate}"/>
+        </div>
+        <div>
+            <label>deposit</label>
+            <input type="text" th:field="*{deposit}"/>
+            <h2 th:if="${#fields.hasErrors('deposit')}" th:errors="*{deposit}"></h2>
+        </div>
+        <div>
+            <label>money</label>
+            <input type="text" th:field="*{money}"/>
+            <h2 th:if="${#fields.hasErrors('money')}" th:errors="*{money}"></h2>
+        </div>
+        <div>
+            <label>Employee</label>
+            <select th:field="*{employee}">
+                <option th:each="c: ${employees}" th:text="${c.name}" th:value="${c.employeeId}"></option>
+            </select>
+        </div>
+        <div>
+            <label>Customer</label>
+            <select th:field="*{customer}">
+                <option th:each="c: ${customers}" th:text="${c.name}" th:value="${c.customerId}"></option>
+            </select>
+        </div>
+        <div>
+            <label>Service</label>
+            <select th:field="*{service}">
+                <option th:each="c: ${services}" th:text="${c.name}" th:value="${c.serviceId}"></option>
+            </select>
+        </div>
+        <input type="submit" value="Save"/>
+    </form>
+</div>
+</body>
+</html>

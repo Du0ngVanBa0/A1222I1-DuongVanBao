@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="/layout/layout.html :: head" th:with="pageTitle='Create Service'">
+</head>
+<body>
+<h3>Add Service</h3>
+<p>
+  <a th:href="@{/service}">
+    Back to service list
+  </a>
+</p>
+<div id="form">
+  <form th:action="@{/service/create}" th:object="${service}"
+        method="POST">
+    <div>
+      <label>Name</label>
+      <input type="text" th:field="*{name}"/>
+      <h2 th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></h2>
+    </div>
+    <div>
+      <label>Area</label>
+      <input type="text" th:field="*{area}"/>
+    </div>
+    <div>
+      <label>Cost</label>
+      <input type="text" th:field="*{cost}"/>
+    </div>
+    <div>
+      <label>Max people</label>
+      <input type="text" th:field="*{maxPeople}"/>
+    </div>
+    <div>
+      <label>Room</label>
+      <input type="text" th:field="*{room}"/>
+    </div>
+    <div>
+      <label>Description</label>
+      <input type="text" th:field="*{descriptionOtherConvenience}"/>
+    </div>
+    <div>
+      <label>Pool Area</label>
+      <input type="text" th:field="*{poolArea}"/>
+    </div>
+    <div>
+      <label>Number Floor</label>
+      <input type="text" th:field="*{numberOfFloors}"/>
+    </div>
+    <div>
+      <label>Service Type</label>
+      <select th:field="*{serviceType}">
+        <option th:each="c: ${serviceTypes}" th:text="${c.name}" th:value="${c.serviceTypeId}"></option>
+      </select>
+    </div>
+    <div>
+      <label>Rent Type</label>
+      <select th:field="*{rentType}">
+        <option th:each="c: ${rentTypes}" th:text="${c.name}" th:value="${c.rentTypeId}"></option>
+      </select>
+    </div>
+    <input type="submit" value="Save"/>
+  </form>
+</div>
+</body>
+</html>
