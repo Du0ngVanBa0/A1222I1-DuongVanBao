@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0fd90ac7-88dc-4750-8e02-681bb61b595e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../Module4/ss05_csdl_orm/thuc_hanh/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../Module4/ss05_csdl_orm/thuc_hanh/customer-management" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/es6/bai_tap/fibonacci.js" beforeDir="false" afterPath="$PROJECT_DIR$/es6/bai_tap/fibonacci.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +49,9 @@
       <workItem from="1697639056750" duration="251000" />
       <workItem from="1697983745935" duration="348000" />
       <workItem from="1698058629670" duration="3477000" />
-      <workItem from="1698062383024" duration="1219000" />
+      <workItem from="1698062383024" duration="1853000" />
+      <workItem from="1698069090855" duration="2197000" />
+      <workItem from="1698231465150" duration="914000" />
     </task>
     <servers />
   </component>
