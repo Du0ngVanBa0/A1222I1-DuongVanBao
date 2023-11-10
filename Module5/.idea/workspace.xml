@@ -22,6 +22,7 @@
     <list default="true" id="0fd90ac7-88dc-4750-8e02-681bb61b595e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../Module4/ss05_csdl_orm/thuc_hanh/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../Module4/ss05_csdl_orm/thuc_hanh/customer-management" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_form_router/demo/package.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,11 +51,13 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="jsx.switch.disabled" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\CodeGym\A1222I1-DuongVanBao\Module5\react_form_router\demo" />
       <recent name="E:\CodeGym\A1222I1-DuongVanBao\Module5\react_form_router\bai_tap" />
       <recent name="E:\CodeGym\A1222I1-DuongVanBao\Module5\reactjs_jsx\bai_tap" />
     </key>
@@ -83,7 +86,16 @@
       <workItem from="1699237661878" duration="1346000" />
       <workItem from="1699239066827" duration="1569000" />
       <workItem from="1699267354138" duration="554000" />
-      <workItem from="1699440477237" duration="3899000" />
+      <workItem from="1699440477237" duration="5745000" />
+      <workItem from="1699455736677" duration="2229000" />
+      <workItem from="1699458123714" duration="323000" />
+      <workItem from="1699458874504" duration="849000" />
+      <workItem from="1699460320614" duration="1526000" />
+      <workItem from="1699522545382" duration="1974000" />
+      <workItem from="1699544396087" duration="30000" />
+      <workItem from="1699544495250" duration="4854000" />
+      <workItem from="1699582341370" duration="856000" />
+      <workItem from="1699613546726" duration="2318000" />
     </task>
     <servers />
   </component>
@@ -103,9 +115,13 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="425" y="197" key="run.anything.popup" timestamp="1699020343194">
+    <state x="548" y="173" key="FileChooserDialogImpl" timestamp="1699544424715">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="425" y="197" key="run.anything.popup/0.0.1536.864@0.0.1536.864" timestamp="1699020343194" />
+    <state x="548" y="173" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1699544424715" />
+    <state x="425" y="197" key="run.anything.popup" timestamp="1699460492730">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="425" y="197" key="run.anything.popup/0.0.1536.864@0.0.1536.864" timestamp="1699460492730" />
   </component>
 </project>
