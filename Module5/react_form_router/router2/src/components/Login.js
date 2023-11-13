@@ -12,9 +12,8 @@ export function Login() {
     // }
     const handleSubmit = (value) => {
         if (value.username === "admin@gmail.com" && value.password === "letmein") {
-            navigate("/home",{state: value})
+            navigate("/employee", {state: value})
         }
-        console.log(value)
     }
 
     return (

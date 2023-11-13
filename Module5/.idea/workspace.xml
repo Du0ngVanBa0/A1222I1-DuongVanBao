@@ -22,10 +22,13 @@
     <list default="true" id="0fd90ac7-88dc-4750-8e02-681bb61b595e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../Module4/ss05_csdl_orm/thuc_hanh/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../Module4/ss05_csdl_orm/thuc_hanh/customer-management" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react_form_router/router1/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/react_form_router/router1/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react_form_router/router1/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/react_form_router/router1/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react_form_router/router1/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_form_router/router1/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_form_router/router1/src/component/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_form_router/router1/src/component/Login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react_form_router/router1/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_form_router/router1/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_form_router/router2/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/react_form_router/router2/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_form_router/router2/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/react_form_router/router2/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_form_router/router2/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_form_router/router2/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_form_router/router2/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_form_router/router2/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +103,7 @@
       <workItem from="1699582341370" duration="856000" />
       <workItem from="1699613546726" duration="11631000" />
       <workItem from="1699808317238" duration="2812000" />
-      <workItem from="1699872873660" duration="1810000" />
+      <workItem from="1699872873660" duration="4563000" />
     </task>
     <servers />
   </component>
