@@ -20,7 +20,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0fd90ac7-88dc-4750-8e02-681bb61b595e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/api_clients/todo_list/src/service/TodoService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Module4/ss05_csdl_orm/thuc_hanh/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../Module4/ss05_csdl_orm/thuc_hanh/customer-management" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
@@ -57,11 +56,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\CodeGym\A1222I1-DuongVanBao\Module5\api_clients\library-management\src\data" />
       <recent name="E:\CodeGym\A1222I1-DuongVanBao\Module5\api_clients\todo_list\src" />
       <recent name="E:\CodeGym\A1222I1-DuongVanBao\Module5\api_clients\todo_list\src\component\service" />
       <recent name="E:\CodeGym\A1222I1-DuongVanBao\Module5\react_form_router\demo" />
       <recent name="E:\CodeGym\A1222I1-DuongVanBao\Module5\react_form_router\bai_tap" />
-      <recent name="E:\CodeGym\A1222I1-DuongVanBao\Module5\reactjs_jsx\bai_tap" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -101,7 +100,10 @@
       <workItem from="1699808317238" duration="2812000" />
       <workItem from="1699872873660" duration="5861000" />
       <workItem from="1699963465609" duration="2116000" />
-      <workItem from="1700046535394" duration="3101000" />
+      <workItem from="1700046535394" duration="10391000" />
+      <workItem from="1700133982032" duration="7350000" />
+      <workItem from="1700191683942" duration="1327000" />
+      <workItem from="1700218778972" duration="7092000" />
     </task>
     <servers />
   </component>
@@ -129,13 +131,13 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="590" y="152" key="RollbackChangesDialog/0.0.1536.864@0.0.1536.864" timestamp="1699809074112" />
-    <state x="425" y="197" key="run.anything.popup" timestamp="1699460492730">
+    <state x="425" y="197" key="run.anything.popup" timestamp="1700229296096">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="425" y="197" key="run.anything.popup/0.0.1536.864@0.0.1536.864" timestamp="1699460492730" />
-    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1700047852947">
+    <state x="425" y="197" key="run.anything.popup/0.0.1536.864@0.0.1536.864" timestamp="1700229296096" />
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1700056692955">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1700047852947" />
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1700056692955" />
   </component>
 </project>
