@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1a6d290c-9cae-4e01-bca3-c4f3de9de323" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/final_exam/src/components/model/facility/Song.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/final_exam/src/components/model/facility/SongCreate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/final_exam/src/service/SongService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4/ss05_csdl_orm/thuc_hanh/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4/ss05_csdl_orm/thuc_hanh/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react_form_router/router1/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react_form_router/router1/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react_form_router/router1/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react_form_router/router1/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react_form_router/router1/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react_form_router/router1/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react_form_router/router1/public/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react_form_router/router1/public/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react_form_router/router1/public/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react_form_router/router1/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react_form_router/router1/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react_form_router/router1/src/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react_form_router/router1/src/App.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react_form_router/router1/src/component/Home.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react_form_router/router1/src/component/Login.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react_form_router/router1/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react_form_router/router1/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react_form_router/router1/src/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react_form_router/router1/src/reportWebVitals.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react_form_router/router1/src/setupTests.js" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="2YoGLwC7avLc9LQ7P06rVFeoxEX" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/final_exam/src" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\CodeGym\A1222I1-DuongVanBao\Module5\final_exam\final_exam\src" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1a6d290c-9cae-4e01-bca3-c4f3de9de323" name="Default Changelist" comment="" />
+      <created>1701184466344</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1701184466344</updated>
+      <workItem from="1701184467656" duration="2752000" />
+      <workItem from="1701226792680" duration="1445000" />
+      <workItem from="1701247147491" duration="1358000" />
+      <workItem from="1701256056300" duration="285000" />
+      <workItem from="1701256404551" duration="7216000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="499" y="179" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1701256823481">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="499" y="179" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.864@0.0.1536.864" timestamp="1701256823481" />
+    <state x="549" y="187" key="FileChooserDialogImpl" timestamp="1701247154474">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1701247154474" />
+    <state x="425" y="197" key="run.anything.popup" timestamp="1701261677362">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="425" y="197" key="run.anything.popup/0.0.1536.864@0.0.1536.864" timestamp="1701261677362" />
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1701256749743">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1701256749743" />
+  </component>
+</project>
